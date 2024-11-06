@@ -1,0 +1,681 @@
+{
+    "PDFScrapp" : {
+        "Test Case ID" : {
+            "remove": "Test Case ID: ",
+            "identifier": "Test Case ID: "
+        },
+        "Description" : {
+            "remove": "Description\n",
+            "identifier": "Description\n"
+        },
+        "Combinatorics" : {
+            "remove": "Combinatorics: ",
+            "identifier": "Combinatorics: "
+        },
+        "Trace Items" : {
+            "remove": "Trace Items\n",
+            "identifier": "Trace Items\n"
+        },
+        "Preparation": {
+            "remove": "Preparation\n",
+            "identifier": "Preparation\n"
+        },
+        "Main Part" : {
+            "remove": "Main Part\n",
+            "identifier": "Main Part\n"
+        },
+        "Completion": {
+            "remove": "Completion\n",
+            "identifier": "Completion\n"
+        }
+    },
+    "PDF" : {
+        "TCID" : {
+            "type" : "string",
+            "content" : ""
+        },
+        "Title" : {
+            "type" : "string",
+            "content" : ""
+        },
+        "Description" : {
+            "type" : "string",
+            "content" : ""
+        },
+        "Titles" : {
+            "Test Case ID": {
+                "type": "string",
+                "content": ""
+            },
+            "Description": {
+                "type": "string",
+                "content": ""
+            },
+            "Combinatorics": {
+                "type": "string",
+                "content": ""
+            },
+            "Trace Items": {
+                "type": "string",
+                "content": ""
+            },
+            "Preparation": {
+                "type": "string",
+                "content": ""
+            },
+            "Main Part": {
+                "type": "string",
+                "content": ""
+            },
+            "Completion": {
+                "type": "string",
+                "content": ""
+            }
+        }
+    },
+    "TestCaseFormat" : {
+        "Title" : {
+            "type" : "string",
+            "validation" : "",
+            "default" : "",
+            "content" : [["PDF", "Title"]]
+        },
+        "Description" : {
+            "type" : "string",
+            "validation" : "",
+            "default" : "",
+            "content" : []
+        },
+        "State" : {
+            "type" : "string",
+            "validation" : [
+                "New",
+                "In Work",
+                "Canceled"
+            ],
+            "default" : "In Work",
+            "content" : []
+        },
+        "Sections" : {
+            "Purpose" : {
+                "type" : "string",
+                "validation" : "",
+                "default" : "",
+                "content" : []
+            },
+            "Pre-Condition" : {
+                "type" : "string",
+                "validation" : "",
+                "default" : "",
+                "content" : []
+            },
+            "Test Description" : {
+                "type" : "string",
+                "validation" : "",
+                "default" : "",
+                "content" : []
+            },
+            "Expected Results" : {
+                "type" : "string",
+                "validation" : "",
+                "default" : "",
+                "content" : []
+            },
+            "Comments" : {
+                "type" : "string",
+                "validation" : "",
+                "default" : "",
+                "content" : []
+            },
+            "Confidential Comments" : {
+                "type" : "array",
+                "validation" : "",
+                "default" : [],
+                "content" : []
+            },
+            "Attachments" : {
+                "type" : "array",
+                "validation" : "",
+                "default" : [],
+                "content" : []
+            },
+            "Test Scripts" : {
+                "type" : "array",
+                "validation" : "",
+                "default" : [],
+                "content" : []
+            },
+            "Requirement Links" : {
+                "type" : "array",
+                "validation" : "",
+                "default" : [],
+                "content" : []
+            },
+            "Architecture Element Links" : {
+                "type" : "array",
+                "validation" : "",
+                "default" : [],
+                "content" : []
+            },
+            "Development Items" : {
+                "type" : "array",
+                "validation" : "",
+                "default" : [],
+                "content" : []
+            },
+            "Test Case Execution Records" : {
+                "type" : "array",
+                "validation" : "",
+                "default" : [],
+                "content" : []
+            },
+            "Formal Review" : {
+                "type" : "array",
+                "validation" : "",
+                "default" : [],
+                "content" : []
+            },
+            "Reason for Cancellation" : {
+                "type" : "string",
+                "validation" : "",
+                "default" : "",
+                "content" : []
+            }
+        },
+        "Categories" : {
+            "Functional Maturity Level (FML)" : {
+                "type" : "string",
+                "validation" : [
+                    "FML1",
+                    "FML2",
+                    "FML3",
+                    "FML4",
+                    "FMLS",
+                    "FML6"
+                ],
+                "default" : "",
+                "content" : []
+            },
+            "Surface Friction Coefficient" : {
+                "type" : "string",
+                "validation" : [
+                    "Dry asphalt",
+                    "Gravel",
+                    "Ice",
+                    "μ-jump",
+                    "Mud",
+                    "NA",
+                    "Others",
+                    "Sand",
+                    "Snow",
+                    "μ-split",
+                    "Wet asphalt"
+                ],
+                "default" : "",
+                "content" : []
+            },
+            "Vehicle Load" : {
+                "type" : "string",
+                "validation" : [
+                    "Empty",
+                    "Max",
+                    "NA",
+                    "Others",
+                    "Roof load"
+                ],
+                "default" : "",
+                "content" : []
+            },
+            "Verification Test Method" : {
+                "type" : "string",
+                "validation" : [
+                    "Unassigned",
+                    "Analysis",
+                    "Certification",
+                    "Demonstration",
+                    "Review",
+                    "Test"
+                ],
+                "default" : "",
+                "content" : []
+            },
+            "Automation State" : {
+                "type" : "string",
+                "validation" : [
+                    "False",
+                    "Partially",
+                    "Planned",
+                    "True",
+                    "Without Evaluation"
+                ],
+                "default" : "",
+                "content" : []
+            },
+            "External Visibility" : {
+                "type" : "string",
+                "validation" : [
+                    "false",
+                    "true"
+                ],
+                "default" : "",
+                "content" : []
+            },
+            "Suitable Test Environments" : {
+                "type" : "array",
+                "validation" : [
+                    "Bench",
+                    "HIL Dry",
+                    "HIL Wet",
+                    "HIL/Bench/Lab",
+                    "SIL",
+                    "SWCT",
+                    "Vehicle"
+                ],
+                "default" : ["HIL Dry"],
+                "content" : []
+            },
+            "Regression" : {
+                "type" : "string",
+                "validation" : [
+                    "False",
+                    "True"
+                ],
+                "default" : "",
+                "content" : []
+            },
+            "Test Design Technique" : {
+                "type" : "array",
+                "validation" : [
+                    "Additional Test (MC/DC)",
+                    "Boundary Value Analysis",
+                    "Classification Tree Method (CTM)",
+                    "Component Interface Test (CIT)",
+                    "Control flow test (CFT)",
+                    "Elemertary comparison test (ECT)",
+                    "Equivalence partitioning (EP)",
+                    "Equivalency classes and Boundary check",
+                    "Error guessing (EG)",
+                    "Negative Testing",
+                    "None",
+                    "State transition test (STT)"
+                ],
+                "default" : [],
+                "content" : []
+            },
+            "Test Methods" : {
+                "type" : "array",
+                "validation" : [
+                    "Accelerated life testing",
+                    "Back-to-back test",
+                    "Branch Testing",
+                    "Chemical testing",
+                    "Communication test",
+                    "Electrical testing",
+                    "EMI testing",
+                    "Environmental testing",
+                    "Error guessing test",
+                    "Experience Based Testing",
+                    "Fault injection testing",
+                    "Functional testing"
+                ],
+                "default" : [],
+                "content" : []
+            },
+            "Test Location" : {
+                "type" : "array",
+                "validation" : [
+                    "Auburn Hills",
+                    "Bangalore",
+                    "Frankfurt",
+                    "Iasi",
+                    "Queretaro",
+                    "Shanghai",
+                    "Sibiu",
+                    "Veszprem",
+                    "Yokohama"
+                ],
+                "default" : [],
+                "content" : []
+            },
+            "Test Responsibility" : {
+                "type" : "string",
+                "validation" : [
+                    "EE",
+                    "ME",
+                    "ME,OEM,Supplier",
+                    "OEM",
+                    "OEM,Supplier",
+                    "Sensoric",
+                    "Supplier",
+                    "SW",
+                    "SYS",
+                    "SYS,OEM",
+                    "SYS,SW"
+                ],
+                "default" : "",
+                "content" : []
+            },
+            "Test Responsibility Component" : {
+                "type" : "string",
+                "validation" : [
+                    "BSD",
+                    "COIL",
+                    "CVS",
+                    "ECU",
+                    "FFT",
+                    "FMC",
+                    "HCU",
+                    "HECU",
+                    "HECU,Motor",
+                    "IAT",
+                    "IAT,MST",
+                    "LAC",
+                    "LPA",
+                    "Motor",
+                    "MST",
+                    "Pump",
+                    "Reservoir",
+                    "TMC",
+                    "Valve",
+                    "VPIT",
+                    "VPIT,FFT"
+                ],
+                "default" : "",
+                "content" : []
+            },
+            "Key Value" : {
+                "type" : "array",
+                "validation" : [
+                    "ASPICE",
+                    "Automation_L0_FAME",
+                    "Automation_L2_System_Test_Factory",
+                    "Automation_L3_SwFactory",
+                    "AWD",
+                    "CAirs",
+                    "Directional WSS FA",
+                    "Directional WSS RA",
+                    "DLS (Download System)",
+                    "DVPV",
+                    "Engineering test",
+                    "ePedal",
+                    "FbQualityGate",
+                    "FBS2",
+                    "FWD",
+                    "Generic test",
+                    "HAD",
+                    "HBE",
+                    "IPG",
+                    "MGSCU",
+                    "MIB EVO",
+                    "Mini MAB",
+                    "MKC1",
+                    "MKC1 EVO",
+                    "MKC1_PCU09",
+                    "MKC1_PCU12",
+                    "MKC2",
+                    "MKC2 FA",
+                    "MKC2_ACT",
+                    "MKC2D",
+                    "MKC2_MOD",
+                    "MK100",
+                    "MK100 EVO",
+                    "MK100 MAB",
+                    "MK100_PCU09",
+                    "MK100_PCU12",
+                    "MK120",
+                    "mPedal",
+                    "MSST",
+                    "Multi Engine",
+                    "Non-HAD",
+                    "ParameterAdjustment",
+                    "POSL",
+                    "PPTS",
+                    "Prototype Test",
+                    "Quality Increase (FAME)",
+                    "RWD",
+                    "Saving/Replacement (FAME)",
+                    "Sigma_Tool",
+                    "Single Engine",
+                    "TB2013",
+                    "VectorTestSystem",
+                    "Vision Controls",
+                    "vTEST",
+                    "WCU"
+                ],
+                "default" : [],
+                "content" : []
+            },
+            "System / Component" : {
+                "type" : "string",
+                "validation" : [
+                    "ASIC",
+                    "Electronics",
+                    "Function",
+                    "LAB TOOL",
+                    "LAB TOOL DATA ACQUISITION SYSTEM",
+                    "Mechanics / Hydraulics",
+                    "Sensors",
+                    "Software",
+                    "Software EIP",
+                    "Software Vision Controls",
+                    "SW CAIrS",
+                    "System"
+                ],
+                "default" : "",
+                "content" : []
+            },
+            "Subcomponent / Function" : {
+                "type" : "array",
+                "validation" : [
+                    "ABrake",
+                    "Booster Driver (ASIC)",
+                    "Brake System Safety Unit Chain",
+                    "CAN (ASIC)",
+                    "Circuit Pressure Control Chain",
+                    "Communication Chain",
+                    "Cyber Security - CS",
+                    "DBRD Sensor Signal Chain",
+                    "Drive System Control Chain",
+                    "EHC",
+                    "Electric Energy Supply",
+                    "EPB - Electric Parking Brake",
+                    "ESC-hybrid",
+                    "Failsafe (ASIC)",
+                    "Feature Model",
+                    "FMC Man Maschine Interface Chain - MMIC",
+                    "FMC Over the Air Update Chain - OTAC",
+                    "FMC System Performance Manager Chain - SPMC",
+                    "HAD - Highly Automated Driving",
+                    "HBE Pressure Control Chain",
+                    "Hydraulic Modulator MK C1 Chain",
+                    "Hydraulic Modulator MK 100 Chain",
+                    "Hydraulic Monitoring Chain",
+                    "IAT Abrake - ABRAKE",
+                    "IAT Actuator Valve Control Chain - AVCC",
+                    "IAT Brake Fluid Level Switch Chain - BFLSC",
+                    "IAT Brake Light Control Chain - BLCC",
+                    "IAT Brake Light Switch Output Chain - BLSOC",
+                    "IAT Brake Light Switch Signal Chain - BLSSC",
+                    "IAT Brake Pad Wear Signal Chain - BPWSC",
+                    "IAT Brake Pedal Angel Sensor Signal Chain - BPASSC",
+                    "IAT Brake System Safety Unit - BSSU",
+                    "IAT CAN Communication Chain - CANCC",
+                    "IAT Circuit Pressure Control Chain - CPCC",
+                    "IAT Clutch Sensor Signal Chain - CSSC",
+                    "IAT Drive System Control Chain - DSCC",
+                    "IAT Driver Brake Request - DBR",
+                    "IAT Driver Information Output Chain - DIOC",
+                    "IAT FlexRay Communication Chain - FRCC",
+                    "IAT HBE Pressure Control Chain - HPCC",
+                    "IAT Hydraulic Control - HCC",
+                    "IAT Hydraulic Modulator - HMCC",
+                    "IAT Hydraulic Monitoring Chain - HMON",
+                    "IAT Inertial Sensors Signal Chain  - ISSC",
+                    "IAT IPB Control Chain - IPBCC",
+                    "IAT IPB Switch Chain - IPBSC",
+                    "IAT Monitorings of Valve Control Chains - MVCC",
+                    "IAT Motor Position Sensor - MOPS",
+                    "IAT Nbrake - NBRAKE",
+                    "IAT Non-Volatile Memory - NVRAM",
+                    "IAT Power Supply Chain  - EES",
+                    "IAT Pressure Sensor Signal Chain - PSSC",
+                    "IAT Pump Control Chain - PCC",
+                    "IAT Stationary Vehicle Output Chain - SVOC",
+                    "IAT Steering Wheel Angle Sensor Signal Chain - SWASSC",
+                    "IAT Support Service Handler - SUSH",
+                    "IAT Switch Input Signal Chain - SISC",
+                    "IAT System Pressure Control Chain - SPCC",
+                    "IAT Travel Sensor Signal Chain - TSSC",
+                    "IAT Vacuum Sensor Signal Chain - VSSC",
+                    "IAT Valve Calibration - VCAL",
+                    "IAT Valve Control Chain Interfaces - VCCI",
+                    "IAT Vehicle Speed Output Chain - VSOC",
+                    "IAT Wheel Pressure Control Chain - WPCC",
+                    "IAT Wheel Speed Sensor Signal Chain - WSSSC",
+                    "Inertial Sensors Signal Chain",
+                    "Input Signal Chain",
+                    "IPB Control Chain",
+                    "IPB Switch Signal Chain",
+                    "Lateral Acceleration Signal Chain",
+                    "Longitudinal Acceleration Signal Chain",
+                    "LPA Control Chain",
+                    "MKC1",
+                    "MKC2",
+                    "MK100",
+                    "MK100 Electrical Power Supply",
+                    "MK100 IPB Control Chain",
+                    "MK100 Pump Control Chain",
+                    "MST Application State Manager - ASM",
+                    "MST Brake Disk Temperature Model - BDTM",
+                    "MST Brake Light Request - BLR",
+                    "MST Brake Signal Conversion - BSC",
+                    "MST Braking State Detection - BSD",
+                    "MST Central Failure Manager",
+                    "MST Central Failure Manager - CFM",
+                    "MST Derived Signals",
+                    "MST Driver Brake Request - DBR",
+                    "MST Estimated Reference Velocity - ERV",
+                    "MST Onboard Services",
+                    "MST Onboard Services - OBS",
+                    "MST Restricted Mode Handler - RMH",
+                    "MST System State Handling",
+                    "MST System State Handling - SSH",
+                    "MST System State Manager - SSM",
+                    "MST Tire Tolerance Compensation - TTC",
+                    "MST Vehicle Driving Direction - VDD",
+                    "MST Vehicle Standstill Detection - VSD",
+                    "MST Virtual Lateral Acceleration - VLA",
+                    "Nbrake",
+                    "NVRAM",
+                    "OTHER (subcomponent not in the list)",
+                    "Output Signal Chain",
+                    "Pressure Sensor Signal Chain",
+                    "PS60si Pressure Sensor Signal Chain",
+                    "Pump Control Chain",
+                    "RBS",
+                    "Regen",
+                    "Road Gradient Estimation - RGE",
+                    "Steering Wheel Angle Signal Chain",
+                    "System Pressure Control Chain",
+                    "TMC Travel Sensor Signal Chain",
+                    "TPM",
+                    "TSM",
+                    "UNSPECIFIED (Not known)",
+                    "Vacuum Pump Control Chain",
+                    "Vacuum Sensor Signal Chain",
+                    "Valve Control Chain",
+                    "Wheel Pressure Control Chain",
+                    "Yaw Rate Signal Chain"
+                ],
+                "default" : [],
+                "content" : []
+            },
+            "Estimate" : {
+                "type" : "string",
+                "validation" : "r'^\\d+$'",
+                "default" : "",
+                "content" : []
+            },
+            "Weight" : {
+                "type" : "string",
+                "validation" : "r'^\\d+$'",
+                "default" : "",
+                "content" : []
+            }
+        },
+        "Attributes" : {
+            "Additional Value 1" : {
+                "type" : "string",
+                "validation" : "",
+                "default" : "",
+                "content" : []
+            },
+            "Additional Value 2" : {
+                "type" : "string",
+                "validation" : "",
+                "default" : "",
+                "content" : []
+            },
+            "Additional Value 3" : {
+                "type" : "string",
+                "validation" : "",
+                "default" : "",
+                "content" : []
+            },
+            "Automation Script" : {
+                "type" : "string",
+                "validation" : "",
+                "default" : "",
+                "content" : []
+            },
+            "Foreign ID" : {
+                "type" : "string",
+                "validation" : "",
+                "default" : "",
+                "content" : [["PDF", "Titles", "Test Case ID"]]
+            },
+            "Legacy ID" : {
+                "type" : "string",
+                "validation" : "",
+                "default" : "",
+                "content" : []
+            },
+            "Mapping List" : {
+                "type" : "string",
+                "validation" : "",
+                "default" : "",
+                "content" : []
+            },
+            "RM DATA (DO NOT MODIFY)" : {
+                "type" : "string",
+                "validation" : "",
+                "default" : "",
+                "content" : []
+            },
+            "Review Record [external]" : {
+                "type" : "string",
+                "validation" : "",
+                "default" : "",
+                "content" : []
+            },
+            "Sample Size" : {
+                "type" : "string",
+                "validation" : "",
+                "default" : "",
+                "content" : []
+            },
+            "Test Spec Structure" : {
+                "type" : "string",
+                "validation" : "",
+                "default" : "",
+                "content" : []
+            },
+            "pvRestriction" : {
+                "type" : "string",
+                "validation" : "",
+                "default" : "",
+                "content" : []
+            }
+        }
+    }
+}

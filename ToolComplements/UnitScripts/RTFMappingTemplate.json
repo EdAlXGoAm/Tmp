@@ -1,0 +1,54 @@
+{
+    "RTF" : {
+        "Title" : {
+            "type" : "string"
+        },
+        "Description" : {
+            "type" : "string"
+        },
+        "Titles" : {
+            "example1" : {
+                "type" : "string"
+            }
+        }
+    },
+    
+    "TestCaseFormat" : {
+        "Title" : {
+            "type" : "string",
+            "validation" : "",
+            "default" : "",
+            "content" : [["RTF", "Title"]]
+        },
+        "Description" : {
+            "type" : "string",
+            "validation" : "",
+            "default" : "",
+            "content" : [["RTF", "Description"]]
+        },
+        "Sections" : {
+            "example1" : {
+                "type" : "string",
+                "validation" : "",
+                "default" : "",
+                "content" : [["RTF", "Titles", "example1"]]
+            }
+        },
+        "Categories" : {
+            "example1" : {
+                "type" : "string",
+                "validation" : "",
+                "default" : "",
+                "content" : [["RTF", "Titles", "example1"]]
+            }
+        },
+        "Attributes" : {
+            "example1" : {
+                "type" : "string",
+                "validation" : "",
+                "default" : "",
+                "content" : [["RTF", "Titles", "example1"]]
+            }
+        }
+    }
+}
