@@ -1,21 +1,23 @@
+import { useState } from 'react';
+
 export const jsonEtmFormatCardElements = () => {
 
-  const isNestedObject = (value: any) => {
-    // Evaluate if any element in the object is a nested object
-    for (const key in value) {
-      console.log('typeof(', key, '):', typeof value[key]);
-      if (!(typeof value[key] === 'string' ||
-          typeof value[key] === 'number' ||
-          typeof value[key] === 'boolean' ||
-          typeof value[key] === null ||
-          Array.isArray(value[key]))) {
-        return true;
-      }
-    }
-    return false;
+  const [elementToEditType, setElementToEditType] = useState<{ key: string, value: string } | null>(null);
+  const [isOpenExternalType, setIsOpenExternalType] = useState(false);
+
+  const onCleanData = () => {
+    setElementToEditType(null);
+  }
+
+  const handleEditType = (key: string, value: string) => {
+    setElementToEditType({ key, value });
+    setIsOpenExternalType(true);
   }
 
   return {
-    isNestedObject
+    elementToEditType, setElementToEditType,
+    isOpenExternalType, setIsOpenExternalType,
+    onCleanData,
+    handleEditType
   };
 }

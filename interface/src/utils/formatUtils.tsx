@@ -1,7 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClipboard, faAngleRight, faAngleDown, faEdit } from '@fortawesome/free-solid-svg-icons';
 import styles from '../styles/formatUtils.module.css';
-import { CodeContainer } from '../modules/codeContainer';
 
 export const Row = ({ children, mt, mb, style }: { children: React.ReactNode, mt?: number, mb?: number, style?: React.CSSProperties }) => (
   <div className={`row mt-${mt ?? 1} mb-${mb ?? 2}`} style={style}>
@@ -14,6 +13,14 @@ export const Column = ({ children, width, mt, mb }: { children: React.ReactNode,
     {children}
   </div>
 );
+
+export const RowForm = ({ children }: { children: React.ReactNode }) => {
+  return (
+    <Row>
+      <Column>{children}</Column>
+    </Row>
+  )
+}
 
 export const ColumnTextCentered = ({ children, mt, mb }: { children: React.ReactNode, width?: number, mt?: number, mb?: number }) => (
   <div className={`col-12 mt-${mt ?? 0} mb-${mb ?? 0} text-center`}>
@@ -165,15 +172,15 @@ export const CustomAngleDown = () => {
   )
 }
 
-export const CustomEdit = () => {
+export const CustomEdit = ({ onClick }: { onClick: () => void }) => {
   return (
-    <span className={styles.faButtons}>
+    <span className={styles.faButtons} onClick={onClick}>
       <FontAwesomeIcon icon={faEdit} size="sm" />
     </span>
   )
 }
 
-export const VariableText = ({ variable, value }: { variable: String, value: String}) => {
+export const VariableText = ({ variable, value, onClick }: { variable: String, value: String, onClick: () => void}) => {
   return (
     <>
       <span className={styles.paddingSpanText}>
@@ -193,15 +200,14 @@ export const VariableText = ({ variable, value }: { variable: String, value: Str
           )}
         </span>
         <span>
-          <CustomEdit />
+          <CustomEdit onClick={onClick}/>
         </span>
       </span>
     </>
   )
 }
 
-export const VariableTextBorder = ({ variable, value, color }: { variable: String, value: String, color: String }) => {
-  console.log('color: ', color)
+export const VariableTextBorder = ({ variable, value, color, onClick }: { variable: String, value: String, color: String, onClick: () => void }) => {
   return (
     <>
       <span className={styles.paddingSpanText}>
@@ -226,7 +232,7 @@ export const VariableTextBorder = ({ variable, value, color }: { variable: Strin
           )}
         </span>
         <span>
-          <CustomEdit />
+          <CustomEdit onClick={onClick}/>
         </span>
       </span>
     </>
@@ -243,7 +249,7 @@ export const SimpleCodeContainer = ({ code, color }: { code: String, color?: Str
   )
 }
 
-export const VariableArray = ({ variable, value, color }: { variable: String, value: Object, color: String }) => {
+export const VariableArray = ({ variable, value, color, onClick }: { variable: String, value: Object, color: String, onClick: () => void }) => {
   return (
     <>
       <span className={styles.paddingSpanText}>
@@ -253,7 +259,7 @@ export const VariableArray = ({ variable, value, color }: { variable: String, va
         {Array.isArray(value) && value.length > 0 ?
           <>
             <span>
-              <CustomEdit />
+              <CustomEdit onClick={onClick}/>
             </span>
             <div style={{paddingLeft: '15px'}}>
               <CardContainer>
@@ -274,7 +280,7 @@ export const VariableArray = ({ variable, value, color }: { variable: String, va
             {`empty `}
             </span>
             <span>
-              <CustomEdit />
+              <CustomEdit onClick={onClick}/>
             </span>
           </>
         )}
@@ -283,7 +289,7 @@ export const VariableArray = ({ variable, value, color }: { variable: String, va
   )
 }
 
-export const VariableArrayMinimalist = ({ variable, value }: { variable: String, value: Object }) => {
+export const VariableArrayMinimalist = ({ variable, value, onClick }: { variable: String, value: Object, onClick: () => void }) => {
   return (
     <>
       <span className={styles.paddingSpanText}>
@@ -293,7 +299,7 @@ export const VariableArrayMinimalist = ({ variable, value }: { variable: String,
         {Array.isArray(value) && value.length > 0 ?
           <>
             <span>
-              <CustomEdit />
+              <CustomEdit onClick={onClick}/>
             </span>
             <div style={{paddingLeft: '15px'}}>
               <CardContainer>
@@ -310,7 +316,7 @@ export const VariableArrayMinimalist = ({ variable, value }: { variable: String,
             {`empty `}
             </span>
             <span>
-              <CustomEdit />
+              <CustomEdit onClick={onClick}/>
             </span>
           </>
         )}
