@@ -1,0 +1,35 @@
+.scrollableContainer {
+  height: 100vh !important;
+  flex: 1 !important;
+  overflow-y: auto !important;
+}
+
+.buttonSave {
+  color: white !important;
+  background-color: #007bff !important;
+  border: none !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  display: inline-block !important;
+  font-weight: bold !important;
+}
+
+/* Mouse over */
+.buttonSave:hover {
+  background-color: #0056b3 !important;
+}
+
+.buttonReload {
+  color: #007bff !important;
+  background-color: white !important;
+  border: 1px solid #007bff !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  display: inline-block !important;
+  font-weight: bold !important;
+}
+
+/* Mouse over */
+.buttonReload:hover {
+  background-color: #f0f0f0 !important;
+}

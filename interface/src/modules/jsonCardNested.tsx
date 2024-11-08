@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { JsonKeyGroup, JsonKey, JsonValue } from '../utils/formatUtils';
+import { JsonKeyGroup, JsonKey, JsonValue, CustomDelete, CustomAddHere } from '../utils/formatUtils';
 import { Row, Column, CardContainer } from '../utils/formatUtils';
 import { jsonCardNestedElements } from '../constants/jsonCardNestedElements';
 import { MapCardBody } from './mapCardBody';
@@ -9,11 +9,14 @@ interface JsonCardProps {
   jsonPath: Array<string>;
   jsonKey: string;
   jsonValue: any;
-  onSaveJson: (jsonKey: string, jsonValue: any) => void;
+  onSaveJson: (jsonPath: Array<string>, jsonKey: string, jsonValue: any) => void;
+  onDeleteJson: (jsonPath: Array<string>, jsonKey: string) => void;
+  onAddJsonHere: (jsonPath: Array<string>, jsonKey: string, jsonValue: any, nextToKey: string) => void;
+  onAlertDialogAddJsonHere: () => string | null;
   indent?: number;
 }
 
-export const JsonCardNested: React.FC<JsonCardProps> = ({ jsonPath, jsonKey, jsonValue, onSaveJson, indent = 0 }) => {
+export const JsonCardNested: React.FC<JsonCardProps> = ({ jsonPath, jsonKey, jsonValue, onSaveJson, onDeleteJson, onAddJsonHere, onAlertDialogAddJsonHere, indent = 0 }) => {
   const {
     isNestedObject
   } = jsonCardNestedElements();
@@ -25,6 +28,22 @@ export const JsonCardNested: React.FC<JsonCardProps> = ({ jsonPath, jsonKey, jso
   };
 
   const paddingLeft = indent * 20;
+
+  const [deleteable, setDeleteable] = useState(true);
+  const [addable, setAddable] = useState(true);
+  const handleDelete = () => {
+    setDeleteable(false);
+    onDeleteJson(jsonPath, jsonKey);
+    setDeleteable(true);
+  };
+  const handleAdd = () => {
+    setAddable(false);
+    const newKey = onAlertDialogAddJsonHere();
+    if (newKey) {
+      onAddJsonHere(jsonPath, newKey, jsonValue, jsonKey);
+    }
+    setAddable(true);
+  };
 
   return (
     <Row mt={1} mb={2} style={{ paddingLeft }}>
@@ -43,6 +62,9 @@ export const JsonCardNested: React.FC<JsonCardProps> = ({ jsonPath, jsonKey, jso
                     jsonKey={key}
                     jsonValue={value}
                     onSaveJson={onSaveJson}
+                    onDeleteJson={onDeleteJson}
+                    onAddJsonHere={onAddJsonHere}
+                    onAlertDialogAddJsonHere={onAlertDialogAddJsonHere}
                     indent={indent + 1}
                   />
                 ))}
@@ -55,9 +77,13 @@ export const JsonCardNested: React.FC<JsonCardProps> = ({ jsonPath, jsonKey, jso
               <JsonKey icon={!isVisible ? <CustomAngleRight/> : <CustomAngleDown/>}>{jsonKey}</JsonKey>
             </div>
             {isVisible && (
-              <CardContainer>
-                <MapCardBody jsonPath={jsonPath} jsonKey={jsonKey} jsonValue={jsonValue} onSaveJson={onSaveJson} />
-              </CardContainer>
+              <>
+                <CardContainer>
+                  <MapCardBody jsonPath={jsonPath} jsonKey={jsonKey} jsonValue={jsonValue} onSaveJson={onSaveJson} />
+                  <CustomDelete onClick={handleDelete} deleteable={deleteable} />
+                </CardContainer>
+                <CustomAddHere onClick={handleAdd} addable={addable} />
+              </>
             )}
           </>
         )}

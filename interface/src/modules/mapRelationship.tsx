@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
-import "../styles/columnRelationship.module.css";
-import { Subtitle, MiddleColumn } from "../utils/formatUtils";
+import styles from "../styles/columnRelationship.module.css";
+import { Subtitle, MiddleColumn, Row, CenteredColumn, Column } from "../utils/formatUtils";
 import { MainJsonKey } from "../utils/formatUtils";
 import { mapRelationshipElements } from "../constants/mapRelationshipElements";
 import { JsonCardNested } from "./jsonCardNested";
+import { Button } from "@mui/material";
 
 interface FileInterface {
   file?: String | null;
@@ -16,29 +17,36 @@ const MapRelationship: React.FC<FileInterface> = ({ file }) => {
     fileData, setFileData,
     jsonObjs, setJsonObjs,
     handleFileData,
-    handleJsonChange
+    handleJsonChange,
+    handleDeleteJson,
+    handleAddJsonHere,
+    onAlertDialogAddJsonHere,
+    handleSaveFileData
   } = mapRelationshipElements();
 
   useEffect(() => {
-    let intervalId: ReturnType<typeof setInterval> | undefined;
-  
     if (file) {
       handleFileData(file);
-      intervalId = setInterval(() => {
-        handleFileData(file);
-      }, 5000);
     }
-  
-    return () => {
-      if (intervalId) {
-        clearInterval(intervalId);
-      }
-    };
   }, [file]);
 
   return (
     <>
-      <div className="ColumnRelationship">
+      <div className={styles.ColumnRelationship}>
+        { fileData && (
+          <Row mt={0} mb={0}>
+            <Column>
+              <Button
+                className={`${styles.button} ${styles.buttonSave}`}
+                style={{marginLeft: '10px', marginRight: '10px'}}
+                onClick={() => handleSaveFileData(file ? file : null)}>Save File</Button>
+              <Button
+                className={`${styles.button} ${styles.buttonReload}`}
+                style={{marginLeft: '10px', marginRight: '10px'}}
+                onClick={() => handleFileData(file ? file : null)}>Reload File</Button>
+            </Column>
+          </Row>
+        )}
         <Subtitle>Relationships</Subtitle>
         {fileData ? (
           <div>
@@ -50,17 +58,22 @@ const MapRelationship: React.FC<FileInterface> = ({ file }) => {
                 <div className="row">
                   {Object.entries(jsonObjs).slice(-2).map(([jsonKey, jsonValue]: [string, any], i: number) => (
                     <MiddleColumn key={i}>
-                      <MainJsonKey>{jsonKey}</MainJsonKey>
-                      {Object.entries(jsonValue).map(([key, value]: [string, any], j: number) =>
-                        <div key={`${i}-${j}`}>
-                          <JsonCardNested
-                            jsonPath={[jsonKey]}
-                            jsonKey={key}
-                            jsonValue={value}
-                            onSaveJson={handleJsonChange}
-                          />
-                        </div>
-                      )}
+                      <div className={styles.scrollableContainer}>
+                        <MainJsonKey>{jsonKey}</MainJsonKey>
+                        {Object.entries(jsonValue).map(([key, value]: [string, any], j: number) =>
+                          <div key={`${i}-${j}`}>
+                            <JsonCardNested
+                              jsonPath={[jsonKey]}
+                              jsonKey={key}
+                              jsonValue={value}
+                              onSaveJson={handleJsonChange}
+                              onDeleteJson={handleDeleteJson}
+                              onAddJsonHere={handleAddJsonHere}
+                              onAlertDialogAddJsonHere={onAlertDialogAddJsonHere}
+                            />
+                          </div>
+                        )}
+                      </div>
                     </MiddleColumn>
                   ))}
                 </div>

@@ -8,8 +8,8 @@ interface TypeFormProps {
   onCleanData: () => void;
   isOpenExternal: boolean;
   setIsOpenExternal: React.Dispatch<React.SetStateAction<boolean>>;
-  updateType: () => void;
-  createType: () => void;
+  updateType: (key: string, value: string) => void;
+  createType: (value: string) => void;
 }
 
 const TypeForm: React.FC<TypeFormProps> = ({
@@ -33,7 +33,6 @@ const TypeForm: React.FC<TypeFormProps> = ({
 
   useEffect(() => {
     if(elementToEdit) {
-      console.log('elementToEdit', elementToEdit)
       setFormData(elementToEdit.value);
       setIsOpen(true);
     }

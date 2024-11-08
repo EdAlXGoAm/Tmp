@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faClipboard, faAngleRight, faAngleDown, faEdit } from '@fortawesome/free-solid-svg-icons';
+import { faClipboard, faAngleRight, faAngleDown, faEdit, faTrash, faPlus } from '@fortawesome/free-solid-svg-icons';
 import styles from '../styles/formatUtils.module.css';
 
 export const Row = ({ children, mt, mb, style }: { children: React.ReactNode, mt?: number, mb?: number, style?: React.CSSProperties }) => (
@@ -16,7 +16,7 @@ export const Column = ({ children, width, mt, mb }: { children: React.ReactNode,
 
 export const RowForm = ({ children }: { children: React.ReactNode }) => {
   return (
-    <Row>
+    <Row mb={0} mt={0}>
       <Column>{children}</Column>
     </Row>
   )
@@ -176,6 +176,26 @@ export const CustomEdit = ({ onClick }: { onClick: () => void }) => {
   return (
     <span className={styles.faButtons} onClick={onClick}>
       <FontAwesomeIcon icon={faEdit} size="sm" />
+    </span>
+  )
+}
+
+export const CustomDelete = ({ onClick, deleteable }: { onClick: () => void, deleteable: boolean }) => {
+  return (
+    <div className={styles.faContainerTopRight}>
+      <span className={styles.faButtons} onClick={onClick}
+        style={{color: deleteable ? '#dc3545' : '#212529'}}>
+        <FontAwesomeIcon icon={faTrash} size="sm" />
+      </span>
+    </div>
+  )
+}
+
+export const CustomAddHere = ({ onClick, addable }: { onClick: () => void, addable: boolean }) => {
+  return (
+    <span className={styles.faButtons} onClick={onClick}
+      style={{color: addable ? '#4CAF50' : '#212529'}}>
+      <FontAwesomeIcon icon={faPlus} size="sm" />
     </span>
   )
 }

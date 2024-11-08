@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { invoke } from '@tauri-apps/api/core';
+import { mapCardBodyElements } from '../constants/mapCardBodyElements';
 
 export const mapRelationshipElements = () => {
   const [fileData, setFileData] = useState<any | null>(null);
@@ -19,12 +20,141 @@ export const mapRelationshipElements = () => {
     }
   };
 
-  const handleJsonChange = (updatedKey: string, updatedValue: any) => {
-    const updatedJsonObjs = { ...jsonObjs };
+  const handleJsonChange = (jsonPath: Array<string>, updatedKey: string, updatedValue: any) => {
+    setJsonObjs((prevJsonObjs: any) => {
+      const newJson = { ...prevJsonObjs };
 
-    if (updatedJsonObjs && updatedJsonObjs[updatedKey]) {
-      updatedJsonObjs[updatedKey] = updatedValue;
-      setJsonObjs(updatedJsonObjs);
+      let current = newJson;
+      for (let i = 0; i < jsonPath.length; i++) {
+        const key = jsonPath[i];
+          
+        if (!(key in current)) {
+          current[key] = {};
+        } else if (typeof current[key] !== 'object' || current[key] === null) {
+          throw new Error(`La ruta ${jsonPath.slice(0, i + 1).join('.')} no es un objeto válido.`);
+        }
+          
+        current[key] = { ...current[key] };
+        current = current[key];
+      }
+
+      current[updatedKey] = updatedValue;
+
+      return newJson;
+    });
+  };
+
+  const handleDeleteJson = (jsonPath: Array<string>, jsonKey: string) => {
+    setJsonObjs((prevJsonObjs: any) => {
+      const newJson = { ...prevJsonObjs };
+      let current = newJson;
+      for (let i = 0; i < jsonPath.length; i++) {
+        const key = jsonPath[i];
+
+        if (!(key in current)) {
+          current[key] = {};
+        } else if (typeof current[key] !== 'object' || current[key] === null) {
+          throw new Error(`La ruta ${jsonPath.slice(0, i + 1).join('.')} no es un objeto válido.`);
+        } 
+
+        current[key] = { ...current[key] };
+        current = current[key];
+      }
+
+      delete current[jsonKey];
+
+      return newJson;
+    });
+  };
+
+  const handleAddJsonHere = (jsonPath: Array<string>, jsonKey: string, jsonValue: any, nextToKey: string,) => {
+    console.log('jsonValue', jsonValue);
+    const {
+      keysForTitleEvaluation,
+      handleTypeEvaluation
+    } = mapCardBodyElements();
+    const typeEvaluation = handleTypeEvaluation(jsonValue, keysForTitleEvaluation, 'Title');
+    console.log('typeEvaluation', typeEvaluation);
+    let emptyJsonTestCaseFormat = {};
+    if (typeEvaluation === 'Title') {
+      emptyJsonTestCaseFormat = {
+        "type" : "string",
+        "content" : ""
+      };
+    }
+    else {
+      emptyJsonTestCaseFormat = {
+        "type" : "string",
+        "validation" : "",
+        "default" : "",
+        "content" : []
+      };
+    }
+    handleJsonChange(jsonPath, jsonKey, emptyJsonTestCaseFormat);
+    handleOrderJson(jsonPath, jsonKey, nextToKey);
+  };
+
+  const handleOrderJson = (jsonPath: Array<string>, jsonKey: string, nextToKey: string) => {
+    setJsonObjs((prevJsonObjs: any) => {
+      // Function to immutably traverse and update the nested object
+      const copyAndReorder = (obj: any, path: Array<string>): any => {
+        const key = path[0];
+        if (path.length === 1) {
+          // We're at the target level
+          const currentLevelObj = { ...obj[key] };
+  
+          // Get the keys and remove 'jsonKey'
+          const keys = Object.keys(currentLevelObj);
+          const indexOfJsonKey = keys.indexOf(jsonKey);
+          if (indexOfJsonKey === -1) {
+            // jsonKey not found
+            return obj;
+          }
+          keys.splice(indexOfJsonKey, 1);
+  
+          // Find 'nextToKey' and insert 'jsonKey' after it
+          const indexOfNextToKey = keys.indexOf(nextToKey);
+          if (indexOfNextToKey === -1) {
+            // nextToKey not found
+            return obj;
+          }
+          keys.splice(indexOfNextToKey + 1, 0, jsonKey);
+  
+          // Reconstruct the object with the new key order
+          const reorderedObj: any = {};
+          for (const k of keys) {
+            reorderedObj[k] = currentLevelObj[k];
+          }
+  
+          // Include the 'jsonKey' in the reordered object
+          reorderedObj[jsonKey] = currentLevelObj[jsonKey];
+  
+          return { ...obj, [key]: reorderedObj };
+        } else {
+          // Recursively copy and update nested objects
+          return { ...obj, [key]: copyAndReorder(obj[key], path.slice(1)) };
+        }
+      };
+  
+      // Start the traversal and update process
+      const updatedJson = copyAndReorder(prevJsonObjs, jsonPath);
+      return updatedJson;
+    });
+  };
+
+  const onAlertDialogAddJsonHere = () => {
+    const newKey = window.prompt('Enter the new key:');
+    return newKey;
+  };
+
+  const handleSaveFileData = (file: String | null) => {
+    try {
+      if (!file) return;
+      invoke('write_file', { path: file, data: JSON.stringify(jsonObjs, null, 2) });
+      handleFileData(file);
+    } catch (error) {
+      setError("Error writing file");
+      console.error(error);
     }
   };
 
@@ -33,6 +163,10 @@ export const mapRelationshipElements = () => {
     jsonObjs, setJsonObjs,
     error, setError,
     handleFileData,
-    handleJsonChange
+    handleJsonChange,
+    handleDeleteJson,
+    handleAddJsonHere,
+    onAlertDialogAddJsonHere,
+    handleSaveFileData
   };
 }

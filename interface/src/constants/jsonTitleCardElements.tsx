@@ -1,20 +1,42 @@
-export const jsonTitleCardElements = () => {
+import { useState } from 'react';
 
-  const isNestedObject = (value: any) => {
-    // Evaluate if any element in the object is a nested object
-    for (const key in value) {
-      if (!(typeof value[key] === 'string' ||
-          typeof value[key] === 'number' ||
-          typeof value[key] === 'boolean' ||
-          typeof value[key] === null ||
-          Array.isArray(value[key]))) {
-        return true;
-      }
+interface JsonTitleCardElementsProps {
+  jsonPath: Array<string>;
+  jsonKey: string;
+  jsonValue: any;
+  onSaveJson: (jsonPath: Array<string>, jsonKey: string, jsonValue: any) => void;
+}
+
+export const jsonTitleCardElements = ({ jsonPath, jsonKey, jsonValue, onSaveJson }: JsonTitleCardElementsProps) => {
+
+  const [elementToEditType, setElementToEditType] = useState<{ key: string, value: string } | null>(null);
+  const [isOpenExternalType, setIsOpenExternalType] = useState(false);
+
+  const onCleanDataType = () => {
+    setElementToEditType(null);
+  }
+
+  const onEditType = (key: string, value: string) => {
+    setElementToEditType({ key, value });
+    setIsOpenExternalType(true);
+  }
+  
+  const onUpdateType = (key: string, value: string) => {
+    let newJsonValue = { ...jsonValue, [key]: value };
+    if (value === 'string') {
+      newJsonValue = { ...newJsonValue, content: '' };
     }
-    return false;
+    else {
+      newJsonValue = { ...newJsonValue, content: [] };
+    }
+    onSaveJson(jsonPath, jsonKey, newJsonValue);
   }
 
   return {
-    isNestedObject
+    elementToEditType, setElementToEditType,
+    isOpenExternalType, setIsOpenExternalType,
+    onCleanDataType,
+    onEditType,
+    onUpdateType
   };
 }

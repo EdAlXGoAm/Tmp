@@ -8,7 +8,7 @@ interface mapCardBodyProps {
   jsonPath: Array<string>;
   jsonKey: string;
   jsonValue: any;
-  onSaveJson: (jsonKey: string, jsonValue: any) => void;
+  onSaveJson: (jsonPath: Array<string>, jsonKey: string, jsonValue: any) => void;
 }
 
 export const MapCardBody: React.FC<mapCardBodyProps> = ({ jsonPath, jsonKey, jsonValue, onSaveJson }) => {
@@ -24,12 +24,12 @@ export const MapCardBody: React.FC<mapCardBodyProps> = ({ jsonPath, jsonKey, jso
         {jsonValue && typeof jsonValue === 'object' && 
           handleTypeEvaluation(jsonValue, keysForTitleEvaluation, 'Title') === 'Title' ? (
             <>
-              <JsonTitleCard jsonPath={[...jsonPath, jsonKey]} jsonKey={jsonKey} jsonValue={jsonValue} onSaveJson={onSaveJson} />
+              <JsonTitleCard jsonPath={jsonPath} jsonKey={jsonKey} jsonValue={jsonValue} onSaveJson={onSaveJson} />
             </>
           ) :
           handleTypeEvaluation(jsonValue, keysForEtmFormat, 'EtmFormat') === 'EtmFormat' ? (
             <>
-              <JsonEtmFormatCard jsonPath={[...jsonPath, jsonKey]} jsonKey={jsonKey} jsonValue={jsonValue} onSaveJson={onSaveJson}/>
+              <JsonEtmFormatCard jsonPath={jsonPath} jsonKey={jsonKey} jsonValue={jsonValue} onSaveJson={onSaveJson}/>
             </>
           ) : (
           <>I'm a unkown JSON</>

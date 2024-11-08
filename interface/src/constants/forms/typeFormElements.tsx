@@ -3,8 +3,8 @@ import React, { useState, useEffect } from 'react';
 interface TypeElementsProps {
   onCleanData?: () => void,
   elementToEdit?: { key: string, value: string },
-  updateType: () => void,
-  createType: () => void,
+  updateType: (key: string, value: string) => void,
+  createType: (value: string) => void,
 }
 
 export const TypeFormElements = ({ onCleanData, elementToEdit, updateType, createType }: TypeElementsProps) => {
@@ -37,9 +37,9 @@ export const TypeFormElements = ({ onCleanData, elementToEdit, updateType, creat
     setLoading(true);
     try {
       if(elementToEdit) {
-        updateType();
+        updateType(elementToEdit.key, formData);
       } else {
-        createType();
+        createType(formData);
       }
       handleClose();
     } catch (error) {

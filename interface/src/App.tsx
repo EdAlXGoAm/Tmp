@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import { open } from '@tauri-apps/plugin-dialog';
 import { CenteredColumn, Titles, Subtitle } from "./utils/formatUtils";
@@ -6,11 +6,23 @@ import MapRelationship from "./modules/mapRelationship";
 
 function App() {
   const [file, setFile] = useState<String | null>(null);
+  const [width, setWidth] = useState(window.innerWidth < 1200 ? 12 : 6);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const windowWidth = window.innerWidth;
+      setWidth(windowWidth < 1200 ? 12 : 6);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   const handleFileChange = async () => {
     const selectedFile = await open({
       filters: [{ name: 'JSON Files', extensions: ['json'] }],
-      defaultPath: 'D:/git-CES/Jazz_vTESTstudio/MAPP'
+      defaultPath: 'D:/edalxgoam/Tmp/MAPP'
     });
     setFile(selectedFile);
   };
@@ -24,7 +36,7 @@ function App() {
   };
 
   return (
-    <main className="container">
+    <main className="container-fluid">
       <Titles>
         <h1>Test Cases Fuser</h1>
       </Titles>
@@ -47,7 +59,7 @@ function App() {
           }
         </div>
       </CenteredColumn>
-      <CenteredColumn mt={3} width={9}>
+      <CenteredColumn mt={3} width={width}>
         <MapRelationship file={file} />
       </CenteredColumn>
     </main>
