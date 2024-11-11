@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import styles from '../../styles/DefaultForm.module.css';
 import { DefaultFormElements } from '../../constants/forms/defaultFormElements';
 import { RowForm } from '../../utils/formatUtils';
@@ -16,15 +16,13 @@ const DefaultForm: React.FC<DefaultFormProps> = ({
   elementToEdit,
   onCleanData,
   isOpenExternal,
-  setIsOpenExternal,
   updateDefault,
   createDefault
 }) => {
   const {
-    emptyElementData,
     isOpen, setIsOpen,
-    error, setError,
-    loading, setLoading,
+    error,
+    loading,
     formData, setFormData,
     handleChange,
     handleSubmit,
@@ -84,7 +82,7 @@ const DefaultForm: React.FC<DefaultFormProps> = ({
                               <select className={styles.nomodalInput} name={`value[${index}]`} value={value} onChange={handleChange}>
                                 <option value="">Selecciona un valor</option>
                                 {elementToEdit.validation.map((validation: string, index: number) => (
-                                  <option value={validation}>{validation}</option>
+                                  <option key={index} value={validation}>{validation}</option>
                                 ))}
                               </select>
                               <button className={`${styles.statesListBoxButton} ${styles.statesListBoxDeleteButton}`}

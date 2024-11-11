@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import styles from '../../styles/ValidationForm.module.css';
 import { ValidationFormElements } from '../../constants/forms/validationFormElements';
 import { Switch, FormControlLabel } from '@mui/material';
@@ -17,15 +17,13 @@ const ValidationForm: React.FC<ValidationFormProps> = ({
   elementToEdit,
   onCleanData,
   isOpenExternal,
-  setIsOpenExternal,
   updateValidation,
   createValidation
 }) => {
   const {
-    emptyElementData,
     isOpen, setIsOpen,
-    error, setError,
-    loading, setLoading,
+    error,
+    loading,
     formData, setFormData,
     handleChange,
     handleChangeCheckbox,

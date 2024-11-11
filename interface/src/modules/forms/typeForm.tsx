@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useEffect} from 'react';
 import styles from '../../styles/TypeForm.module.css';
 import { TypeFormElements } from '../../constants/forms/typeFormElements';
 import { RowForm } from '../../utils/formatUtils';
@@ -16,15 +16,13 @@ const TypeForm: React.FC<TypeFormProps> = ({
   elementToEdit,
   onCleanData,
   isOpenExternal,
-  setIsOpenExternal,
   updateType,
   createType
 }) => {
   const {
-    emptyElementData,
     isOpen, setIsOpen,
-    error, setError,
-    loading, setLoading,
+    error,
+    loading,
     formData, setFormData,
     handleChange,
     handleSubmit,

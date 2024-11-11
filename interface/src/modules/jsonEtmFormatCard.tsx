@@ -1,7 +1,5 @@
-import React, {useState, useEffect} from 'react';
 import { Row, Column, VariableText, VariableTextBorder, VariableArray, VariableArrayMinimalist } from '../utils/formatUtils';
 import { jsonEtmFormatCardElements } from '../constants/jsonEtmFormatElement';
-import { CodeContainer } from './codeContainer';
 import TypeForm from './forms/typeForm';
 import ValidationForm from './forms/validationForm';
 import DefaultForm from './forms/defaultForm';
@@ -15,22 +13,22 @@ interface JsonEtmFormatCardProps {
 
 export const JsonEtmFormatCard: React.FC<JsonEtmFormatCardProps> = ({ jsonPath, jsonKey, jsonValue, onSaveJson }) => {
   const {
-    elementToEditType, setElementToEditType,
+    elementToEditType,
     isOpenExternalType, setIsOpenExternalType,
     onCleanDataType,
     handleEditType,
     onUpdateType,
-    elementToEditValidation, setElementToEditValidation,
+    elementToEditValidation,
     isOpenExternalValidation, setIsOpenExternalValidation,
     onCleanDataValidation,
     handleEditValidation,
     onUpdateValidation,
-    elementToEditDefault, setElementToEditDefault,
+    elementToEditDefault,
     isOpenExternalDefault, setIsOpenExternalDefault,
     onCleanDataDefault,
     handleEditDefault,
     onUpdateDefault,
-    elementToEditContent, setElementToEditContent,
+    elementToEditContent,
     isOpenExternalContent, setIsOpenExternalContent,
     onCleanDataContent,
     handleEditContent,

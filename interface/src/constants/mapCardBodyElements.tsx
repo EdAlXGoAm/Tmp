@@ -1,6 +1,3 @@
-import React, {useState, useEffect} from 'react';
-import { Row, Column, CardContainer } from '../utils/formatUtils';
-
 export const mapCardBodyElements = () => {
 
   const keysForTitleEvaluation = ['type', 'content'];

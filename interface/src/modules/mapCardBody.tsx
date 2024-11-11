@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from 'react';
-import { Row, Column, CardContainer } from '../utils/formatUtils';
+import React from 'react';
+import { Row, Column } from '../utils/formatUtils';
 import { mapCardBodyElements } from '../constants/mapCardBodyElements';
 import { JsonTitleCard } from './jsonTitleCard';
 import { JsonEtmFormatCard } from './jsonEtmFormatCard';

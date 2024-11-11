@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import styles from '../../styles/ContentForm.module.css';
 import { ContentFormElements } from '../../constants/forms/contentFormElements';
 import { RowForm } from '../../utils/formatUtils';
-import { Modal } from '@mui/material';
 
 interface ContentFormProps {
   elementToEdit: { key: string, value: any } | null;
@@ -22,11 +21,10 @@ const ContentForm: React.FC<ContentFormProps> = ({
   createContent
 }) => {
   const {
-    isOpen, setIsOpen,
-    error, setError,
-    loading, setLoading,
+    setIsOpen,
+    error,
+    loading,
     formData, setFormData,
-    handleClose,
     handleChange,
     handleSubmit
   } = ContentFormElements({ elementToEdit, onCleanData, updateContent, createContent, setIsOpenExternal });

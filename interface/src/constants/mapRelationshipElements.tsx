@@ -96,47 +96,37 @@ export const mapRelationshipElements = () => {
 
   const handleOrderJson = (jsonPath: Array<string>, jsonKey: string, nextToKey: string) => {
     setJsonObjs((prevJsonObjs: any) => {
-      // Function to immutably traverse and update the nested object
       const copyAndReorder = (obj: any, path: Array<string>): any => {
         const key = path[0];
         if (path.length === 1) {
-          // We're at the target level
           const currentLevelObj = { ...obj[key] };
   
-          // Get the keys and remove 'jsonKey'
           const keys = Object.keys(currentLevelObj);
           const indexOfJsonKey = keys.indexOf(jsonKey);
           if (indexOfJsonKey === -1) {
-            // jsonKey not found
             return obj;
           }
           keys.splice(indexOfJsonKey, 1);
   
-          // Find 'nextToKey' and insert 'jsonKey' after it
           const indexOfNextToKey = keys.indexOf(nextToKey);
           if (indexOfNextToKey === -1) {
-            // nextToKey not found
             return obj;
           }
           keys.splice(indexOfNextToKey + 1, 0, jsonKey);
   
-          // Reconstruct the object with the new key order
           const reorderedObj: any = {};
           for (const k of keys) {
             reorderedObj[k] = currentLevelObj[k];
           }
   
-          // Include the 'jsonKey' in the reordered object
           reorderedObj[jsonKey] = currentLevelObj[jsonKey];
   
           return { ...obj, [key]: reorderedObj };
         } else {
-          // Recursively copy and update nested objects
           return { ...obj, [key]: copyAndReorder(obj[key], path.slice(1)) };
         }
       };
   
-      // Start the traversal and update process
       const updatedJson = copyAndReorder(prevJsonObjs, jsonPath);
       return updatedJson;
     });

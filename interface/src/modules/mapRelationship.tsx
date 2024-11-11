@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import styles from "../styles/columnRelationship.module.css";
-import { Subtitle, MiddleColumn, Row, CenteredColumn, Column } from "../utils/formatUtils";
+import { Subtitle, MiddleColumn, Row, Column } from "../utils/formatUtils";
 import { MainJsonKey } from "../utils/formatUtils";
 import { mapRelationshipElements } from "../constants/mapRelationshipElements";
 import { JsonCardNested } from "./jsonCardNested";
@@ -13,9 +13,9 @@ interface FileInterface {
 const MapRelationship: React.FC<FileInterface> = ({ file }) => {
 
   const {
-    error, setError,
-    fileData, setFileData,
-    jsonObjs, setJsonObjs,
+    error,
+    fileData,
+    jsonObjs,
     handleFileData,
     handleJsonChange,
     handleDeleteJson,

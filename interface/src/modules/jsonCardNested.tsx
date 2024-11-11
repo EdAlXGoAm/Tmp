@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { JsonKeyGroup, JsonKey, JsonValue, CustomDelete, CustomAddHere } from '../utils/formatUtils';
+import { JsonKeyGroup, JsonKey, CustomDelete, CustomAddHere } from '../utils/formatUtils';
 import { Row, Column, CardContainer } from '../utils/formatUtils';
 import { jsonCardNestedElements } from '../constants/jsonCardNestedElements';
 import { MapCardBody } from './mapCardBody';

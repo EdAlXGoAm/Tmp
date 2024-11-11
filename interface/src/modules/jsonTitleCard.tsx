@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import { Row, Column, VariableText, MiniTitle } from '../utils/formatUtils';
 import { jsonTitleCardElements } from '../constants/jsonTitleCardElements';
 import { CodeContainer } from './codeContainer';
@@ -13,7 +13,7 @@ interface JsonTitleCardProps {
 
 export const JsonTitleCard: React.FC<JsonTitleCardProps> = ({ jsonPath, jsonKey, jsonValue, onSaveJson }) => {
   const {
-    elementToEditType, setElementToEditType,
+    elementToEditType,
     isOpenExternalType, setIsOpenExternalType,
     onCleanDataType,
     onEditType,
