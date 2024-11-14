@@ -1,69 +1,71 @@
-import { useEffect, useState } from "react";
-import "./App.css";
-import { open } from '@tauri-apps/plugin-dialog';
-import { CenteredColumn, Titles, Subtitle } from "./utils/formatUtils";
-import MapRelationship from "./modules/mapRelationship";
+import React, { useState } from "react";
+import { Tabs, Tab, Box } from "@mui/material";
+import TestCasesMapping from "./TestCasesMapping";
+import TestCasesViewer from "./TestCasesViewer";
+import TestCasesAlignAndMerge from "./TestCasesAlignAndMerge";
 
-function App() {
-  const [file, setFile] = useState<String | null>(null);
-  const [width, setWidth] = useState(window.innerWidth < 1200 ? 12 : 6);
 
-  useEffect(() => {
-    const handleResize = () => {
-      const windowWidth = window.innerWidth;
-      setWidth(windowWidth < 1200 ? 12 : 6);
-    };
-    window.addEventListener('resize', handleResize);
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
+interface TabPanelProps {
+  children?: React.ReactNode;
+  index: number;
+  value: number;
+}
 
-  const handleFileChange = async () => {
-    const selectedFile = await open({
-      filters: [{ name: 'JSON Files', extensions: ['json'] }],
-      defaultPath: 'D:/edalxgoam/Tmp/MAPP'
-    });
-    setFile(selectedFile);
+const TabPanel: React.FC<TabPanelProps> = ({ children, value, index, ...other }) => {
+  return (
+    <div
+      role="tabpanel"
+      hidden={value !== index}
+      id={`tabpanel-${index}`}
+      aria-labelledby={`tab-${index}`}
+      {...other}
+      style={{ display: value === index ? 'block' : 'none' }}
+    >
+      <Box sx={{ p: 3 }}>
+        {children}
+      </Box>
+    </div>
+  );
+};
+
+const a11yProps = (index: number) => {
+  return {
+    id: `tab-${index}`,
+    'aria-controls': `tabpanel-${index}`,
   };
+};
 
-  const splitAndFormatString = (file: string) => {
-    const fileString = file.split('\\');
-    if (fileString.length > 3) {
-      return `${fileString[0]}\\${fileString[1]}\\...\\${fileString[fileString.length - 1]}`;
-    }
-    return file;
+export default function App() {
+  const [value, setValue] = useState(0);
+
+  const handleChange = (_event: React.SyntheticEvent, newValue: number) => {
+    setValue(newValue);
   };
 
   return (
-    <main className="container-fluid">
-      <Titles>
-        <h1>Test Cases Fuser</h1>
-      </Titles>
-      <Subtitle>Drag and Drop or Select the Mapping JSON file</Subtitle>
-      <CenteredColumn mt={0}>
-        <div className="FileContainer">
-          {/* Botón para seleccionar archivo */}
-          <button onClick={handleFileChange}>Select JSON File</button>
-          
-          {/* Mostrar archivo seleccionado */}
-          {file && 
-            <form
-              style={{ width: '100%' }}
-            >
-            <label className="labelFormCustom">Selected file: </label>
-            <input className="inputFormCustom" type="text" readOnly
-              value={splitAndFormatString(file as string)}
-            />
-            </form>
-          }
-        </div>
-      </CenteredColumn>
-      <CenteredColumn mt={3} width={width}>
-        <MapRelationship file={file} />
-      </CenteredColumn>
-    </main>
+    <div className="container-fluid">
+      <Tabs
+        value={value}
+        onChange={handleChange}
+        variant="scrollable"
+        scrollButtons="auto"
+        aria-label="Navegación de Test Cases"
+        sx={{ borderBottom: 1, borderColor: 'divider' }}
+      >
+        <Tab label="TestCase Mapping" {...a11yProps(0)} />
+        <Tab label="TestCase Viewer" {...a11yProps(1)} />
+        <Tab label="TestCase Align and Merge" {...a11yProps(2)} />
+      </Tabs>
+
+      <TabPanel value={value} index={0}>
+        <TestCasesMapping />
+      </TabPanel>
+      <TabPanel value={value} index={1}>
+        <TestCasesViewer />
+      </TabPanel>
+      <TabPanel value={value} index={2}>
+        <TestCasesAlignAndMerge />
+      </TabPanel>
+    </div>
   );
 }
-
-export default App;

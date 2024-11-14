@@ -1,0 +1,10 @@
+Name,ReadableID
+"CAN communication interface shall be available on
+Deep Sleep Power Mode.",406396
+"CAN communications interfaces shall be available on
+active power mode.",432837
+"Cleaning control functionality shall be available on
+active power mode.",432839
+"Diagnostics Interface over CAN [ISO 14229-3
+(UDSonCAN)] shall be available on active power
+mode.",406381

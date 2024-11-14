@@ -1,0 +1,1922 @@
+[
+    {
+        "tcid": "",
+        "title": "Read DTCs without DTC number check (pClass=SUMO,pMode=NormalSession,pECU=0)",
+        "description": "",
+        "state": "In Work",
+        "sections": {
+            "Purpose": "",
+            "Pre-Condition": "",
+            "Test Description": "",
+            "Expected Results": "",
+            "Comments": "",
+            "Confidential Comments": [],
+            "Attachments": [],
+            "Test Scripts": [],
+            "Requirement Links": [
+                "https://jazz.conti.de/rm2/resources/BI_xNcHFljGEe--VJDwPR4HPw?oslc_config.context=https%3A%2F%2Fjazz.conti.de%2Fgc%2Fconfiguration%2F20952"
+            ],
+            "Architecture Element Links": [],
+            "Development Items": [],
+            "Test Case Execution Records": [],
+            "Formal Review": [],
+            "Reason for Cancellation": ""
+        },
+        "categories": {
+            "Functional Maturity Level (FML)": "",
+            "Surface Friction Coefficient": "",
+            "Vehicle Load": "",
+            "Verification Test Method": "",
+            "Automation State": "",
+            "External Visibility": "",
+            "Suitable Test Environments": [
+                "HIL Dry"
+            ],
+            "Regression": "",
+            "Test Design Technique": [],
+            "Test Methods": [],
+            "Test Location": [],
+            "Test Responsibility": "",
+            "Test Responsibility Component": "",
+            "Key Value": [],
+            "System / Component": "",
+            "Subcomponent / Function": [],
+            "Estimate": "",
+            "Weight": ""
+        },
+        "attributes": {
+            "Additional Value 1": "",
+            "Additional Value 2": "",
+            "Additional Value 3": "",
+            "Automation Script": "",
+            "Foreign ID": "d7c7856e-f905-cedb-9165-880dc5c9c239",
+            "Legacy ID": "",
+            "Mapping List": "",
+            "RM DATA (DO NOT MODIFY)": "",
+            "Review Record [external]": "",
+            "Sample Size": "",
+            "Test Spec Structure": "",
+            "pvRestriction": ""
+        },
+        "tp_obj": {
+            "name": "",
+            "type": "None"
+        },
+        "ts_obj": {
+            "name": "",
+            "type": "None"
+        }
+    },
+    {
+        "tcid": "",
+        "title": "Read DTCs without DTC number check (pClass=SUMO,pMode=ExtendedSession,pECU=0)",
+        "description": "",
+        "state": "In Work",
+        "sections": {
+            "Purpose": "",
+            "Pre-Condition": "",
+            "Test Description": "",
+            "Expected Results": "",
+            "Comments": "",
+            "Confidential Comments": [],
+            "Attachments": [],
+            "Test Scripts": [],
+            "Requirement Links": [
+                "https://jazz.conti.de/rm2/resources/BI_xNcHFljGEe--VJDwPR4HPw?oslc_config.context=https%3A%2F%2Fjazz.conti.de%2Fgc%2Fconfiguration%2F20952"
+            ],
+            "Architecture Element Links": [],
+            "Development Items": [],
+            "Test Case Execution Records": [],
+            "Formal Review": [],
+            "Reason for Cancellation": ""
+        },
+        "categories": {
+            "Functional Maturity Level (FML)": "",
+            "Surface Friction Coefficient": "",
+            "Vehicle Load": "",
+            "Verification Test Method": "",
+            "Automation State": "",
+            "External Visibility": "",
+            "Suitable Test Environments": [
+                "HIL Dry"
+            ],
+            "Regression": "",
+            "Test Design Technique": [],
+            "Test Methods": [],
+            "Test Location": [],
+            "Test Responsibility": "",
+            "Test Responsibility Component": "",
+            "Key Value": [],
+            "System / Component": "",
+            "Subcomponent / Function": [],
+            "Estimate": "",
+            "Weight": ""
+        },
+        "attributes": {
+            "Additional Value 1": "",
+            "Additional Value 2": "",
+            "Additional Value 3": "",
+            "Automation Script": "",
+            "Foreign ID": "b5a29844-c9ef-24af-8b00-08180fb1319a",
+            "Legacy ID": "",
+            "Mapping List": "",
+            "RM DATA (DO NOT MODIFY)": "",
+            "Review Record [external]": "",
+            "Sample Size": "",
+            "Test Spec Structure": "",
+            "pvRestriction": ""
+        },
+        "tp_obj": {
+            "name": "",
+            "type": "None"
+        },
+        "ts_obj": {
+            "name": "",
+            "type": "None"
+        }
+    },
+    {
+        "tcid": "",
+        "title": "Read DTC with DTC number check",
+        "description": "",
+        "state": "In Work",
+        "sections": {
+            "Purpose": "",
+            "Pre-Condition": "",
+            "Test Description": "",
+            "Expected Results": "",
+            "Comments": "",
+            "Confidential Comments": [],
+            "Attachments": [],
+            "Test Scripts": [],
+            "Requirement Links": [
+                "https://jazz.conti.de/rm2/resources/BI_xNcHF1jGEe--VJDwPR4HPw?oslc_config.context=https%3A%2F%2Fjazz.conti.de%2Fgc%2Fconfiguration%2F20952"
+            ],
+            "Architecture Element Links": [],
+            "Development Items": [],
+            "Test Case Execution Records": [],
+            "Formal Review": [],
+            "Reason for Cancellation": ""
+        },
+        "categories": {
+            "Functional Maturity Level (FML)": "",
+            "Surface Friction Coefficient": "",
+            "Vehicle Load": "",
+            "Verification Test Method": "",
+            "Automation State": "",
+            "External Visibility": "",
+            "Suitable Test Environments": [
+                "HIL Dry"
+            ],
+            "Regression": "",
+            "Test Design Technique": [],
+            "Test Methods": [],
+            "Test Location": [],
+            "Test Responsibility": "",
+            "Test Responsibility Component": "",
+            "Key Value": [],
+            "System / Component": "",
+            "Subcomponent / Function": [],
+            "Estimate": "",
+            "Weight": ""
+        },
+        "attributes": {
+            "Additional Value 1": "",
+            "Additional Value 2": "",
+            "Additional Value 3": "",
+            "Automation Script": "",
+            "Foreign ID": "21bf1a30-3771-4aec-8ea2-671267c00cd8",
+            "Legacy ID": "",
+            "Mapping List": "",
+            "RM DATA (DO NOT MODIFY)": "",
+            "Review Record [external]": "",
+            "Sample Size": "",
+            "Test Spec Structure": "",
+            "pvRestriction": ""
+        },
+        "tp_obj": {
+            "name": "",
+            "type": "None"
+        },
+        "ts_obj": {
+            "name": "",
+            "type": "None"
+        }
+    },
+    {
+        "tcid": "",
+        "title": "Incorrect Message Length",
+        "description": "",
+        "state": "In Work",
+        "sections": {
+            "Purpose": "",
+            "Pre-Condition": "",
+            "Test Description": "",
+            "Expected Results": "",
+            "Comments": "",
+            "Confidential Comments": [],
+            "Attachments": [],
+            "Test Scripts": [],
+            "Requirement Links": [],
+            "Architecture Element Links": [],
+            "Development Items": [],
+            "Test Case Execution Records": [],
+            "Formal Review": [],
+            "Reason for Cancellation": ""
+        },
+        "categories": {
+            "Functional Maturity Level (FML)": "",
+            "Surface Friction Coefficient": "",
+            "Vehicle Load": "",
+            "Verification Test Method": "",
+            "Automation State": "",
+            "External Visibility": "",
+            "Suitable Test Environments": [
+                "HIL Dry"
+            ],
+            "Regression": "",
+            "Test Design Technique": [],
+            "Test Methods": [],
+            "Test Location": [],
+            "Test Responsibility": "",
+            "Test Responsibility Component": "",
+            "Key Value": [],
+            "System / Component": "",
+            "Subcomponent / Function": [],
+            "Estimate": "",
+            "Weight": ""
+        },
+        "attributes": {
+            "Additional Value 1": "",
+            "Additional Value 2": "",
+            "Additional Value 3": "",
+            "Automation Script": "",
+            "Foreign ID": "6f2a3705-f1b1-4d38-9543-a979e1552c4c",
+            "Legacy ID": "",
+            "Mapping List": "",
+            "RM DATA (DO NOT MODIFY)": "",
+            "Review Record [external]": "",
+            "Sample Size": "",
+            "Test Spec Structure": "",
+            "pvRestriction": ""
+        },
+        "tp_obj": {
+            "name": "",
+            "type": "None"
+        },
+        "ts_obj": {
+            "name": "",
+            "type": "None"
+        }
+    },
+    {
+        "tcid": "",
+        "title": "Sub_Function not supported",
+        "description": "",
+        "state": "In Work",
+        "sections": {
+            "Purpose": "",
+            "Pre-Condition": "",
+            "Test Description": "",
+            "Expected Results": "",
+            "Comments": "",
+            "Confidential Comments": [],
+            "Attachments": [],
+            "Test Scripts": [],
+            "Requirement Links": [],
+            "Architecture Element Links": [],
+            "Development Items": [],
+            "Test Case Execution Records": [],
+            "Formal Review": [],
+            "Reason for Cancellation": ""
+        },
+        "categories": {
+            "Functional Maturity Level (FML)": "",
+            "Surface Friction Coefficient": "",
+            "Vehicle Load": "",
+            "Verification Test Method": "",
+            "Automation State": "",
+            "External Visibility": "",
+            "Suitable Test Environments": [
+                "HIL Dry"
+            ],
+            "Regression": "",
+            "Test Design Technique": [],
+            "Test Methods": [],
+            "Test Location": [],
+            "Test Responsibility": "",
+            "Test Responsibility Component": "",
+            "Key Value": [],
+            "System / Component": "",
+            "Subcomponent / Function": [],
+            "Estimate": "",
+            "Weight": ""
+        },
+        "attributes": {
+            "Additional Value 1": "",
+            "Additional Value 2": "",
+            "Additional Value 3": "",
+            "Automation Script": "",
+            "Foreign ID": "f532aa38-c264-475a-b01a-2db9955656e6",
+            "Legacy ID": "",
+            "Mapping List": "",
+            "RM DATA (DO NOT MODIFY)": "",
+            "Review Record [external]": "",
+            "Sample Size": "",
+            "Test Spec Structure": "",
+            "pvRestriction": ""
+        },
+        "tp_obj": {
+            "name": "",
+            "type": "None"
+        },
+        "ts_obj": {
+            "name": "",
+            "type": "None"
+        }
+    },
+    {
+        "tcid": "",
+        "title": "TC_ReadDTCByStatus_NoDTCCheck (pClass=SUMO,pMode=NormalSession,pECU=0)",
+        "description": "",
+        "state": "In Work",
+        "sections": {
+            "Purpose": "",
+            "Pre-Condition": "",
+            "Test Description": "",
+            "Expected Results": "",
+            "Comments": "",
+            "Confidential Comments": [],
+            "Attachments": [],
+            "Test Scripts": [],
+            "Requirement Links": [],
+            "Architecture Element Links": [],
+            "Development Items": [],
+            "Test Case Execution Records": [],
+            "Formal Review": [],
+            "Reason for Cancellation": ""
+        },
+        "categories": {
+            "Functional Maturity Level (FML)": "",
+            "Surface Friction Coefficient": "",
+            "Vehicle Load": "",
+            "Verification Test Method": "",
+            "Automation State": "",
+            "External Visibility": "",
+            "Suitable Test Environments": [
+                "HIL Dry"
+            ],
+            "Regression": "",
+            "Test Design Technique": [],
+            "Test Methods": [],
+            "Test Location": [],
+            "Test Responsibility": "",
+            "Test Responsibility Component": "",
+            "Key Value": [],
+            "System / Component": "",
+            "Subcomponent / Function": [],
+            "Estimate": "",
+            "Weight": ""
+        },
+        "attributes": {
+            "Additional Value 1": "",
+            "Additional Value 2": "",
+            "Additional Value 3": "",
+            "Automation Script": "",
+            "Foreign ID": "d19eb0e6-8b27-8bc9-ae81-a09d1b3505ca",
+            "Legacy ID": "",
+            "Mapping List": "",
+            "RM DATA (DO NOT MODIFY)": "",
+            "Review Record [external]": "",
+            "Sample Size": "",
+            "Test Spec Structure": "",
+            "pvRestriction": ""
+        },
+        "tp_obj": {
+            "name": "",
+            "type": "None"
+        },
+        "ts_obj": {
+            "name": "",
+            "type": "None"
+        }
+    },
+    {
+        "tcid": "",
+        "title": "TC_ReadDTCByStatus_WithDTCCheck (pClass=SUMO,pMode=NormalSession,pECU=0,DTC_1=4215124,DTC_2=4215124)",
+        "description": "",
+        "state": "In Work",
+        "sections": {
+            "Purpose": "",
+            "Pre-Condition": "",
+            "Test Description": "",
+            "Expected Results": "",
+            "Comments": "",
+            "Confidential Comments": [],
+            "Attachments": [],
+            "Test Scripts": [],
+            "Requirement Links": [],
+            "Architecture Element Links": [],
+            "Development Items": [],
+            "Test Case Execution Records": [],
+            "Formal Review": [],
+            "Reason for Cancellation": ""
+        },
+        "categories": {
+            "Functional Maturity Level (FML)": "",
+            "Surface Friction Coefficient": "",
+            "Vehicle Load": "",
+            "Verification Test Method": "",
+            "Automation State": "",
+            "External Visibility": "",
+            "Suitable Test Environments": [
+                "HIL Dry"
+            ],
+            "Regression": "",
+            "Test Design Technique": [],
+            "Test Methods": [],
+            "Test Location": [],
+            "Test Responsibility": "",
+            "Test Responsibility Component": "",
+            "Key Value": [],
+            "System / Component": "",
+            "Subcomponent / Function": [],
+            "Estimate": "",
+            "Weight": ""
+        },
+        "attributes": {
+            "Additional Value 1": "",
+            "Additional Value 2": "",
+            "Additional Value 3": "",
+            "Automation Script": "",
+            "Foreign ID": "996749a6-34e8-d727-f584-7c95868adf37",
+            "Legacy ID": "",
+            "Mapping List": "",
+            "RM DATA (DO NOT MODIFY)": "",
+            "Review Record [external]": "",
+            "Sample Size": "",
+            "Test Spec Structure": "",
+            "pvRestriction": ""
+        },
+        "tp_obj": {
+            "name": "",
+            "type": "None"
+        },
+        "ts_obj": {
+            "name": "",
+            "type": "None"
+        }
+    },
+    {
+        "tcid": "",
+        "title": "TC_ReadDTCByStatus_WithDTCCheck (pClass=SUMO,pMode=ExtendedSession,pECU=0,DTC_1=4215124,DTC_2=4215124)",
+        "description": "",
+        "state": "In Work",
+        "sections": {
+            "Purpose": "",
+            "Pre-Condition": "",
+            "Test Description": "",
+            "Expected Results": "",
+            "Comments": "",
+            "Confidential Comments": [],
+            "Attachments": [],
+            "Test Scripts": [],
+            "Requirement Links": [],
+            "Architecture Element Links": [],
+            "Development Items": [],
+            "Test Case Execution Records": [],
+            "Formal Review": [],
+            "Reason for Cancellation": ""
+        },
+        "categories": {
+            "Functional Maturity Level (FML)": "",
+            "Surface Friction Coefficient": "",
+            "Vehicle Load": "",
+            "Verification Test Method": "",
+            "Automation State": "",
+            "External Visibility": "",
+            "Suitable Test Environments": [
+                "HIL Dry"
+            ],
+            "Regression": "",
+            "Test Design Technique": [],
+            "Test Methods": [],
+            "Test Location": [],
+            "Test Responsibility": "",
+            "Test Responsibility Component": "",
+            "Key Value": [],
+            "System / Component": "",
+            "Subcomponent / Function": [],
+            "Estimate": "",
+            "Weight": ""
+        },
+        "attributes": {
+            "Additional Value 1": "",
+            "Additional Value 2": "",
+            "Additional Value 3": "",
+            "Automation Script": "",
+            "Foreign ID": "5c4da549-0e4e-0715-a76d-bb1897451638",
+            "Legacy ID": "",
+            "Mapping List": "",
+            "RM DATA (DO NOT MODIFY)": "",
+            "Review Record [external]": "",
+            "Sample Size": "",
+            "Test Spec Structure": "",
+            "pvRestriction": ""
+        },
+        "tp_obj": {
+            "name": "",
+            "type": "None"
+        },
+        "ts_obj": {
+            "name": "",
+            "type": "None"
+        }
+    },
+    {
+        "tcid": "",
+        "title": "Busy Repeat Request",
+        "description": "",
+        "state": "In Work",
+        "sections": {
+            "Purpose": "",
+            "Pre-Condition": "",
+            "Test Description": "",
+            "Expected Results": "",
+            "Comments": "",
+            "Confidential Comments": [],
+            "Attachments": [],
+            "Test Scripts": [],
+            "Requirement Links": [],
+            "Architecture Element Links": [],
+            "Development Items": [],
+            "Test Case Execution Records": [],
+            "Formal Review": [],
+            "Reason for Cancellation": ""
+        },
+        "categories": {
+            "Functional Maturity Level (FML)": "",
+            "Surface Friction Coefficient": "",
+            "Vehicle Load": "",
+            "Verification Test Method": "",
+            "Automation State": "",
+            "External Visibility": "",
+            "Suitable Test Environments": [
+                "HIL Dry"
+            ],
+            "Regression": "",
+            "Test Design Technique": [],
+            "Test Methods": [],
+            "Test Location": [],
+            "Test Responsibility": "",
+            "Test Responsibility Component": "",
+            "Key Value": [],
+            "System / Component": "",
+            "Subcomponent / Function": [],
+            "Estimate": "",
+            "Weight": ""
+        },
+        "attributes": {
+            "Additional Value 1": "",
+            "Additional Value 2": "",
+            "Additional Value 3": "",
+            "Automation Script": "",
+            "Foreign ID": "e4b7d698-7699-4b4c-956e-1492ad21e8b9",
+            "Legacy ID": "",
+            "Mapping List": "",
+            "RM DATA (DO NOT MODIFY)": "",
+            "Review Record [external]": "",
+            "Sample Size": "",
+            "Test Spec Structure": "",
+            "pvRestriction": ""
+        },
+        "tp_obj": {
+            "name": "",
+            "type": "None"
+        },
+        "ts_obj": {
+            "name": "",
+            "type": "None"
+        }
+    },
+    {
+        "tcid": "",
+        "title": "Incorrect Message Length",
+        "description": "",
+        "state": "In Work",
+        "sections": {
+            "Purpose": "",
+            "Pre-Condition": "",
+            "Test Description": "",
+            "Expected Results": "",
+            "Comments": "",
+            "Confidential Comments": [],
+            "Attachments": [],
+            "Test Scripts": [],
+            "Requirement Links": [],
+            "Architecture Element Links": [],
+            "Development Items": [],
+            "Test Case Execution Records": [],
+            "Formal Review": [],
+            "Reason for Cancellation": ""
+        },
+        "categories": {
+            "Functional Maturity Level (FML)": "",
+            "Surface Friction Coefficient": "",
+            "Vehicle Load": "",
+            "Verification Test Method": "",
+            "Automation State": "",
+            "External Visibility": "",
+            "Suitable Test Environments": [
+                "HIL Dry"
+            ],
+            "Regression": "",
+            "Test Design Technique": [],
+            "Test Methods": [],
+            "Test Location": [],
+            "Test Responsibility": "",
+            "Test Responsibility Component": "",
+            "Key Value": [],
+            "System / Component": "",
+            "Subcomponent / Function": [],
+            "Estimate": "",
+            "Weight": ""
+        },
+        "attributes": {
+            "Additional Value 1": "",
+            "Additional Value 2": "",
+            "Additional Value 3": "",
+            "Automation Script": "",
+            "Foreign ID": "5fa20326-ce18-4900-bd5c-abdf05652cb0",
+            "Legacy ID": "",
+            "Mapping List": "",
+            "RM DATA (DO NOT MODIFY)": "",
+            "Review Record [external]": "",
+            "Sample Size": "",
+            "Test Spec Structure": "",
+            "pvRestriction": ""
+        },
+        "tp_obj": {
+            "name": "",
+            "type": "None"
+        },
+        "ts_obj": {
+            "name": "",
+            "type": "None"
+        }
+    },
+    {
+        "tcid": "",
+        "title": "Report DTC Snapshot Identification No DTC",
+        "description": "",
+        "state": "In Work",
+        "sections": {
+            "Purpose": "",
+            "Pre-Condition": "",
+            "Test Description": "",
+            "Expected Results": "",
+            "Comments": "",
+            "Confidential Comments": [],
+            "Attachments": [],
+            "Test Scripts": [],
+            "Requirement Links": [],
+            "Architecture Element Links": [],
+            "Development Items": [],
+            "Test Case Execution Records": [],
+            "Formal Review": [],
+            "Reason for Cancellation": ""
+        },
+        "categories": {
+            "Functional Maturity Level (FML)": "",
+            "Surface Friction Coefficient": "",
+            "Vehicle Load": "",
+            "Verification Test Method": "",
+            "Automation State": "",
+            "External Visibility": "",
+            "Suitable Test Environments": [
+                "HIL Dry"
+            ],
+            "Regression": "",
+            "Test Design Technique": [],
+            "Test Methods": [],
+            "Test Location": [],
+            "Test Responsibility": "",
+            "Test Responsibility Component": "",
+            "Key Value": [],
+            "System / Component": "",
+            "Subcomponent / Function": [],
+            "Estimate": "",
+            "Weight": ""
+        },
+        "attributes": {
+            "Additional Value 1": "",
+            "Additional Value 2": "",
+            "Additional Value 3": "",
+            "Automation Script": "",
+            "Foreign ID": "c9e246ca-5a59-4fe3-995f-9d021cd8781d",
+            "Legacy ID": "",
+            "Mapping List": "",
+            "RM DATA (DO NOT MODIFY)": "",
+            "Review Record [external]": "",
+            "Sample Size": "",
+            "Test Spec Structure": "",
+            "pvRestriction": ""
+        },
+        "tp_obj": {
+            "name": "",
+            "type": "None"
+        },
+        "ts_obj": {
+            "name": "",
+            "type": "None"
+        }
+    },
+    {
+        "tcid": "",
+        "title": "Report DTC snapshot with DTC",
+        "description": "",
+        "state": "In Work",
+        "sections": {
+            "Purpose": "",
+            "Pre-Condition": "",
+            "Test Description": "",
+            "Expected Results": "",
+            "Comments": "",
+            "Confidential Comments": [],
+            "Attachments": [],
+            "Test Scripts": [],
+            "Requirement Links": [],
+            "Architecture Element Links": [],
+            "Development Items": [],
+            "Test Case Execution Records": [],
+            "Formal Review": [],
+            "Reason for Cancellation": ""
+        },
+        "categories": {
+            "Functional Maturity Level (FML)": "",
+            "Surface Friction Coefficient": "",
+            "Vehicle Load": "",
+            "Verification Test Method": "",
+            "Automation State": "",
+            "External Visibility": "",
+            "Suitable Test Environments": [
+                "HIL Dry"
+            ],
+            "Regression": "",
+            "Test Design Technique": [],
+            "Test Methods": [],
+            "Test Location": [],
+            "Test Responsibility": "",
+            "Test Responsibility Component": "",
+            "Key Value": [],
+            "System / Component": "",
+            "Subcomponent / Function": [],
+            "Estimate": "",
+            "Weight": ""
+        },
+        "attributes": {
+            "Additional Value 1": "",
+            "Additional Value 2": "",
+            "Additional Value 3": "",
+            "Automation Script": "",
+            "Foreign ID": "c7853878-f1cb-4c3a-9051-0670c664cd04",
+            "Legacy ID": "",
+            "Mapping List": "",
+            "RM DATA (DO NOT MODIFY)": "",
+            "Review Record [external]": "",
+            "Sample Size": "",
+            "Test Spec Structure": "",
+            "pvRestriction": ""
+        },
+        "tp_obj": {
+            "name": "",
+            "type": "None"
+        },
+        "ts_obj": {
+            "name": "",
+            "type": "None"
+        }
+    },
+    {
+        "tcid": "",
+        "title": "Message lenght",
+        "description": "",
+        "state": "In Work",
+        "sections": {
+            "Purpose": "",
+            "Pre-Condition": "",
+            "Test Description": "",
+            "Expected Results": "",
+            "Comments": "",
+            "Confidential Comments": [],
+            "Attachments": [],
+            "Test Scripts": [],
+            "Requirement Links": [],
+            "Architecture Element Links": [],
+            "Development Items": [],
+            "Test Case Execution Records": [],
+            "Formal Review": [],
+            "Reason for Cancellation": ""
+        },
+        "categories": {
+            "Functional Maturity Level (FML)": "",
+            "Surface Friction Coefficient": "",
+            "Vehicle Load": "",
+            "Verification Test Method": "",
+            "Automation State": "",
+            "External Visibility": "",
+            "Suitable Test Environments": [
+                "HIL Dry"
+            ],
+            "Regression": "",
+            "Test Design Technique": [],
+            "Test Methods": [],
+            "Test Location": [],
+            "Test Responsibility": "",
+            "Test Responsibility Component": "",
+            "Key Value": [],
+            "System / Component": "",
+            "Subcomponent / Function": [],
+            "Estimate": "",
+            "Weight": ""
+        },
+        "attributes": {
+            "Additional Value 1": "",
+            "Additional Value 2": "",
+            "Additional Value 3": "",
+            "Automation Script": "",
+            "Foreign ID": "1b16ddc8-5bd1-401c-a0f1-6f9357793174",
+            "Legacy ID": "",
+            "Mapping List": "",
+            "RM DATA (DO NOT MODIFY)": "",
+            "Review Record [external]": "",
+            "Sample Size": "",
+            "Test Spec Structure": "",
+            "pvRestriction": ""
+        },
+        "tp_obj": {
+            "name": "",
+            "type": "None"
+        },
+        "ts_obj": {
+            "name": "",
+            "type": "None"
+        }
+    },
+    {
+        "tcid": "",
+        "title": "Busy repeat request",
+        "description": "",
+        "state": "In Work",
+        "sections": {
+            "Purpose": "",
+            "Pre-Condition": "",
+            "Test Description": "",
+            "Expected Results": "",
+            "Comments": "",
+            "Confidential Comments": [],
+            "Attachments": [],
+            "Test Scripts": [],
+            "Requirement Links": [],
+            "Architecture Element Links": [],
+            "Development Items": [],
+            "Test Case Execution Records": [],
+            "Formal Review": [],
+            "Reason for Cancellation": ""
+        },
+        "categories": {
+            "Functional Maturity Level (FML)": "",
+            "Surface Friction Coefficient": "",
+            "Vehicle Load": "",
+            "Verification Test Method": "",
+            "Automation State": "",
+            "External Visibility": "",
+            "Suitable Test Environments": [
+                "HIL Dry"
+            ],
+            "Regression": "",
+            "Test Design Technique": [],
+            "Test Methods": [],
+            "Test Location": [],
+            "Test Responsibility": "",
+            "Test Responsibility Component": "",
+            "Key Value": [],
+            "System / Component": "",
+            "Subcomponent / Function": [],
+            "Estimate": "",
+            "Weight": ""
+        },
+        "attributes": {
+            "Additional Value 1": "",
+            "Additional Value 2": "",
+            "Additional Value 3": "",
+            "Automation Script": "",
+            "Foreign ID": "f54e129a-9b47-4249-9dae-37874f5b4467",
+            "Legacy ID": "",
+            "Mapping List": "",
+            "RM DATA (DO NOT MODIFY)": "",
+            "Review Record [external]": "",
+            "Sample Size": "",
+            "Test Spec Structure": "",
+            "pvRestriction": ""
+        },
+        "tp_obj": {
+            "name": "",
+            "type": "None"
+        },
+        "ts_obj": {
+            "name": "",
+            "type": "None"
+        }
+    },
+    {
+        "tcid": "",
+        "title": "Report Snapshot Record No DTC",
+        "description": "",
+        "state": "In Work",
+        "sections": {
+            "Purpose": "",
+            "Pre-Condition": "",
+            "Test Description": "",
+            "Expected Results": "",
+            "Comments": "",
+            "Confidential Comments": [],
+            "Attachments": [],
+            "Test Scripts": [],
+            "Requirement Links": [],
+            "Architecture Element Links": [],
+            "Development Items": [],
+            "Test Case Execution Records": [],
+            "Formal Review": [],
+            "Reason for Cancellation": ""
+        },
+        "categories": {
+            "Functional Maturity Level (FML)": "",
+            "Surface Friction Coefficient": "",
+            "Vehicle Load": "",
+            "Verification Test Method": "",
+            "Automation State": "",
+            "External Visibility": "",
+            "Suitable Test Environments": [
+                "HIL Dry"
+            ],
+            "Regression": "",
+            "Test Design Technique": [],
+            "Test Methods": [],
+            "Test Location": [],
+            "Test Responsibility": "",
+            "Test Responsibility Component": "",
+            "Key Value": [],
+            "System / Component": "",
+            "Subcomponent / Function": [],
+            "Estimate": "",
+            "Weight": ""
+        },
+        "attributes": {
+            "Additional Value 1": "",
+            "Additional Value 2": "",
+            "Additional Value 3": "",
+            "Automation Script": "",
+            "Foreign ID": "3d6ebeb8-8354-4e06-9309-d618d740f0b4",
+            "Legacy ID": "",
+            "Mapping List": "",
+            "RM DATA (DO NOT MODIFY)": "",
+            "Review Record [external]": "",
+            "Sample Size": "",
+            "Test Spec Structure": "",
+            "pvRestriction": ""
+        },
+        "tp_obj": {
+            "name": "",
+            "type": "None"
+        },
+        "ts_obj": {
+            "name": "",
+            "type": "None"
+        }
+    },
+    {
+        "tcid": "",
+        "title": "Report Snapshot Record With DTC",
+        "description": "",
+        "state": "In Work",
+        "sections": {
+            "Purpose": "",
+            "Pre-Condition": "",
+            "Test Description": "",
+            "Expected Results": "",
+            "Comments": "",
+            "Confidential Comments": [],
+            "Attachments": [],
+            "Test Scripts": [],
+            "Requirement Links": [],
+            "Architecture Element Links": [],
+            "Development Items": [],
+            "Test Case Execution Records": [],
+            "Formal Review": [],
+            "Reason for Cancellation": ""
+        },
+        "categories": {
+            "Functional Maturity Level (FML)": "",
+            "Surface Friction Coefficient": "",
+            "Vehicle Load": "",
+            "Verification Test Method": "",
+            "Automation State": "",
+            "External Visibility": "",
+            "Suitable Test Environments": [
+                "HIL Dry"
+            ],
+            "Regression": "",
+            "Test Design Technique": [],
+            "Test Methods": [],
+            "Test Location": [],
+            "Test Responsibility": "",
+            "Test Responsibility Component": "",
+            "Key Value": [],
+            "System / Component": "",
+            "Subcomponent / Function": [],
+            "Estimate": "",
+            "Weight": ""
+        },
+        "attributes": {
+            "Additional Value 1": "",
+            "Additional Value 2": "",
+            "Additional Value 3": "",
+            "Automation Script": "",
+            "Foreign ID": "379f768f-1c34-4fc6-b1f5-faec05df8b92",
+            "Legacy ID": "",
+            "Mapping List": "",
+            "RM DATA (DO NOT MODIFY)": "",
+            "Review Record [external]": "",
+            "Sample Size": "",
+            "Test Spec Structure": "",
+            "pvRestriction": ""
+        },
+        "tp_obj": {
+            "name": "",
+            "type": "None"
+        },
+        "ts_obj": {
+            "name": "",
+            "type": "None"
+        }
+    },
+    {
+        "tcid": "",
+        "title": "Incorrect Message Length",
+        "description": "",
+        "state": "In Work",
+        "sections": {
+            "Purpose": "",
+            "Pre-Condition": "",
+            "Test Description": "",
+            "Expected Results": "",
+            "Comments": "",
+            "Confidential Comments": [],
+            "Attachments": [],
+            "Test Scripts": [],
+            "Requirement Links": [],
+            "Architecture Element Links": [],
+            "Development Items": [],
+            "Test Case Execution Records": [],
+            "Formal Review": [],
+            "Reason for Cancellation": ""
+        },
+        "categories": {
+            "Functional Maturity Level (FML)": "",
+            "Surface Friction Coefficient": "",
+            "Vehicle Load": "",
+            "Verification Test Method": "",
+            "Automation State": "",
+            "External Visibility": "",
+            "Suitable Test Environments": [
+                "HIL Dry"
+            ],
+            "Regression": "",
+            "Test Design Technique": [],
+            "Test Methods": [],
+            "Test Location": [],
+            "Test Responsibility": "",
+            "Test Responsibility Component": "",
+            "Key Value": [],
+            "System / Component": "",
+            "Subcomponent / Function": [],
+            "Estimate": "",
+            "Weight": ""
+        },
+        "attributes": {
+            "Additional Value 1": "",
+            "Additional Value 2": "",
+            "Additional Value 3": "",
+            "Automation Script": "",
+            "Foreign ID": "3517d773-ee2d-4ba5-bb51-6202e6fc5230",
+            "Legacy ID": "",
+            "Mapping List": "",
+            "RM DATA (DO NOT MODIFY)": "",
+            "Review Record [external]": "",
+            "Sample Size": "",
+            "Test Spec Structure": "",
+            "pvRestriction": ""
+        },
+        "tp_obj": {
+            "name": "",
+            "type": "None"
+        },
+        "ts_obj": {
+            "name": "",
+            "type": "None"
+        }
+    },
+    {
+        "tcid": "",
+        "title": "Busy repeat request",
+        "description": "",
+        "state": "In Work",
+        "sections": {
+            "Purpose": "",
+            "Pre-Condition": "",
+            "Test Description": "",
+            "Expected Results": "",
+            "Comments": "",
+            "Confidential Comments": [],
+            "Attachments": [],
+            "Test Scripts": [],
+            "Requirement Links": [],
+            "Architecture Element Links": [],
+            "Development Items": [],
+            "Test Case Execution Records": [],
+            "Formal Review": [],
+            "Reason for Cancellation": ""
+        },
+        "categories": {
+            "Functional Maturity Level (FML)": "",
+            "Surface Friction Coefficient": "",
+            "Vehicle Load": "",
+            "Verification Test Method": "",
+            "Automation State": "",
+            "External Visibility": "",
+            "Suitable Test Environments": [
+                "HIL Dry"
+            ],
+            "Regression": "",
+            "Test Design Technique": [],
+            "Test Methods": [],
+            "Test Location": [],
+            "Test Responsibility": "",
+            "Test Responsibility Component": "",
+            "Key Value": [],
+            "System / Component": "",
+            "Subcomponent / Function": [],
+            "Estimate": "",
+            "Weight": ""
+        },
+        "attributes": {
+            "Additional Value 1": "",
+            "Additional Value 2": "",
+            "Additional Value 3": "",
+            "Automation Script": "",
+            "Foreign ID": "b51785d8-4593-4e48-a373-857747f08e58",
+            "Legacy ID": "",
+            "Mapping List": "",
+            "RM DATA (DO NOT MODIFY)": "",
+            "Review Record [external]": "",
+            "Sample Size": "",
+            "Test Spec Structure": "",
+            "pvRestriction": ""
+        },
+        "tp_obj": {
+            "name": "",
+            "type": "None"
+        },
+        "ts_obj": {
+            "name": "",
+            "type": "None"
+        }
+    },
+    {
+        "tcid": "",
+        "title": "Report DTC Occurence counter",
+        "description": "",
+        "state": "In Work",
+        "sections": {
+            "Purpose": "",
+            "Pre-Condition": "",
+            "Test Description": "",
+            "Expected Results": "",
+            "Comments": "",
+            "Confidential Comments": [],
+            "Attachments": [],
+            "Test Scripts": [],
+            "Requirement Links": [],
+            "Architecture Element Links": [],
+            "Development Items": [],
+            "Test Case Execution Records": [],
+            "Formal Review": [],
+            "Reason for Cancellation": ""
+        },
+        "categories": {
+            "Functional Maturity Level (FML)": "",
+            "Surface Friction Coefficient": "",
+            "Vehicle Load": "",
+            "Verification Test Method": "",
+            "Automation State": "",
+            "External Visibility": "",
+            "Suitable Test Environments": [
+                "HIL Dry"
+            ],
+            "Regression": "",
+            "Test Design Technique": [],
+            "Test Methods": [],
+            "Test Location": [],
+            "Test Responsibility": "",
+            "Test Responsibility Component": "",
+            "Key Value": [],
+            "System / Component": "",
+            "Subcomponent / Function": [],
+            "Estimate": "",
+            "Weight": ""
+        },
+        "attributes": {
+            "Additional Value 1": "",
+            "Additional Value 2": "",
+            "Additional Value 3": "",
+            "Automation Script": "",
+            "Foreign ID": "0d497748-758f-4d6f-9a02-2b0a36ff475e",
+            "Legacy ID": "",
+            "Mapping List": "",
+            "RM DATA (DO NOT MODIFY)": "",
+            "Review Record [external]": "",
+            "Sample Size": "",
+            "Test Spec Structure": "",
+            "pvRestriction": ""
+        },
+        "tp_obj": {
+            "name": "",
+            "type": "None"
+        },
+        "ts_obj": {
+            "name": "",
+            "type": "None"
+        }
+    },
+    {
+        "tcid": "",
+        "title": "Report DTC Healing counter",
+        "description": "",
+        "state": "In Work",
+        "sections": {
+            "Purpose": "",
+            "Pre-Condition": "",
+            "Test Description": "",
+            "Expected Results": "",
+            "Comments": "",
+            "Confidential Comments": [],
+            "Attachments": [],
+            "Test Scripts": [],
+            "Requirement Links": [],
+            "Architecture Element Links": [],
+            "Development Items": [],
+            "Test Case Execution Records": [],
+            "Formal Review": [],
+            "Reason for Cancellation": ""
+        },
+        "categories": {
+            "Functional Maturity Level (FML)": "",
+            "Surface Friction Coefficient": "",
+            "Vehicle Load": "",
+            "Verification Test Method": "",
+            "Automation State": "",
+            "External Visibility": "",
+            "Suitable Test Environments": [
+                "HIL Dry"
+            ],
+            "Regression": "",
+            "Test Design Technique": [],
+            "Test Methods": [],
+            "Test Location": [],
+            "Test Responsibility": "",
+            "Test Responsibility Component": "",
+            "Key Value": [],
+            "System / Component": "",
+            "Subcomponent / Function": [],
+            "Estimate": "",
+            "Weight": ""
+        },
+        "attributes": {
+            "Additional Value 1": "",
+            "Additional Value 2": "",
+            "Additional Value 3": "",
+            "Automation Script": "",
+            "Foreign ID": "956af901-0712-4460-a1f7-ca36badf0543",
+            "Legacy ID": "",
+            "Mapping List": "",
+            "RM DATA (DO NOT MODIFY)": "",
+            "Review Record [external]": "",
+            "Sample Size": "",
+            "Test Spec Structure": "",
+            "pvRestriction": ""
+        },
+        "tp_obj": {
+            "name": "",
+            "type": "None"
+        },
+        "ts_obj": {
+            "name": "",
+            "type": "None"
+        }
+    },
+    {
+        "tcid": "",
+        "title": "Report DTC Occurrence and Healing counters",
+        "description": "",
+        "state": "In Work",
+        "sections": {
+            "Purpose": "",
+            "Pre-Condition": "",
+            "Test Description": "",
+            "Expected Results": "",
+            "Comments": "",
+            "Confidential Comments": [],
+            "Attachments": [],
+            "Test Scripts": [],
+            "Requirement Links": [],
+            "Architecture Element Links": [],
+            "Development Items": [],
+            "Test Case Execution Records": [],
+            "Formal Review": [],
+            "Reason for Cancellation": ""
+        },
+        "categories": {
+            "Functional Maturity Level (FML)": "",
+            "Surface Friction Coefficient": "",
+            "Vehicle Load": "",
+            "Verification Test Method": "",
+            "Automation State": "",
+            "External Visibility": "",
+            "Suitable Test Environments": [
+                "HIL Dry"
+            ],
+            "Regression": "",
+            "Test Design Technique": [],
+            "Test Methods": [],
+            "Test Location": [],
+            "Test Responsibility": "",
+            "Test Responsibility Component": "",
+            "Key Value": [],
+            "System / Component": "",
+            "Subcomponent / Function": [],
+            "Estimate": "",
+            "Weight": ""
+        },
+        "attributes": {
+            "Additional Value 1": "",
+            "Additional Value 2": "",
+            "Additional Value 3": "",
+            "Automation Script": "",
+            "Foreign ID": "8dcce7a5-3751-49e4-9a73-3ac2587adb56",
+            "Legacy ID": "",
+            "Mapping List": "",
+            "RM DATA (DO NOT MODIFY)": "",
+            "Review Record [external]": "",
+            "Sample Size": "",
+            "Test Spec Structure": "",
+            "pvRestriction": ""
+        },
+        "tp_obj": {
+            "name": "",
+            "type": "None"
+        },
+        "ts_obj": {
+            "name": "",
+            "type": "None"
+        }
+    },
+    {
+        "tcid": "",
+        "title": "Message length",
+        "description": "",
+        "state": "In Work",
+        "sections": {
+            "Purpose": "",
+            "Pre-Condition": "",
+            "Test Description": "",
+            "Expected Results": "",
+            "Comments": "",
+            "Confidential Comments": [],
+            "Attachments": [],
+            "Test Scripts": [],
+            "Requirement Links": [],
+            "Architecture Element Links": [],
+            "Development Items": [],
+            "Test Case Execution Records": [],
+            "Formal Review": [],
+            "Reason for Cancellation": ""
+        },
+        "categories": {
+            "Functional Maturity Level (FML)": "",
+            "Surface Friction Coefficient": "",
+            "Vehicle Load": "",
+            "Verification Test Method": "",
+            "Automation State": "",
+            "External Visibility": "",
+            "Suitable Test Environments": [
+                "HIL Dry"
+            ],
+            "Regression": "",
+            "Test Design Technique": [],
+            "Test Methods": [],
+            "Test Location": [],
+            "Test Responsibility": "",
+            "Test Responsibility Component": "",
+            "Key Value": [],
+            "System / Component": "",
+            "Subcomponent / Function": [],
+            "Estimate": "",
+            "Weight": ""
+        },
+        "attributes": {
+            "Additional Value 1": "",
+            "Additional Value 2": "",
+            "Additional Value 3": "",
+            "Automation Script": "",
+            "Foreign ID": "f46a3a29-f705-4f0d-9126-a07e688ba700",
+            "Legacy ID": "",
+            "Mapping List": "",
+            "RM DATA (DO NOT MODIFY)": "",
+            "Review Record [external]": "",
+            "Sample Size": "",
+            "Test Spec Structure": "",
+            "pvRestriction": ""
+        },
+        "tp_obj": {
+            "name": "",
+            "type": "None"
+        },
+        "ts_obj": {
+            "name": "",
+            "type": "None"
+        }
+    },
+    {
+        "tcid": "",
+        "title": "Busy repeat request",
+        "description": "",
+        "state": "In Work",
+        "sections": {
+            "Purpose": "",
+            "Pre-Condition": "",
+            "Test Description": "",
+            "Expected Results": "",
+            "Comments": "",
+            "Confidential Comments": [],
+            "Attachments": [],
+            "Test Scripts": [],
+            "Requirement Links": [],
+            "Architecture Element Links": [],
+            "Development Items": [],
+            "Test Case Execution Records": [],
+            "Formal Review": [],
+            "Reason for Cancellation": ""
+        },
+        "categories": {
+            "Functional Maturity Level (FML)": "",
+            "Surface Friction Coefficient": "",
+            "Vehicle Load": "",
+            "Verification Test Method": "",
+            "Automation State": "",
+            "External Visibility": "",
+            "Suitable Test Environments": [
+                "HIL Dry"
+            ],
+            "Regression": "",
+            "Test Design Technique": [],
+            "Test Methods": [],
+            "Test Location": [],
+            "Test Responsibility": "",
+            "Test Responsibility Component": "",
+            "Key Value": [],
+            "System / Component": "",
+            "Subcomponent / Function": [],
+            "Estimate": "",
+            "Weight": ""
+        },
+        "attributes": {
+            "Additional Value 1": "",
+            "Additional Value 2": "",
+            "Additional Value 3": "",
+            "Automation Script": "",
+            "Foreign ID": "ea111bd1-a302-491d-99a2-bfa686d09f55",
+            "Legacy ID": "",
+            "Mapping List": "",
+            "RM DATA (DO NOT MODIFY)": "",
+            "Review Record [external]": "",
+            "Sample Size": "",
+            "Test Spec Structure": "",
+            "pvRestriction": ""
+        },
+        "tp_obj": {
+            "name": "",
+            "type": "None"
+        },
+        "ts_obj": {
+            "name": "",
+            "type": "None"
+        }
+    },
+    {
+        "tcid": "",
+        "title": "Request out of range",
+        "description": "",
+        "state": "In Work",
+        "sections": {
+            "Purpose": "",
+            "Pre-Condition": "",
+            "Test Description": "",
+            "Expected Results": "",
+            "Comments": "",
+            "Confidential Comments": [],
+            "Attachments": [],
+            "Test Scripts": [],
+            "Requirement Links": [],
+            "Architecture Element Links": [],
+            "Development Items": [],
+            "Test Case Execution Records": [],
+            "Formal Review": [],
+            "Reason for Cancellation": ""
+        },
+        "categories": {
+            "Functional Maturity Level (FML)": "",
+            "Surface Friction Coefficient": "",
+            "Vehicle Load": "",
+            "Verification Test Method": "",
+            "Automation State": "",
+            "External Visibility": "",
+            "Suitable Test Environments": [
+                "HIL Dry"
+            ],
+            "Regression": "",
+            "Test Design Technique": [],
+            "Test Methods": [],
+            "Test Location": [],
+            "Test Responsibility": "",
+            "Test Responsibility Component": "",
+            "Key Value": [],
+            "System / Component": "",
+            "Subcomponent / Function": [],
+            "Estimate": "",
+            "Weight": ""
+        },
+        "attributes": {
+            "Additional Value 1": "",
+            "Additional Value 2": "",
+            "Additional Value 3": "",
+            "Automation Script": "",
+            "Foreign ID": "f35e2c69-709c-4125-8352-65fb14d903f7",
+            "Legacy ID": "",
+            "Mapping List": "",
+            "RM DATA (DO NOT MODIFY)": "",
+            "Review Record [external]": "",
+            "Sample Size": "",
+            "Test Spec Structure": "",
+            "pvRestriction": ""
+        },
+        "tp_obj": {
+            "name": "",
+            "type": "None"
+        },
+        "ts_obj": {
+            "name": "",
+            "type": "None"
+        }
+    },
+    {
+        "tcid": "",
+        "title": "Check all supported DTCs in SW",
+        "description": "",
+        "state": "In Work",
+        "sections": {
+            "Purpose": "",
+            "Pre-Condition": "",
+            "Test Description": "",
+            "Expected Results": "",
+            "Comments": "",
+            "Confidential Comments": [],
+            "Attachments": [],
+            "Test Scripts": [],
+            "Requirement Links": [],
+            "Architecture Element Links": [],
+            "Development Items": [],
+            "Test Case Execution Records": [],
+            "Formal Review": [],
+            "Reason for Cancellation": ""
+        },
+        "categories": {
+            "Functional Maturity Level (FML)": "",
+            "Surface Friction Coefficient": "",
+            "Vehicle Load": "",
+            "Verification Test Method": "",
+            "Automation State": "",
+            "External Visibility": "",
+            "Suitable Test Environments": [
+                "HIL Dry"
+            ],
+            "Regression": "",
+            "Test Design Technique": [],
+            "Test Methods": [],
+            "Test Location": [],
+            "Test Responsibility": "",
+            "Test Responsibility Component": "",
+            "Key Value": [],
+            "System / Component": "",
+            "Subcomponent / Function": [],
+            "Estimate": "",
+            "Weight": ""
+        },
+        "attributes": {
+            "Additional Value 1": "",
+            "Additional Value 2": "",
+            "Additional Value 3": "",
+            "Automation Script": "",
+            "Foreign ID": "42fe0414-becf-4f39-89c5-c36fdec5c672",
+            "Legacy ID": "",
+            "Mapping List": "",
+            "RM DATA (DO NOT MODIFY)": "",
+            "Review Record [external]": "",
+            "Sample Size": "",
+            "Test Spec Structure": "",
+            "pvRestriction": ""
+        },
+        "tp_obj": {
+            "name": "",
+            "type": "None"
+        },
+        "ts_obj": {
+            "name": "",
+            "type": "None"
+        }
+    },
+    {
+        "tcid": "",
+        "title": "Check all reported DTCs in spec",
+        "description": "",
+        "state": "In Work",
+        "sections": {
+            "Purpose": "",
+            "Pre-Condition": "",
+            "Test Description": "",
+            "Expected Results": "",
+            "Comments": "",
+            "Confidential Comments": [],
+            "Attachments": [],
+            "Test Scripts": [],
+            "Requirement Links": [],
+            "Architecture Element Links": [],
+            "Development Items": [],
+            "Test Case Execution Records": [],
+            "Formal Review": [],
+            "Reason for Cancellation": ""
+        },
+        "categories": {
+            "Functional Maturity Level (FML)": "",
+            "Surface Friction Coefficient": "",
+            "Vehicle Load": "",
+            "Verification Test Method": "",
+            "Automation State": "",
+            "External Visibility": "",
+            "Suitable Test Environments": [
+                "HIL Dry"
+            ],
+            "Regression": "",
+            "Test Design Technique": [],
+            "Test Methods": [],
+            "Test Location": [],
+            "Test Responsibility": "",
+            "Test Responsibility Component": "",
+            "Key Value": [],
+            "System / Component": "",
+            "Subcomponent / Function": [],
+            "Estimate": "",
+            "Weight": ""
+        },
+        "attributes": {
+            "Additional Value 1": "",
+            "Additional Value 2": "",
+            "Additional Value 3": "",
+            "Automation Script": "",
+            "Foreign ID": "4b67561e-291f-4bf1-87c3-f8c1bc02f8f0",
+            "Legacy ID": "",
+            "Mapping List": "",
+            "RM DATA (DO NOT MODIFY)": "",
+            "Review Record [external]": "",
+            "Sample Size": "",
+            "Test Spec Structure": "",
+            "pvRestriction": ""
+        },
+        "tp_obj": {
+            "name": "",
+            "type": "None"
+        },
+        "ts_obj": {
+            "name": "",
+            "type": "None"
+        }
+    },
+    {
+        "tcid": "",
+        "title": "Check if reported DTCs appears once, at least",
+        "description": "",
+        "state": "In Work",
+        "sections": {
+            "Purpose": "",
+            "Pre-Condition": "",
+            "Test Description": "",
+            "Expected Results": "",
+            "Comments": "",
+            "Confidential Comments": [],
+            "Attachments": [],
+            "Test Scripts": [],
+            "Requirement Links": [],
+            "Architecture Element Links": [],
+            "Development Items": [],
+            "Test Case Execution Records": [],
+            "Formal Review": [],
+            "Reason for Cancellation": ""
+        },
+        "categories": {
+            "Functional Maturity Level (FML)": "",
+            "Surface Friction Coefficient": "",
+            "Vehicle Load": "",
+            "Verification Test Method": "",
+            "Automation State": "",
+            "External Visibility": "",
+            "Suitable Test Environments": [
+                "HIL Dry"
+            ],
+            "Regression": "",
+            "Test Design Technique": [],
+            "Test Methods": [],
+            "Test Location": [],
+            "Test Responsibility": "",
+            "Test Responsibility Component": "",
+            "Key Value": [],
+            "System / Component": "",
+            "Subcomponent / Function": [],
+            "Estimate": "",
+            "Weight": ""
+        },
+        "attributes": {
+            "Additional Value 1": "",
+            "Additional Value 2": "",
+            "Additional Value 3": "",
+            "Automation Script": "",
+            "Foreign ID": "bb143acc-67a7-4809-bad7-336b996830d1",
+            "Legacy ID": "",
+            "Mapping List": "",
+            "RM DATA (DO NOT MODIFY)": "",
+            "Review Record [external]": "",
+            "Sample Size": "",
+            "Test Spec Structure": "",
+            "pvRestriction": ""
+        },
+        "tp_obj": {
+            "name": "",
+            "type": "None"
+        },
+        "ts_obj": {
+            "name": "",
+            "type": "None"
+        }
+    },
+    {
+        "tcid": "",
+        "title": "Busy repeat request",
+        "description": "",
+        "state": "In Work",
+        "sections": {
+            "Purpose": "",
+            "Pre-Condition": "",
+            "Test Description": "",
+            "Expected Results": "",
+            "Comments": "",
+            "Confidential Comments": [],
+            "Attachments": [],
+            "Test Scripts": [],
+            "Requirement Links": [],
+            "Architecture Element Links": [],
+            "Development Items": [],
+            "Test Case Execution Records": [],
+            "Formal Review": [],
+            "Reason for Cancellation": ""
+        },
+        "categories": {
+            "Functional Maturity Level (FML)": "",
+            "Surface Friction Coefficient": "",
+            "Vehicle Load": "",
+            "Verification Test Method": "",
+            "Automation State": "",
+            "External Visibility": "",
+            "Suitable Test Environments": [
+                "HIL Dry"
+            ],
+            "Regression": "",
+            "Test Design Technique": [],
+            "Test Methods": [],
+            "Test Location": [],
+            "Test Responsibility": "",
+            "Test Responsibility Component": "",
+            "Key Value": [],
+            "System / Component": "",
+            "Subcomponent / Function": [],
+            "Estimate": "",
+            "Weight": ""
+        },
+        "attributes": {
+            "Additional Value 1": "",
+            "Additional Value 2": "",
+            "Additional Value 3": "",
+            "Automation Script": "",
+            "Foreign ID": "a8fee2b3-3bed-46e2-aaaa-57be841f108d",
+            "Legacy ID": "",
+            "Mapping List": "",
+            "RM DATA (DO NOT MODIFY)": "",
+            "Review Record [external]": "",
+            "Sample Size": "",
+            "Test Spec Structure": "",
+            "pvRestriction": ""
+        },
+        "tp_obj": {
+            "name": "",
+            "type": "None"
+        },
+        "ts_obj": {
+            "name": "",
+            "type": "None"
+        }
+    },
+    {
+        "tcid": "",
+        "title": "Incorrect message length",
+        "description": "",
+        "state": "In Work",
+        "sections": {
+            "Purpose": "",
+            "Pre-Condition": "",
+            "Test Description": "",
+            "Expected Results": "",
+            "Comments": "",
+            "Confidential Comments": [],
+            "Attachments": [],
+            "Test Scripts": [],
+            "Requirement Links": [],
+            "Architecture Element Links": [],
+            "Development Items": [],
+            "Test Case Execution Records": [],
+            "Formal Review": [],
+            "Reason for Cancellation": ""
+        },
+        "categories": {
+            "Functional Maturity Level (FML)": "",
+            "Surface Friction Coefficient": "",
+            "Vehicle Load": "",
+            "Verification Test Method": "",
+            "Automation State": "",
+            "External Visibility": "",
+            "Suitable Test Environments": [
+                "HIL Dry"
+            ],
+            "Regression": "",
+            "Test Design Technique": [],
+            "Test Methods": [],
+            "Test Location": [],
+            "Test Responsibility": "",
+            "Test Responsibility Component": "",
+            "Key Value": [],
+            "System / Component": "",
+            "Subcomponent / Function": [],
+            "Estimate": "",
+            "Weight": ""
+        },
+        "attributes": {
+            "Additional Value 1": "",
+            "Additional Value 2": "",
+            "Additional Value 3": "",
+            "Automation Script": "",
+            "Foreign ID": "14826f1e-ba68-4a63-b1a6-61d8204384a3",
+            "Legacy ID": "",
+            "Mapping List": "",
+            "RM DATA (DO NOT MODIFY)": "",
+            "Review Record [external]": "",
+            "Sample Size": "",
+            "Test Spec Structure": "",
+            "pvRestriction": ""
+        },
+        "tp_obj": {
+            "name": "",
+            "type": "None"
+        },
+        "ts_obj": {
+            "name": "",
+            "type": "None"
+        }
+    }
+]

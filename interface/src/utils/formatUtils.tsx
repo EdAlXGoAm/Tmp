@@ -1,6 +1,5 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faClipboard, faAngleRight, faAngleDown, faEdit, faTrash, faPlus } from '@fortawesome/free-solid-svg-icons';
-import styles from '../styles/formatUtils.module.css';
+import styles from '../styles/utils/formatUtils.module.css';
+import { CustomEdit } from './buttonUtils';
 
 export const Row = ({ children, mt, mb, style }: { children: React.ReactNode, mt?: number, mb?: number, style?: React.CSSProperties }) => (
   <div className={`row mt-${mt ?? 1} mb-${mb ?? 2}`} style={style}>
@@ -13,6 +12,14 @@ export const Column = ({ children, width, mt, mb }: { children: React.ReactNode,
     {children}
   </div>
 );
+
+export const CustomForm = ({ children }: { children: React.ReactNode }) => {
+  return (
+    <form style={{ width: '100%' }}>
+      {children}
+    </form>
+  )
+}
 
 export const RowForm = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -37,8 +44,8 @@ export const CenteredColumn = ({ children, width, mt }: { children: React.ReactN
   </div>
 );
 
-export const Titles = ({ children }: { children: React.ReactNode }) => (
-  <div className="row mt-3">
+export const Titles = ({ children, mt }: { children: React.ReactNode, mt?: number }) => (
+  <div className={`row mt-${mt ?? 3}`}>
     <div className="col-12">
       {children}
     </div>
@@ -59,9 +66,9 @@ export const MiddleColumn = ({ children, width, mt }: { children: React.ReactNod
   </div>
 );
 
-export const MainJsonKey = ({ children }: { children: React.ReactNode }) => (
-  <div className="row">
-    <div className="col-12">
+export const MainJsonKey = ({ children}: { children: React.ReactNode }) => (
+  <Row>
+    <Column mt={0} mb={0}>
       <h4 style={{
         color: 'white',
         // backgroundColor Green
@@ -70,8 +77,8 @@ export const MainJsonKey = ({ children }: { children: React.ReactNode }) => (
         paddingLeft: '15px',
         borderRadius: '5px',
       }}>{children}</h4>
-    </div>
-  </div>
+    </Column>
+  </Row>
 );
 
 export const JsonKeyGroup = ({ children, icon }: { children: React.ReactNode, icon: React.ReactNode }) => (
@@ -95,19 +102,23 @@ export const JsonKeyGroup = ({ children, icon }: { children: React.ReactNode, ic
   </Row>
 );
 
-export const JsonKey = ({ children, icon }: { children: React.ReactNode, icon?: React.ReactNode }) => (
+export const JsonKey = ({ children, icon, onClick }: { children: React.ReactNode, icon?: React.ReactNode, onClick?: () => void }) => (
   <Row mt={0} mb={0}>
     <Column mb={1}>
-      <span style={{
-        fontSize: '0.7rem',
-        color: 'white',
-        // backgroundColor Green darken-4
-        backgroundColor: '#81C784',
-        padding: '5px',
-        margin: '0px',
-        borderRadius: '2px',
-        display: 'inline-flex',
-        alignItems: 'center',
+      <span
+        onClick={onClick}
+        style={{
+          cursor: onClick ? 'pointer' : 'default',
+          userSelect: onClick ? 'none' : 'auto',
+          fontSize: '0.7rem',
+          color: 'white',
+          // backgroundColor Green darken-4
+          backgroundColor: '#81C784',
+          padding: '5px',
+          margin: '0px',
+          borderRadius: '2px',
+          display: 'inline-flex',
+          alignItems: 'center',
         }}>
           {icon && <>{icon}&nbsp;</>}
           {children}
@@ -130,7 +141,7 @@ export const JsonValue = ({ children }: { children: React.ReactNode }) => (
 );
 
 export const CardContainer = ({ children }: { children: React.ReactNode }) => (
-  <div className="row mb-2">
+  <div className="row">
     <div className="col-12">
       <div className="card card-body"
         style={{padding: '6px'}}
@@ -140,65 +151,6 @@ export const CardContainer = ({ children }: { children: React.ReactNode }) => (
     </div>
   </div>
 );
-
-export const CustomClipboardButton = ({ onClick, copied }: { onClick: () => void, copied: boolean }) => {
-  return (
-    <div className={styles.faContainerTopRight}>
-      <div className={styles.faButtons} onClick={onClick}
-        style={{color: copied ? 'green' : '#212529'}}>
-        <FontAwesomeIcon icon={faClipboard} size="sm" />
-      </div>
-    </div>
-  )
-};
-
-export const CustomAngleRight = () => {
-  return (
-    <div>
-      <div className={styles.faButtons}>
-        <FontAwesomeIcon icon={faAngleRight} size="sm" />
-      </div>
-    </div>
-  )
-}
-
-export const CustomAngleDown = () => {
-  return (
-    <div>
-      <div className={styles.faButtons}>
-        <FontAwesomeIcon icon={faAngleDown} size="sm" />
-      </div>
-    </div>
-  )
-}
-
-export const CustomEdit = ({ onClick }: { onClick: () => void }) => {
-  return (
-    <span className={styles.faButtons} onClick={onClick}>
-      <FontAwesomeIcon icon={faEdit} size="sm" />
-    </span>
-  )
-}
-
-export const CustomDelete = ({ onClick, deleteable }: { onClick: () => void, deleteable: boolean }) => {
-  return (
-    <div className={styles.faContainerTopRight}>
-      <span className={styles.faButtons} onClick={onClick}
-        style={{color: deleteable ? '#dc3545' : '#212529'}}>
-        <FontAwesomeIcon icon={faTrash} size="sm" />
-      </span>
-    </div>
-  )
-}
-
-export const CustomAddHere = ({ onClick, addable }: { onClick: () => void, addable: boolean }) => {
-  return (
-    <span className={styles.faButtons} onClick={onClick}
-      style={{color: addable ? '#4CAF50' : '#212529'}}>
-      <FontAwesomeIcon icon={faPlus} size="sm" />
-    </span>
-  )
-}
 
 export const VariableText = ({ variable, value, onClick }: { variable: String, value: String, onClick: () => void}) => {
   return (

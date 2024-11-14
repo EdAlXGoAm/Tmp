@@ -1,0 +1,130 @@
+[
+  {
+    "tcid": "",
+    "title": "0x1901 - Read DTCs without DTC number checkRead DTCs without DTC number check (pClass=SUMO,pMode=NormalSession,pECU=0)",
+    "description": "0337bfd2-4a4d-4805-a5be-3cb3c6e7072a",
+    "state": "In Work",
+    "sections": {
+      "Purpose": "",
+      "Pre-Condition": "",
+      "Test Description": "******* PARAM\n\ntype: String\nstructlistmember_parameter:\n\tdbobject: ChParList_BEGIN_OF_OBJECT|1|Sumo::NormalExtended.Class|END_OF_OBJECT_ChParList|\n\ntype: String\nstructlistmember_parameter:\n\tdbobject: ChParList_BEGIN_OF_OBJECT|1|Sumo::NormalExtended.Method|END_OF_OBJECT_ChParList|\n\ntype: Int32\nvaluelist:\n\tvalue: [{'const': '0'}, {'const': '0'}]\n******* STRUCT LIST PARAMETER\n\ndbobject: ChParStList_BEGIN_OF_OBJECT|1|Sumo::NormalExtended|END_OF_OBJECT_ChParStList|******* PREPARATION\n******* STEPS\n",
+      "Expected Results": "",
+      "Comments": "",
+      "Confidential Comments": "",
+      "Attachments": "",
+      "Test Scripts": "",
+      "Requirement Links": "",
+      "Architecture Element Links": "",
+      "Development Items": "",
+      "Test Case Execution Records": "",
+      "Formal Review": "",
+      "Reason for Cancellation": ""
+    },
+    "categories": {
+      "Functional Maturity Level (FML)": "",
+      "Surface Friction Coefficient": "",
+      "Vehicle Load": "",
+      "Verification Test Method": "",
+      "Automation State": "",
+      "External Visibility": "",
+      "Suitable Test Environments": "[\"HIL Dry\"]",
+      "Regression": "",
+      "Test Design Technique": "",
+      "Test Methods": "",
+      "Test Location": "",
+      "Test Responsibility": "",
+      "Test Responsibility Component": "",
+      "Key Value": "",
+      "System / Component": "",
+      "Subcomponent / Function": "",
+      "Estimate": "",
+      "Weight": ""
+    },
+    "attributes": {
+      "Additional Value 1": "type: String\nstructlistmember_parameter:\n\tdbobject: ChParList_BEGIN_OF_OBJECT|1|Sumo::NormalExtended.Class|END_OF_OBJECT_ChParList|\n\ntype: String\nstructlistmember_parameter:\n\tdbobject: ChParList_BEGIN_OF_OBJECT|1|Sumo::NormalExtended.Method|END_OF_OBJECT_ChParList|\n\ntype: Int32\nvaluelist:\n\tvalue: [{'const': '0'}, {'const': '0'}]\n",
+      "Additional Value 2": "dbobject: ChParStList_BEGIN_OF_OBJECT|1|Sumo::NormalExtended|END_OF_OBJECT_ChParStList|",
+      "Additional Value 3": "",
+      "Automation Script": "",
+      "Foreign ID": "vTestStudio test case ID:\n\n0337bfd2-4a4d-4805-a5be-3cb3c6e7072a",
+      "Legacy ID": "",
+      "Mapping List": "",
+      "RM DATA (DO NOT MODIFY)": "",
+      "Review Record [external]": "",
+      "Sample Size": "",
+      "Test Spec Structure": "",
+      "pvRestriction": ""
+    },
+    "tp_obj": {
+      "name": "",
+      "type": "None"
+    },
+    "ts_obj": {
+      "name": "",
+      "type": "None"
+    }
+  },
+  {
+    "tcid": "",
+    "title": "0x1901 - Read DTC with DTC number checkRead DTCs without DTC number check (pClass=SUMO,pMode=ExtendedSession,pECU=0)",
+    "description": "21bf1a30-3771-4aec-8ea2-671267c00cd8",
+    "state": "In Work",
+    "sections": {
+      "Purpose": "",
+      "Pre-Condition": "",
+      "Test Description": "******* PARAM\n******* STRUCT LIST PARAMETER\n******* PREPARATION\n******* STEPS\n\nStep 1:\n\tnetfunction:\n\t\tname: Preparation\n\t\tclass: DiaFunctions.dttgFunctions\nStep 2:\n\tnetfunction:\n\t\tname: DTCRoutine\n\t\tclass: DiaFunctions.dttgFunctions\n\t\tparam:\n\t\ttype: Int32\n\t\tvalue:\n\t\t\tvariable: ECU\nStep 3:\n\tforeach:\n\t\tloopvar: Session\n\t\tlistparameter: ChParStList_BEGIN_OF_OBJECT|1|Sumo::Default|END_OF_OBJECT_ChParStList|\n\t\tsteps:\n\t\t\tStep 1:\n\t\t\t\tnetfunction:\n\t\t\t\t\tname: CallStaticMethod\n\t\t\t\t\tclass: ClassRegisterFunctions\n\t\t\t\t\tparam:\n\t\t\t\t\t\t\t\ttype: String\n\t\t\t\t\t\t\t\tvalue:\n\t\t\t\t\t\t\t\t\tvariable: Session.Class\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\ttype: String\n\t\t\t\t\t\t\t\tvalue:\n\t\t\t\t\t\t\t\t\tvariable: Session.Method\n\t\t\t\t\t\t\t\t\n\t\t\tStep 2:\n\t\t\t\twait:\n\t\t\t\t\ttime:\n\t\t\t\t\t\t\t\tvalue:\n\t\t\t\t\t\t\t\t\tconst: 500\n\t\t\t\t\t\t\t\tunit: ms\n\t\t\tStep 3:\n\t\t\t\tnetfunction:\n\t\t\t\t\tname: ClearDTCs\n\t\t\t\t\tclass: BaseDiagnosticFunctions\n\t\t\tStep 4:\n\t\t\t\tnetfunction:\n\t\t\t\t\tname: TesterPresentOnECU\n\t\t\t\t\tclass: BaseDiagnosticFunctionsOnECU\n\t\t\t\t\tparam:\n\t\t\t\t\t\t\t\ttype: Int32\n\t\t\t\t\t\t\t\tvalue:\n\t\t\t\t\t\t\t\t\tvariable: ECU\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\ttype: enum\n\t\t\t\t\t\t\t\tvalue:\n\t\t\t\t\t\t\t\t\tvaluetable_entry: True\n\t\t\t\t\t\t\t\t\n\t\t\tStep 5:\n\t\t\t\tnetfunction:\n\t\t\t\t\tname: GenerateRemoveFailures\n\t\t\t\t\tclass: DiaFunctions.dttgFunctions\n\t\t\t\t\tparam:\n\t\t\t\t\t\t\t\ttype: Int32\n\t\t\t\t\t\t\t\tvalue:\n\t\t\t\t\t\t\t\t\tvariable: ECU\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\ttype: Int32\n\t\t\t\t\t\t\t\tvalue:\n\t\t\t\t\t\t\t\t\tvariable: DTC_1\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\ttype: Int32\n\t\t\t\t\t\t\t\tvalue:\n\t\t\t\t\t\t\t\t\tconst: 1\n\t\t\t\t\t\t\t\t\n\t\t\tStep 6:\n\t\t\t\tnetfunction:\n\t\t\t\t\tname: GenerateRemoveFailures\n\t\t\t\t\tclass: DiaFunctions.dttgFunctions\n\t\t\t\t\tparam:\n\t\t\t\t\t\t\t\ttype: Int32\n\t\t\t\t\t\t\t\tvalue:\n\t\t\t\t\t\t\t\t\tvariable: ECU\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\ttype: Int32\n\t\t\t\t\t\t\t\tvalue:\n\t\t\t\t\t\t\t\t\tvariable: DTC_2\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\ttype: Int32\n\t\t\t\t\t\t\t\tvalue:\n\t\t\t\t\t\t\t\t\tconst: 1\n\t\t\t\t\t\t\t\t\n\t\t\tStep 7:\n\t\t\t\twait:\n\t\t\t\t\ttime:\n\t\t\t\t\t\t\t\tvalue:\n\t\t\t\t\t\t\t\t\tconst: 1.0\n\t\t\t\t\t\t\t\tunit: s\n\t\t\tStep 8:\n\t\t\t\tnetfunction:\n\t\t\t\t\tname: GenerateRemoveFailures\n\t\t\t\t\tclass: DiaFunctions.dttgFunctions\n\t\t\t\t\tparam:\n\t\t\t\t\t\t\t\ttype: Int32\n\t\t\t\t\t\t\t\tvalue:\n\t\t\t\t\t\t\t\t\tvariable: ECU\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\ttype: Int32\n\t\t\t\t\t\t\t\tvalue:\n\t\t\t\t\t\t\t\t\tvariable: DTC_1\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\ttype: Int32\n\t\t\t\t\t\t\t\tvalue:\n\t\t\t\t\t\t\t\t\tconst: 0\n\t\t\t\t\t\t\t\t\n\t\t\tStep 9:\n\t\t\t\twait:\n\t\t\t\t\ttime:\n\t\t\t\t\t\t\t\tvalue:\n\t\t\t\t\t\t\t\t\tconst: 1.0\n\t\t\t\t\t\t\t\tunit: s\n\t\t\tStep 10:\n\t\t\t\tnetfunction:\n\t\t\t\t\tname: ReadPrintDTCOnECU\n\t\t\t\t\tclass: DiaFunctions.dttgFunctions\n\t\t\t\t\tparam:\n\t\t\t\t\t\t\t\ttype: Int32\n\t\t\t\t\t\t\t\tvalue:\n\t\t\t\t\t\t\t\t\tconst: 0\n\t\t\tStep 11:\n\t\t\t\tnetfunction:\n\t\t\t\t\tname: ReadNrOfDTCsByStatusCheckOnECU\n\t\t\t\t\tclass: TestUDSService_0x19\n\t\t\t\t\tparam:\n\t\t\t\t\t\t\t\ttype: Int32\n\t\t\t\t\t\t\t\tvalue:\n\t\t\t\t\t\t\t\t\tvariable: ECU\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\ttype: enum\n\t\t\t\t\t\t\t\tvalue:\n\t\t\t\t\t\t\t\t\tvaluetable_entry: ByStatus\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\ttype: Int32\n\t\t\t\t\t\t\t\tvalue:\n\t\t\t\t\t\t\t\t\tconst: 0x2F\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\ttype: Int32\n\t\t\t\t\t\t\t\tvalue:\n\t\t\t\t\t\t\t\t\tconst: 0xFF\n\t\t\t\t\t\t\t\t\n\t\t\tStep 12:\n\t\t\t\tnetfunction:\n\t\t\t\t\tname: TesterPresentOnECU\n\t\t\t\t\tclass: BaseDiagnosticFunctionsOnECU\n\t\t\t\t\tparam:\n\t\t\t\t\t\t\t\ttype: Int32\n\t\t\t\t\t\t\t\tvalue:\n\t\t\t\t\t\t\t\t\tvariable: ECU\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\ttype: enum\n\t\t\t\t\t\t\t\tvalue:\n\t\t\t\t\t\t\t\t\tvaluetable_entry: False\n\t\t\t\t\t\t\t\t\n\t\t\tStep 13:\n\t\t\t\tnetfunction:\n\t\t\t\t\tname: GenerateRemoveFailures\n\t\t\t\t\tclass: DiaFunctions.dttgFunctions\n\t\t\t\t\tparam:\n\t\t\t\t\t\t\t\ttype: Int32\n\t\t\t\t\t\t\t\tvalue:\n\t\t\t\t\t\t\t\t\tvariable: ECU\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\ttype: Int32\n\t\t\t\t\t\t\t\tvalue:\n\t\t\t\t\t\t\t\t\tvariable: DTC_2\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\ttype: Int32\n\t\t\t\t\t\t\t\tvalue:\n\t\t\t\t\t\t\t\t\tconst: 0\n\t\t\t\t\t\t\t\t\n\t\t\tStep 14:\n\t\t\t\twait:\n\t\t\t\t\ttime:\n\t\t\t\t\t\t\t\tvalue:\n\t\t\t\t\t\t\t\t\tconst: 1.0\n\t\t\t\t\t\t\t\tunit: s\n\t\t\tStep 15:\n\t\t\t\tnetfunction:\n\t\t\t\t\tname: ClearDTCs\n\t\t\t\t\tclass: BaseDiagnosticFunctions\nStep 4:\n\tnetfunction:\n\t\tname: Completion\n\t\tclass: DiaFunctions.dttgFunctions",
+      "Expected Results": "",
+      "Comments": "",
+      "Confidential Comments": "",
+      "Attachments": "",
+      "Test Scripts": "",
+      "Requirement Links": "",
+      "Architecture Element Links": "",
+      "Development Items": "",
+      "Test Case Execution Records": "",
+      "Formal Review": "",
+      "Reason for Cancellation": ""
+    },
+    "categories": {
+      "Functional Maturity Level (FML)": "",
+      "Surface Friction Coefficient": "",
+      "Vehicle Load": "",
+      "Verification Test Method": "",
+      "Automation State": "",
+      "External Visibility": "",
+      "Suitable Test Environments": "[\"HIL Dry\"]",
+      "Regression": "",
+      "Test Design Technique": "",
+      "Test Methods": "",
+      "Test Location": "",
+      "Test Responsibility": "",
+      "Test Responsibility Component": "",
+      "Key Value": "",
+      "System / Component": "",
+      "Subcomponent / Function": "",
+      "Estimate": "",
+      "Weight": ""
+    },
+    "attributes": {
+      "Additional Value 1": "",
+      "Additional Value 2": "",
+      "Additional Value 3": "Step 1:\n\tnetfunction:\n\t\tname: Preparation\n\t\tclass: DiaFunctions.dttgFunctions\nStep 2:\n\tnetfunction:\n\t\tname: DTCRoutine\n\t\tclass: DiaFunctions.dttgFunctions\n\t\tparam:\n\t\ttype: Int32\n\t\tvalue:\n\t\t\tvariable: ECU\nStep 3:\n\tforeach:\n\t\tloopvar: Session\n\t\tlistparameter: ChParStList_BEGIN_OF_OBJECT|1|Sumo::Default|END_OF_OBJECT_ChParStList|\n\t\tsteps:\n\t\t\tStep 1:\n\t\t\t\tnetfunction:\n\t\t\t\t\tname: CallStaticMethod\n\t\t\t\t\tclass: ClassRegisterFunctions\n\t\t\t\t\tparam:\n\t\t\t\t\t\t\t\ttype: String\n\t\t\t\t\t\t\t\tvalue:\n\t\t\t\t\t\t\t\t\tvariable: Session.Class\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\ttype: String\n\t\t\t\t\t\t\t\tvalue:\n\t\t\t\t\t\t\t\t\tvariable: Session.Method\n\t\t\t\t\t\t\t\t\n\t\t\tStep 2:\n\t\t\t\twait:\n\t\t\t\t\ttime:\n\t\t\t\t\t\t\t\tvalue:\n\t\t\t\t\t\t\t\t\tconst: 500\n\t\t\t\t\t\t\t\tunit: ms\n\t\t\tStep 3:\n\t\t\t\tnetfunction:\n\t\t\t\t\tname: ClearDTCs\n\t\t\t\t\tclass: BaseDiagnosticFunctions\n\t\t\tStep 4:\n\t\t\t\tnetfunction:\n\t\t\t\t\tname: TesterPresentOnECU\n\t\t\t\t\tclass: BaseDiagnosticFunctionsOnECU\n\t\t\t\t\tparam:\n\t\t\t\t\t\t\t\ttype: Int32\n\t\t\t\t\t\t\t\tvalue:\n\t\t\t\t\t\t\t\t\tvariable: ECU\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\ttype: enum\n\t\t\t\t\t\t\t\tvalue:\n\t\t\t\t\t\t\t\t\tvaluetable_entry: True\n\t\t\t\t\t\t\t\t\n\t\t\tStep 5:\n\t\t\t\tnetfunction:\n\t\t\t\t\tname: GenerateRemoveFailures\n\t\t\t\t\tclass: DiaFunctions.dttgFunctions\n\t\t\t\t\tparam:\n\t\t\t\t\t\t\t\ttype: Int32\n\t\t\t\t\t\t\t\tvalue:\n\t\t\t\t\t\t\t\t\tvariable: ECU\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\ttype: Int32\n\t\t\t\t\t\t\t\tvalue:\n\t\t\t\t\t\t\t\t\tvariable: DTC_1\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\ttype: Int32\n\t\t\t\t\t\t\t\tvalue:\n\t\t\t\t\t\t\t\t\tconst: 1\n\t\t\t\t\t\t\t\t\n\t\t\tStep 6:\n\t\t\t\tnetfunction:\n\t\t\t\t\tname: GenerateRemoveFailures\n\t\t\t\t\tclass: DiaFunctions.dttgFunctions\n\t\t\t\t\tparam:\n\t\t\t\t\t\t\t\ttype: Int32\n\t\t\t\t\t\t\t\tvalue:\n\t\t\t\t\t\t\t\t\tvariable: ECU\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\ttype: Int32\n\t\t\t\t\t\t\t\tvalue:\n\t\t\t\t\t\t\t\t\tvariable: DTC_2\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\ttype: Int32\n\t\t\t\t\t\t\t\tvalue:\n\t\t\t\t\t\t\t\t\tconst: 1\n\t\t\t\t\t\t\t\t\n\t\t\tStep 7:\n\t\t\t\twait:\n\t\t\t\t\ttime:\n\t\t\t\t\t\t\t\tvalue:\n\t\t\t\t\t\t\t\t\tconst: 1.0\n\t\t\t\t\t\t\t\tunit: s\n\t\t\tStep 8:\n\t\t\t\tnetfunction:\n\t\t\t\t\tname: GenerateRemoveFailures\n\t\t\t\t\tclass: DiaFunctions.dttgFunctions\n\t\t\t\t\tparam:\n\t\t\t\t\t\t\t\ttype: Int32\n\t\t\t\t\t\t\t\tvalue:\n\t\t\t\t\t\t\t\t\tvariable: ECU\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\ttype: Int32\n\t\t\t\t\t\t\t\tvalue:\n\t\t\t\t\t\t\t\t\tvariable: DTC_1\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\ttype: Int32\n\t\t\t\t\t\t\t\tvalue:\n\t\t\t\t\t\t\t\t\tconst: 0\n\t\t\t\t\t\t\t\t\n\t\t\tStep 9:\n\t\t\t\twait:\n\t\t\t\t\ttime:\n\t\t\t\t\t\t\t\tvalue:\n\t\t\t\t\t\t\t\t\tconst: 1.0\n\t\t\t\t\t\t\t\tunit: s\n\t\t\tStep 10:\n\t\t\t\tnetfunction:\n\t\t\t\t\tname: ReadPrintDTCOnECU\n\t\t\t\t\tclass: DiaFunctions.dttgFunctions\n\t\t\t\t\tparam:\n\t\t\t\t\t\t\t\ttype: Int32\n\t\t\t\t\t\t\t\tvalue:\n\t\t\t\t\t\t\t\t\tconst: 0\n\t\t\tStep 11:\n\t\t\t\tnetfunction:\n\t\t\t\t\tname: ReadNrOfDTCsByStatusCheckOnECU\n\t\t\t\t\tclass: TestUDSService_0x19\n\t\t\t\t\tparam:\n\t\t\t\t\t\t\t\ttype: Int32\n\t\t\t\t\t\t\t\tvalue:\n\t\t\t\t\t\t\t\t\tvariable: ECU\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\ttype: enum\n\t\t\t\t\t\t\t\tvalue:\n\t\t\t\t\t\t\t\t\tvaluetable_entry: ByStatus\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\ttype: Int32\n\t\t\t\t\t\t\t\tvalue:\n\t\t\t\t\t\t\t\t\tconst: 0x2F\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\ttype: Int32\n\t\t\t\t\t\t\t\tvalue:\n\t\t\t\t\t\t\t\t\tconst: 0xFF\n\t\t\t\t\t\t\t\t\n\t\t\tStep 12:\n\t\t\t\tnetfunction:\n\t\t\t\t\tname: TesterPresentOnECU\n\t\t\t\t\tclass: BaseDiagnosticFunctionsOnECU\n\t\t\t\t\tparam:\n\t\t\t\t\t\t\t\ttype: Int32\n\t\t\t\t\t\t\t\tvalue:\n\t\t\t\t\t\t\t\t\tvariable: ECU\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\ttype: enum\n\t\t\t\t\t\t\t\tvalue:\n\t\t\t\t\t\t\t\t\tvaluetable_entry: False\n\t\t\t\t\t\t\t\t\n\t\t\tStep 13:\n\t\t\t\tnetfunction:\n\t\t\t\t\tname: GenerateRemoveFailures\n\t\t\t\t\tclass: DiaFunctions.dttgFunctions\n\t\t\t\t\tparam:\n\t\t\t\t\t\t\t\ttype: Int32\n\t\t\t\t\t\t\t\tvalue:\n\t\t\t\t\t\t\t\t\tvariable: ECU\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\ttype: Int32\n\t\t\t\t\t\t\t\tvalue:\n\t\t\t\t\t\t\t\t\tvariable: DTC_2\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\ttype: Int32\n\t\t\t\t\t\t\t\tvalue:\n\t\t\t\t\t\t\t\t\tconst: 0\n\t\t\t\t\t\t\t\t\n\t\t\tStep 14:\n\t\t\t\twait:\n\t\t\t\t\ttime:\n\t\t\t\t\t\t\t\tvalue:\n\t\t\t\t\t\t\t\t\tconst: 1.0\n\t\t\t\t\t\t\t\tunit: s\n\t\t\tStep 15:\n\t\t\t\tnetfunction:\n\t\t\t\t\tname: ClearDTCs\n\t\t\t\t\tclass: BaseDiagnosticFunctions\nStep 4:\n\tnetfunction:\n\t\tname: Completion\n\t\tclass: DiaFunctions.dttgFunctions",
+      "Automation Script": "",
+      "Foreign ID": "vTestStudio test case ID:\n\n21bf1a30-3771-4aec-8ea2-671267c00cd8",
+      "Legacy ID": "",
+      "Mapping List": "",
+      "RM DATA (DO NOT MODIFY)": "",
+      "Review Record [external]": "",
+      "Sample Size": "",
+      "Test Spec Structure": "",
+      "pvRestriction": ""
+    },
+    "tp_obj": {
+      "name": "",
+      "type": "None"
+    },
+    "ts_obj": {
+      "name": "",
+      "type": "None"
+    }
+  }
+]

@@ -1,0 +1,6 @@
+Name,ReadableID
+"Session transition Operation Condition Behavior
+Default -> extended DIA session control command
+vehicle speed < 10kph system suspended
+(Application suspended) extended -> default DIA
+session control co",10029005

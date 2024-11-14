@@ -1,0 +1,17 @@
+.table {
+  width: 100%;
+}
+
+.table td {
+  font-size: 11px !important;
+  padding: 0 !important;
+}
+
+.table td div {
+  overflow: hidden;
+}
+
+.table td div.expanded {
+  white-space: pre-wrap;
+  overflow: visible;
+}

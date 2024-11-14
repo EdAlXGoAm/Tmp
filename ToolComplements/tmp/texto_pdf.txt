@@ -1,0 +1,1021 @@
+Automatic_Control_DIAG
+Table Of Contents
+1 Test Execution Tree ........................................................................................................................................3
+2 Test Execution Tree Elements ........................................................................................................................6
+3 Reusable Functions......................................................................................................................................31
+1 Test Execution Tree
+  Setup (page 6)
+  BUS (page 6)
+  DIAG (page 6)
+     Start Diagnostic Session $10 (page 6)
+       Start Diagnostic Session Positive Tests (page 6)
+          _Session Transition (page 6)
+          The purpose of the test is to verify that the system is able to jump between sessions correctly.
+          _Session after Hard Reset (page 7)
+          The objective of this test case is to verify that the HECU shall always start in Default session
+          after a power on event
+          _Session after Power cycle (page 8)
+          The objective of this test case is to verify that the HECU shall always start in Default session
+          after a power on event
+          _Tester present not necessary in Default session (page 9)
+          The objective of this test case is to verify that the HECU does not require to receive Tester
+          Present in order to keep active Default session.
+          _DID_1081_Default session with suppressed response (page 9)
+          The goal of the test is to verify that the system is able to make a suppressed response.
+          _DID_1082_Programming session with suppressed response (page 10)
+          The goal of the test is to verify that the system is able to make a suppressed response.
+          _DID_1083_Extended session with suppressed response (page 10)
+          The goal of the test is to verify that the system is able to make a suppressed response.
+       Start Diagnostic Session Negative Tests (page 11)
+          _Service_10_NRC_88_Vehicle Speed Too High (page 11)
+          The purpose of the test is to verify that the system is able to jump between sessions correctly.
+          _Service_1082/3_NRC_88_Vehicle Speed Too High (page 12)
+          The purpose of the test is to verify that the system is able to jump between sessions correctly.
+          _Negative - Sessions not permitted (page 13)
+          The purpose of this TC is to check for non-allowed transitions
+          _Service_1002_NRC_13_Incorrect Message Length (page 13)
+          The goal of the test is to verify that the system is capable of responding with an NRC 13 when
+          necessary.
+          _Service_1003_NRC_13_Incorrect Message Length (page 14)
+          The goal of the test is to verify that the system is capable of responding with an NRC 13 when
+          necessary.
+          _Service_1001_NRC_13_Incorrect Message Length (page 14)
+          The goal of the test is to verify that the system is capable of responding with an NRC 13 when
+          necessary.
+          _Service_1082_NRC_13_Incorrect Message Length (page 15)
+          The goal of the test is to verify that the system is capable of responding with an NRC 13 when
+          necessary.
+          _Service_1083_NRC_13_Incorrect Message Length (page 16)
+          The goal of the test is to verify that the system is capable of responding with an NRC 13 when
+          necessary.
+          _Service_1081_NRC_13_Incorrect Message Length (page 16)
+          The goal of the test is to verify that the system is capable of responding with an NRC 13 when
+          necessary.
+          _Service_10_NRC_12_Sub Function Not Supported (page 17)
+          The goal of the test is to verify that the system is capable of responding with an NRC 12 when
+          necessary.
+     Tester Present $3E (page 17)
+       Tester Present Functionality Tests (page 17)
+          _0x3E - Tester Present in all sessions & functionality (page 17)
+          The goal of the test is to verify that the system is capable of responding with positive response in
+          all sessions.
+       Tester Present Negative Tests (page 18)
+          _3E - NRC_12_Sub Function Not Supported in Programming (page 19)
+          The goal of the test is to verify that the system is capable of responding with an NRC 12 when
+          necessary.
+          _3E - NRC_12_Sub Function Not Supported in Extended (page 19)
+          The goal of the test is to verify that the system is capable of responding with an NRC 12 when
+          necessary.
+          _3E - NRC_12_Sub Function Not Supported in Default (page 20)
+          The goal of the test is to verify that the system is capable of responding with an NRC 12 when
+          necessary.
+          _3E - NRC_13_Incorrect Message Length in Programming (page 20)
+          The goal of the test is to verify that the system is capable of responding with an NRC 13 when
+          necessary.
+          _3E - NRC_13_Incorrect Message Length in Extended (page 21)
+          The goal of the test is to verify that the system is capable of responding with an NRC 13 when
+          necessary.
+          _3E - NRC_13_Incorrect Message Length in Default (page 21)
+          The goal of the test is to verify that the system is capable of responding with an NRC 13 when
+          necessary.
+     ECU Reset $11 (page 22)
+       ECU Reset Positive Tests (page 22)
+          _11 in all Sessions (page 22)
+          The goal of the test is to verify that the system is capable of responding with positive response in
+          all sessions.
+          _11 01 - Hard Rest (page 23)
+          The goal of the test is to verify that the system is capable of using a Hard reset correctly.
+          _11 02 - Key Off On Reset (page 24)
+          The goal of the test is to verify that the system is capable of using a Key Off On Reset correctly.
+          _11 03 - Soft Reset (page 25)
+          The goal of the test is to verify that the system is capable of using a Soft Reset correctly.
+       ECU Reset Negative Tests (page 25)
+          _11 - NRC_12_Sub Function Not Supported (page 25)
+          The goal of the test is to verify that the system is capable of responding with an NRC 12 when
+          necessary.
+          _11 - NRC_13_Incorrect Message Length (page 26)
+          The goal of the test is to verify that the system is capable of responding with an NRC 13 when
+          necessary.
+          _11 01 - NRC_13_Incorrect Message Length (page 26)
+          The goal of the test is to verify that the system is capable of responding with an NRC 13 when
+          necessary.
+          _11 02 - NRC_13_Incorrect Message Length (page 27)
+          The goal of the test is to verify that the system is capable of responding with an NRC 13 when
+          necessary.
+          _11 03 - NRC_13_Incorrect Message Length (page 27)
+          The goal of the test is to verify that the system is capable of responding with an NRC 13 when
+          necessary.
+     Clear DTC Information $14 (page 28)
+       Clear DTC Information Positive Test (page 28)
+       Clear DTC Information Negative Test (page 28)
+     SAND BOXs (page 28)
+       Test Case (page 29)
+       Envio de dirección fisica (page 29)
+       NRC_13 (page 29)
+       _DID_10_NRC_12_Sub Function Not Supported (page 29)
+       TO TEST (page 30)
+       RAW_DID (page 30)
+       example (page 30)
+2.1 Setup
+2.2 BUS
+2.3 DIAG
+2.3.1 Start Diagnostic Session $10
+              DIAG
+  Start Diagnostic Session Positive Tests (page 6)
+  Start Diagnostic Session Negative Tests (page 11)
+2.3.1.1 Start Diagnostic Session Positive Tests
+              DIAG \ Start Diagnostic Session $10
+  _Session Transition (page 6)
+  _Session after Hard Reset (page 7)
+  _Session after Power cycle (page 8)
+  _Tester present not necessary in Default session (page 9)
+  _DID_1081_Default session with suppressed response (page 9)
+  _DID_1082_Programming session with suppressed response (page 10)
+  _DID_1083_Extended session with suppressed response (page 10)
+2.3.1.2 _Session Transition
+              DIAG \ Start Diagnostic Session $10 \ Start Diagnostic Session Positive Tests
+Test Case ID: 8678d1c6-e6bf-4f46-95b9-a9ba6d11a830
+The purpose of the test is to verify that the system is able to jump between sessions correctly.
+Trace Items
+[INICIO DE TABLA]
+Name Readable ID
+[INICIO DE TABLA]
+Session transition Operation Condition Behavior 10029005
+[INICIO DE TABLA]
+Default -> extended DIA session control command
+[INICIO DE TABLA]
+vehicle speed < 10kph system suspended
+[INICIO DE TABLA]
+(Application suspended) extended -> default DIA
+[INICIO DE TABLA]
+session control co
+Preparation
+Call System_ON () (page 32)
+Call Default_session () (page 33)
+Wait for 0.2 s
+Main Part
+For Each x in Speed_values
+ Preconditions to jump
+ Call Tester_present () (page 33)
+ Call Set_Speed (InitSpeed=0, EndSpeed=x.Speed_10, Time=1) (page 32)
+ Jump form Default to extended
+ Call Check_Default () (page 33)
+ Call Extendend_session () (page 33)
+ Call Check_Extended () (page 34)
+ Jump form Extended to Default
+ Call Default_session () (page 33)
+ Call Check_Default () (page 33)
+ Preconditions to jump
+ Call Tester_present () (page 33)
+ Call Set_Speed (InitSpeed=0, EndSpeed=x.Speed_1, Time=1) (page 32)
+ Jump form Extended to programming
+ Call Extendend_session () (page 33)
+ Call Check_Extended () (page 34)
+ Call Programming_session () (page 33)
+ Call Check_Programming () (page 33)
+ Jump form programming to default
+ Call Default_session () (page 33)
+ Call Check_Default () (page 33)
+Completion
+Call System_OFF () (page 32)
+2.3.1.3 _Session after Hard Reset
+              DIAG \ Start Diagnostic Session $10 \ Start Diagnostic Session Positive Tests
+Test Case ID: ae87d1a9-c4b8-49a9-9bb5-7111acd65240
+The objective of this test case is to verify that the HECU shall always start in Default session after a power on
+event
+Preparation
+Call System_ON () (page 32)
+Main Part
+Make a Hard Reset being in Default session
+Call Default_session () (page 33)
+Call Check_Default () (page 33)
+Send service Hard_Reset_Reset with request parameters and check response parameters
+Call Check_Default () (page 33)
+Make a Hard Reset being in Extended session
+Call Extendend_session () (page 33)
+Call Check_Extended () (page 34)
+Send service Hard_Reset_Reset with request parameters and check response parameters
+Call Check_Default () (page 33)
+Make a Hard Reset being in programming session
+Call Extendend_session () (page 33)
+Call Check_Extended () (page 34)
+Call Programming_session () (page 33)
+Call Check_Programming () (page 33)
+Send service Hard_Reset_Reset with request parameters and check response parameters
+Call Check_Default () (page 33)
+Completion
+Call System_OFF () (page 32)
+2.3.1.4 _Session after Power cycle
+              DIAG \ Start Diagnostic Session $10 \ Start Diagnostic Session Positive Tests
+Test Case ID: 0506d59c-d360-42f5-b61c-cc4bfc2f0e48
+The objective of this test case is to verify that the HECU shall always start in Default session after a power on
+event
+Preparation
+Call System_ON () (page 32)
+Main Part
+Make a Power Cycle being in Default session
+Call Default_session () (page 33)
+Call Check_Default () (page 33)
+Call Power_Cycle () (page 34)
+Call Check_Default () (page 33)
+Make a Power Cycle being in Extended session
+Call Extendend_session () (page 33)
+Call Check_Extended () (page 34)
+Call Power_Cycle () (page 34)
+Call Check_Default () (page 33)
+Make a Power Cycle being in programming session
+Call Extendend_session () (page 33)
+Call Check_Extended () (page 34)
+Call Programming_session () (page 33)
+Call Check_Programming () (page 33)
+Call Power_Cycle () (page 34)
+Call Check_Default () (page 33)
+Completion
+Call System_OFF () (page 32)
+2.3.1.5 _Tester present not necessary in Default session
+              DIAG \ Start Diagnostic Session $10 \ Start Diagnostic Session Positive Tests
+Test Case ID: 2be607b7-7345-4e69-88f8-30d6a5392dcf
+The objective of this test case is to verify that the HECU does not require to receive Tester Present in order
+to keep active Default session.
+Preparation
+Call System_ON () (page 32)
+Main Part
+Call Default_session () (page 33)
+Call Check_Default () (page 33)
+Wait, to verify that the system does not exit the session, having the tester present turned off
+Wait for 10000 ms
+Call Check_Default () (page 33)
+Completion
+Call System_OFF () (page 32)
+2.3.1.6 _DID_1081_Default session with suppressed response
+              DIAG \ Start Diagnostic Session $10 \ Start Diagnostic Session Positive Tests
+Test Case ID: 58d3bffe-f4e2-4c6f-9ba4-a6423c620549
+The goal of the test is to verify that the system is able to make a suppressed response.
+Preparation
+Call System_ON () (page 32)
+Main Part
+Send 1081 to Suppress response
+Call Suppressed_Response_2Bytes (byte0=0x10, byte1=0x81) (page 34)
+Call Check_Default () (page 33)
+Completion
+Call System_OFF () (page 32)
+2.3.1.7 _DID_1082_Programming session with suppressed response
+              DIAG \ Start Diagnostic Session $10 \ Start Diagnostic Session Positive Tests
+Test Case ID: 8122d33d-e57b-42df-9afd-4c1bda9bd03b
+The goal of the test is to verify that the system is able to make a suppressed response.
+Preparation
+Call System_ON () (page 32)
+Main Part
+Send 1081 to Suppress response
+Call Default_session () (page 33)
+Call Extendend_session () (page 33)
+Call Suppressed_Response_2Bytes (byte0=0x10, byte1=0x82) (page 34)
+Call Check_Programming () (page 33)
+Completion
+Call System_OFF () (page 32)
+2.3.1.8 _DID_1083_Extended session with suppressed response
+              DIAG \ Start Diagnostic Session $10 \ Start Diagnostic Session Positive Tests
+Test Case ID: 3ece0d3a-4cec-4888-850d-d5254855b49d
+The goal of the test is to verify that the system is able to make a suppressed response.
+Preparation
+Call System_ON () (page 32)
+Main Part
+Send 1081 to Suppress response
+Call Default_session () (page 33)
+Call Suppressed_Response_2Bytes (byte0=0x10, byte1=0x83) (page 34)
+Call Check_Extended () (page 34)
+Completion
+Call System_OFF () (page 32)
+2.3.1.9 Start Diagnostic Session Negative Tests
+              DIAG \ Start Diagnostic Session $10
+  _Service_10_NRC_88_Vehicle Speed Too High (page 11)
+  _Service_1082/3_NRC_88_Vehicle Speed Too High (page 12)
+  _Negative - Sessions not permitted (page 13)
+  _Service_1002_NRC_13_Incorrect Message Length (page 13)
+  _Service_1003_NRC_13_Incorrect Message Length (page 14)
+  _Service_1001_NRC_13_Incorrect Message Length (page 14)
+  _Service_1082_NRC_13_Incorrect Message Length (page 15)
+  _Service_1083_NRC_13_Incorrect Message Length (page 16)
+  _Service_1081_NRC_13_Incorrect Message Length (page 16)
+  _Service_10_NRC_12_Sub Function Not Supported (page 17)
+2.3.1.10 _Service_10_NRC_88_Vehicle Speed Too High
+              DIAG \ Start Diagnostic Session $10 \ Start Diagnostic Session Negative Tests
+Test Case ID: 6da459e4-98d3-448b-8a07-3af76c655471
+The purpose of the test is to verify that the system is able to jump between sessions correctly.
+Preparation
+Call System_ON () (page 32)
+Call Default_session () (page 33)
+Wait for 0.2 s
+Main Part
+For Each x in Speed_values
+ Preconditions to jump
+ Call Tester_present () (page 33)
+ Call Set_Speed (InitSpeed=0, EndSpeed=x.Neg_Speed_10, Time=1) (page 32)
+ Jump form Default to extended
+ Call Check_Default () (page 33)
+ Send service ExtendedDiagnosticSession_Start with request parameters and check response parameters
+ RC==0x88
+ Call Check_Default () (page 33)
+ Preconditions to jump
+ Call Tester_present () (page 33)
+ Set speed to suport extended but not programming
+ Call Set_Speed (InitSpeed=0, EndSpeed=x.Neg_Speed_1, Time=1) (page 32)
+ Jump form Extended to programming
+ Call Extendend_session () (page 33)
+ Call Check_Extended () (page 34)
+ Send service ProgrammingSession_Start with request parameters and check response parameters
+ RC==0x88
+ Call Check_Extended () (page 34)
+Completion
+Call System_OFF () (page 32)
+2.3.1.11 _Service_1082/3_NRC_88_Vehicle Speed Too High
+              DIAG \ Start Diagnostic Session $10 \ Start Diagnostic Session Negative Tests
+Test Case ID: 1a4115e3-ac5d-4c54-b203-db6103d3f90b
+The purpose of the test is to verify that the system is able to jump between sessions correctly.
+Preparation
+Call System_ON () (page 32)
+Call Default_session () (page 33)
+Wait for 0.2 s
+Main Part
+For Each x in Speed_values
+ Preconditions to jump
+ Call Tester_present () (page 33)
+ Call Set_Speed (InitSpeed=0, EndSpeed=x.Neg_Speed_10, Time=1) (page 32)
+ Jump form Default to extended
+ Call Check_Default () (page 33)
+ Send service ExtendedDiagnosticSession_Start with request parameters DiagSessionType=0x83 and
+ check response parameters RC==0x88
+ Call Check_Default () (page 33)
+ Preconditions to jump
+ Call Tester_present () (page 33)
+ Set speed to suport extended but not programming
+ Call Set_Speed (InitSpeed=0, EndSpeed=x.Neg_Speed_1, Time=1) (page 32)
+ Jump form Extended to programming
+ Call Extendend_session () (page 33)
+ Call Check_Extended () (page 34)
+ Send service ProgrammingSession_Start with request parameters DiagSessionType=0x82 and check
+ response parameters RC==0x88
+ Call Check_Extended () (page 34)
+Completion
+Call System_OFF () (page 32)
+2.3.1.12 _Negative - Sessions not permitted
+              DIAG \ Start Diagnostic Session $10 \ Start Diagnostic Session Negative Tests
+Test Case ID: 996d3b65-0862-44da-b7d5-20b55193fd9e
+The purpose of this TC is to check for non-allowed transitions
+Preparation
+Call System_ON () (page 32)
+Wait for 0.2 s
+Main Part
+Jump from default to programming session
+Call Default_session () (page 33)
+Call Check_Default () (page 33)
+Call Check_Default () (page 33)
+Verify that the system should remain in default session
+Send service ProgrammingSession_Start with request parameters and check response parameters
+RC==0x7E
+Jump from programming to extended
+Call Extendend_session () (page 33)
+Call Programming_session () (page 33)
+Call Check_Programming () (page 33)
+Send service ExtendedDiagnosticSession_Start with request parameters and check response parameters
+RC==0x7E
+Verify that the system should remain in programming session
+Call Check_Programming () (page 33)
+Completion
+Call System_OFF () (page 32)
+2.3.1.13 _Service_1002_NRC_13_Incorrect Message Length
+              DIAG \ Start Diagnostic Session $10 \ Start Diagnostic Session Negative Tests
+Test Case ID: 3381f17c-558a-4d77-8c54-fae50dd9e935
+The goal of the test is to verify that the system is capable of responding with an NRC 13 when necessary.
+Preparation
+Call System_ON () (page 32)
+Main Part
+Call Default_session () (page 33)
+Wait for 0.2 s
+Set <symbols> and send DIAG3_18DA0BF9 with byte[0]=0x3, byte[1]=0x10, byte[2]=0x2, byte[3]=0xFF.
+Check all of <symbols> and DIAG3_18DAF90B with byte[0]==0x3, byte[1]==0x7F, byte[2]==0x10,
+byte[3]==0x13 received with timeout 3000 ms
+Wait for 0.2 s
+Set <symbols> and send DIAG3_18DA0BF9 with byte[0]=0x1, byte[1]=0x10. Check all of <symbols> and
+DIAG3_18DAF90B with byte[0]==0x3, byte[1]==0x7F, byte[2]==0x10, byte[3]==0x13 received with timeout
+3000 ms
+Call Check_Default () (page 33)
+Completion
+Call System_OFF () (page 32)
+2.3.1.14 _Service_1003_NRC_13_Incorrect Message Length
+              DIAG \ Start Diagnostic Session $10 \ Start Diagnostic Session Negative Tests
+Test Case ID: ae8ce554-f417-47e6-8bf8-8db387cce440
+The goal of the test is to verify that the system is capable of responding with an NRC 13 when necessary.
+Preparation
+Call System_ON () (page 32)
+Main Part
+Call Default_session () (page 33)
+Wait for 0.2 s
+Set <symbols> and send DIAG3_18DA0BF9 with byte[0]=0x3, byte[1]=0x10, byte[2]=0x3, byte[3]=0xFF.
+Check all of <symbols> and DIAG3_18DAF90B with byte[0]==0x3, byte[1]==0x7F, byte[2]==0x10,
+byte[3]==0x13 received with timeout 3000 ms
+Wait for 0.2 s
+Set <symbols> and send DIAG3_18DA0BF9 with byte[0]=0x1, byte[1]=0x10. Check all of <symbols> and
+DIAG3_18DAF90B with byte[0]==0x3, byte[1]==0x7F, byte[2]==0x10, byte[3]==0x13 received with timeout
+3000 ms
+Call Check_Default () (page 33)
+Completion
+Call System_OFF () (page 32)
+2.3.1.15 _Service_1001_NRC_13_Incorrect Message Length
+              DIAG \ Start Diagnostic Session $10 \ Start Diagnostic Session Negative Tests
+Test Case ID: ac54c396-1bf8-43cc-9619-f2457e6ccbb1
+The goal of the test is to verify that the system is capable of responding with an NRC 13 when necessary.
+Preparation
+Call System_ON () (page 32)
+Main Part
+Call Default_session () (page 33)
+Wait for 0.2 s
+Set <symbols> and send DIAG3_18DA0BF9 with byte[0]=0x3, byte[1]=0x10, byte[2]=0x1, byte[3]=0xFF.
+Check all of <symbols> and DIAG3_18DAF90B with byte[0]==0x3, byte[1]==0x7F, byte[2]==0x10,
+byte[3]==0x13 received with timeout 3000 ms
+Wait for 0.2 s
+Set <symbols> and send DIAG3_18DA0BF9 with byte[0]=0x1, byte[1]=0x10. Check all of <symbols> and
+DIAG3_18DAF90B with byte[0]==0x3, byte[1]==0x7F, byte[2]==0x10, byte[3]==0x13 received with timeout
+3000 ms
+Call Check_Default () (page 33)
+Completion
+Call System_OFF () (page 32)
+2.3.1.16 _Service_1082_NRC_13_Incorrect Message Length
+              DIAG \ Start Diagnostic Session $10 \ Start Diagnostic Session Negative Tests
+Test Case ID: 6e85c5cf-5e92-444b-be0c-232735ed6d86
+The goal of the test is to verify that the system is capable of responding with an NRC 13 when necessary.
+Preparation
+Call System_ON () (page 32)
+Main Part
+Call Default_session () (page 33)
+Wait for 0.2 s
+Call Extendend_session () (page 33)
+Wait for 0.2 s
+Set <symbols> and send DIAG3_18DA0BF9 with byte[0]=0x3, byte[1]=0x10, byte[2]=0x82, byte[3]=0xFF.
+Check all of <symbols> and DIAG3_18DAF90B with byte[0]==0x3, byte[1]==0x7F, byte[2]==0x10,
+byte[3]==0x13 received with timeout 3000 ms
+Wait for 0.2 s
+Call Check_Extended () (page 34)
+Completion
+Call System_OFF () (page 32)
+2.3.1.17 _Service_1083_NRC_13_Incorrect Message Length
+              DIAG \ Start Diagnostic Session $10 \ Start Diagnostic Session Negative Tests
+Test Case ID: b0617e2f-2eb3-4851-80e1-b8229f84dc0d
+The goal of the test is to verify that the system is capable of responding with an NRC 13 when necessary.
+Preparation
+Call System_ON () (page 32)
+Main Part
+Call Default_session () (page 33)
+Wait for 0.2 s
+Set <symbols> and send DIAG3_18DA0BF9 with byte[0]=0x3, byte[1]=0x10, byte[2]=0x83, byte[3]=0xFF.
+Check all of <symbols> and DIAG3_18DAF90B with byte[0]==0x3, byte[1]==0x7F, byte[2]==0x10,
+byte[3]==0x13 received with timeout 3000 ms
+Wait for 0.2 s
+Call Check_Default () (page 33)
+Completion
+Call System_OFF () (page 32)
+2.3.1.18 _Service_1081_NRC_13_Incorrect Message Length
+              DIAG \ Start Diagnostic Session $10 \ Start Diagnostic Session Negative Tests
+Test Case ID: 6558a0fb-fb8f-409a-b98d-a03b3ca45004
+The goal of the test is to verify that the system is capable of responding with an NRC 13 when necessary.
+Preparation
+Call System_ON () (page 32)
+Main Part
+Call Default_session () (page 33)
+Wait for 0.2 s
+Set <symbols> and send DIAG3_18DA0BF9 with byte[0]=0x3, byte[1]=0x10, byte[2]=0x81, byte[3]=0xFF.
+Check all of <symbols> and DIAG3_18DAF90B with byte[0]==0x3, byte[1]==0x7F, byte[2]==0x10,
+byte[3]==0x13 received with timeout 3000 ms
+Wait for 0.2 s
+Call Check_Default () (page 33)
+Completion
+Call System_OFF () (page 32)
+2.3.1.19 _Service_10_NRC_12_Sub Function Not Supported
+              DIAG \ Start Diagnostic Session $10 \ Start Diagnostic Session Negative Tests
+Test Case ID: c6424980-5d30-4cf3-b884-e4295d50a515
+The goal of the test is to verify that the system is capable of responding with an NRC 12 when necessary.
+Preparation
+Call System_ON () (page 32)
+Main Part
+Call Default_session () (page 33)
+Wait for 0.5 s
+For x=0..255, increment=1
+ 129 --> 0x81, 130 --> 0x82, 131 --> 0x83
+ If ( ( x!=1 ) AND ( x!=2 ) AND ( x!=3 ) AND ( x!=129 ) AND ( x!=130 ) AND ( x!=131 ) )
+  Set <symbols> and send DIAG3_18DA0BF9 with byte[0]=0x2, byte[1]=0x10, byte[2]=x. Check all of
+  <symbols> and DIAG3_18DAF90B with byte[0]==0x3, byte[1]==0x7F, byte[2]==0x10, byte[3]==0x12
+  received with timeout 200 ms
+  Wait for 0.1 s
+Completion
+Call System_OFF () (page 32)
+2.3.2 Tester Present $3E
+              DIAG
+  Tester Present Functionality Tests (page 17)
+  Tester Present Negative Tests (page 18)
+2.3.2.1 Tester Present Functionality Tests
+              DIAG \ Tester Present $3E
+  _0x3E - Tester Present in all sessions & functionality (page 17)
+2.3.2.2 _0x3E - Tester Present in all sessions & functionality
+              DIAG \ Tester Present $3E \ Tester Present Functionality Tests
+Test Case ID: 078e42f3-4b38-4e70-b504-24cfb90b17d4
+The goal of the test is to verify that the system is capable of responding with positive response in all
+sessions.
+Preparation
+Call System_ON () (page 32)
+Main Part
+Testing Tester present in Default Session
+Call Default_session () (page 33)
+Send service TesterPresent_Send with request parameters and check response parameters
+Testing Tester present in Extended Session
+Call Extendend_session () (page 33)
+Send service TesterPresent_Send with request parameters and check response parameters
+Wait for 2000 ms
+Send service TesterPresent_Send with request parameters and check response parameters
+Wait for 2000 ms
+Send service TesterPresent_Send with request parameters and check response parameters
+Wait for 2000 ms
+Send service TesterPresent_Send with request parameters and check response parameters
+Call Check_Extended () (page 34)
+Testing Tester present in programming Session
+Call Programming_session () (page 33)
+Send service TesterPresent_Send with request parameters and check response parameters
+Wait for 2000 ms
+Send service TesterPresent_Send with request parameters and check response parameters
+Wait for 2000 ms
+Send service TesterPresent_Send with request parameters and check response parameters
+Wait for 2000 ms
+Send service TesterPresent_Send with request parameters and check response parameters
+Call Check_Programming () (page 33)
+Completion
+Call System_OFF () (page 32)
+2.3.2.3 Tester Present Negative Tests
+              DIAG \ Tester Present $3E
+  _3E - NRC_12_Sub Function Not Supported in Programming (page 19)
+  _3E - NRC_12_Sub Function Not Supported in Extended (page 19)
+  _3E - NRC_12_Sub Function Not Supported in Default (page 20)
+  _3E - NRC_13_Incorrect Message Length in Programming (page 20)
+  _3E - NRC_13_Incorrect Message Length in Extended (page 21)
+  _3E - NRC_13_Incorrect Message Length in Default (page 21)
+2.3.2.4 _3E - NRC_12_Sub Function Not Supported in Programming
+              DIAG \ Tester Present $3E \ Tester Present Negative Tests
+Test Case ID: 1da184b7-5028-4958-bccf-daf94d9e095f
+The goal of the test is to verify that the system is capable of responding with an NRC 12 when necessary.
+Preparation
+Call System_ON () (page 32)
+Main Part
+Call Default_session () (page 33)
+Call Extendend_session () (page 33)
+Call Programming_session () (page 33)
+Wait for 0.5 s
+For x=0..255, increment=1
+ 129 --> 0x81, 130 --> 0x82, 131 --> 0x83
+ If ( ( x!=1 ) AND ( x!=2 ) AND ( x!=3 ) AND ( x!=129 ) AND ( x!=130 ) AND ( x!=131 ) )
+  Set <symbols> and send DIAG3_18DA0BF9 with byte[0]=0x2, byte[1]=0x3E, byte[2]=x. Check all of
+  <symbols> and DIAG3_18DAF90B with byte[0]==0x3, byte[1]==0x7F, byte[2]==0x10, byte[3]==0x12
+  received with timeout 200 ms
+  Wait for 0.1 s
+Completion
+Call System_OFF () (page 32)
+2.3.2.5 _3E - NRC_12_Sub Function Not Supported in Extended
+              DIAG \ Tester Present $3E \ Tester Present Negative Tests
+Test Case ID: 766f9ef3-6d14-4bba-888a-1fbe2430aa64
+The goal of the test is to verify that the system is capable of responding with an NRC 12 when necessary.
+Preparation
+Call System_ON () (page 32)
+Main Part
+Call Default_session () (page 33)
+Call Extendend_session () (page 33)
+Wait for 0.5 s
+For x=0..255, increment=1
+ 129 --> 0x81, 130 --> 0x82, 131 --> 0x83
+ If ( ( x!=1 ) AND ( x!=2 ) AND ( x!=3 ) AND ( x!=129 ) AND ( x!=130 ) AND ( x!=131 ) )
+  Set <symbols> and send DIAG3_18DA0BF9 with byte[0]=0x2, byte[1]=0x3E, byte[2]=x. Check all of
+  <symbols> and DIAG3_18DAF90B with byte[0]==0x3, byte[1]==0x7F, byte[2]==0x10, byte[3]==0x12
+  received with timeout 200 ms
+  Wait for 0.1 s
+Completion
+Call System_OFF () (page 32)
+2.3.2.6 _3E - NRC_12_Sub Function Not Supported in Default
+              DIAG \ Tester Present $3E \ Tester Present Negative Tests
+Test Case ID: 492066f9-0890-4ed0-a6c9-61705ca76bf2
+The goal of the test is to verify that the system is capable of responding with an NRC 12 when necessary.
+Preparation
+Call System_ON () (page 32)
+Main Part
+Call Default_session () (page 33)
+Wait for 0.5 s
+For x=0..255, increment=1
+ 129 --> 0x81, 130 --> 0x82, 131 --> 0x83
+ If ( ( x!=1 ) AND ( x!=2 ) AND ( x!=3 ) AND ( x!=129 ) AND ( x!=130 ) AND ( x!=131 ) )
+  Set <symbols> and send DIAG3_18DA0BF9 with byte[0]=0x2, byte[1]=0x10, byte[2]=x. Check all of
+  <symbols> and DIAG3_18DAF90B with byte[0]==0x3, byte[1]==0x7F, byte[2]==0x10, byte[3]==0x12
+  received with timeout 200 ms
+  Wait for 0.1 s
+Completion
+Call System_OFF () (page 32)
+2.3.2.7 _3E - NRC_13_Incorrect Message Length in Programming
+              DIAG \ Tester Present $3E \ Tester Present Negative Tests
+Test Case ID: daee5ada-aa6a-4b53-995c-86538343ca28
+The goal of the test is to verify that the system is capable of responding with an NRC 13 when necessary.
+Preparation
+Call System_ON () (page 32)
+Main Part
+Call Default_session () (page 33)
+Call Extendend_session () (page 33)
+Call Programming_session () (page 33)
+Wait for 0.2 s
+Set <symbols> and send DIAG3_18DA0BF9 with byte[0]=0x1, byte[1]=0x3E. Check all of <symbols> and
+DIAG3_18DAF90B with byte[0]==0x3, byte[1]==0x7F, byte[2]==0x11, byte[3]==0x13 received with timeout
+1000 ms
+Wait for 0.2 s
+Set <symbols> and send DIAG3_18DA0BF9 with byte[0]=0x3, byte[1]=0x3E, byte[2]=0x0, byte[3]=0xFF.
+Check all of <symbols> and DIAG3_18DAF90B with byte[0]==0x3, byte[1]==0x7F, byte[2]==0x11,
+byte[3]==0x13 received with timeout 1000 ms
+Call Check_Programming () (page 33)
+Completion
+Call System_OFF () (page 32)
+2.3.2.8 _3E - NRC_13_Incorrect Message Length in Extended
+              DIAG \ Tester Present $3E \ Tester Present Negative Tests
+Test Case ID: 0033834b-8883-411e-8647-75db1f6cac3e
+The goal of the test is to verify that the system is capable of responding with an NRC 13 when necessary.
+Preparation
+Call System_ON () (page 32)
+Main Part
+Call Default_session () (page 33)
+Call Extendend_session () (page 33)
+Wait for 0.2 s
+Set <symbols> and send DIAG3_18DA0BF9 with byte[0]=0x1, byte[1]=0x3E. Check all of <symbols> and
+DIAG3_18DAF90B with byte[0]==0x3, byte[1]==0x7F, byte[2]==0x11, byte[3]==0x13 received with timeout
+1000 ms
+Wait for 0.2 s
+Set <symbols> and send DIAG3_18DA0BF9 with byte[0]=0x3, byte[1]=0x3E, byte[2]=0x0, byte[3]=0xFF.
+Check all of <symbols> and DIAG3_18DAF90B with byte[0]==0x3, byte[1]==0x7F, byte[2]==0x11,
+byte[3]==0x13 received with timeout 1000 ms
+Call Check_Extended () (page 34)
+Completion
+Call System_OFF () (page 32)
+2.3.2.9 _3E - NRC_13_Incorrect Message Length in Default
+              DIAG \ Tester Present $3E \ Tester Present Negative Tests
+Test Case ID: 26d197e8-e855-4f16-9a80-e9ea0856a46d
+The goal of the test is to verify that the system is capable of responding with an NRC 13 when necessary.
+Preparation
+Call System_ON () (page 32)
+Main Part
+Call Default_session () (page 33)
+Wait for 0.2 s
+Set <symbols> and send DIAG3_18DA0BF9 with byte[0]=0x1, byte[1]=0x3E. Check all of <symbols> and
+DIAG3_18DAF90B with byte[0]==0x3, byte[1]==0x7F, byte[2]==0x11, byte[3]==0x13 received with timeout
+1000 ms
+Wait for 0.2 s
+Set <symbols> and send DIAG3_18DA0BF9 with byte[0]=0x3, byte[1]=0x3E, byte[2]=0x0, byte[3]=0xFF.
+Check all of <symbols> and DIAG3_18DAF90B with byte[0]==0x3, byte[1]==0x7F, byte[2]==0x11,
+byte[3]==0x13 received with timeout 1000 ms
+Call Check_Default () (page 33)
+Completion
+Call System_OFF () (page 32)
+2.3.3 ECU Reset $11
+              DIAG
+  ECU Reset Positive Tests (page 22)
+  ECU Reset Negative Tests (page 25)
+2.3.3.1 ECU Reset Positive Tests
+              DIAG \ ECU Reset $11
+  _11 in all Sessions (page 22)
+  _11 01 - Hard Rest (page 23)
+  _11 02 - Key Off On Reset (page 24)
+  _11 03 - Soft Reset (page 25)
+2.3.3.2 _11 in all Sessions
+              DIAG \ ECU Reset $11 \ ECU Reset Positive Tests
+Test Case ID: 4f65af18-2818-44af-ad9c-92a7f1f57541
+The goal of the test is to verify that the system is capable of responding with positive response in all
+sessions.
+Preparation
+Call System_ON () (page 32)
+Main Part
+Call Default_session () (page 33)
+Testing Resets in Default Session
+Send service Hard_Reset_Reset with request parameters and check response parameters
+Wait for 1000 ms
+Send service Key_Off_On_Reset with request parameters and check response parameters
+Wait for 1000 ms
+Send service Soft_Reset_Reset with request parameters and check response parameters
+Testing Resets in Extended Session
+Call Extendend_session () (page 33)
+Send service Hard_Reset_Reset with request parameters and check response parameters
+Wait for 1000 ms
+Call Extendend_session () (page 33)
+Send service Key_Off_On_Reset with request parameters and check response parameters
+Wait for 1000 ms
+Call Extendend_session () (page 33)
+Send service Soft_Reset_Reset with request parameters and check response parameters
+Wait for 1000 ms
+Testing Resets in programming Session
+Call Extendend_session () (page 33)
+Call Programming_session () (page 33)
+Send service Hard_Reset_Reset with request parameters and check response parameters
+Wait for 1000 ms
+Call Extendend_session () (page 33)
+Call Programming_session () (page 33)
+Send service Key_Off_On_Reset with request parameters and check response parameters
+Wait for 1000 ms
+Call Extendend_session () (page 33)
+Call Programming_session () (page 33)
+Send service Soft_Reset_Reset with request parameters and check response parameters
+Wait for 1000 ms
+Completion
+Call System_OFF () (page 32)
+2.3.3.3 _11 01 - Hard Rest
+              DIAG \ ECU Reset $11 \ ECU Reset Positive Tests
+Test Case ID: 877a1952-49a7-4343-9b11-ded020cf5f37
+The goal of the test is to verify that the system is capable of using a Hard reset correctly.
+Preparation
+Call System_ON () (page 32)
+Main Part
+Check that the system goes to default session after a reset while in default session
+Call Default_session () (page 33)
+Send service Hard_Reset_Reset with request parameters and check response parameters
+Wait for 1000 ms
+Call Check_Default () (page 33)
+Check that the system goes to default session after a reset while in extended session
+Call Default_session () (page 33)
+Wait for 200 ms
+Call Extendend_session () (page 33)
+Call Extendend_session () (page 33)
+Call Check_Extended () (page 34)
+Send service Hard_Reset_Reset with request parameters and check response parameters
+Wait for 1000 ms
+Call Check_Default () (page 33)
+Check that the system goes to default session after a reset while in programming session
+Call Extendend_session () (page 33)
+Wait for 200 ms
+Call Programming_session () (page 33)
+Call Check_Programming () (page 33)
+Call Check_Programming () (page 33)
+Send service Hard_Reset_Reset with request parameters and check response parameters
+Wait for 1000 ms
+Call Check_Default () (page 33)
+Completion
+Call System_OFF () (page 32)
+2.3.3.4 _11 02 - Key Off On Reset
+              DIAG \ ECU Reset $11 \ ECU Reset Positive Tests
+Test Case ID: c80f4294-1a5a-4706-913a-129726d67ad5
+The goal of the test is to verify that the system is capable of using a Key Off On Reset correctly.
+Preparation
+Call System_ON () (page 32)
+Main Part
+Call Default_session () (page 33)
+Set <symbols> and send DIAG3_18DA0BF9 with byte[0]=0x2, byte[1]=0x11, byte[2]=0x2. Check all of
+<symbols> and DIAG3_18DAF90B with byte[0]==0x2, byte[1]==0x51, byte[2]==0x2 received with timeout
+200 ms
+Send service Key_Off_On_Reset with request parameters and check response parameters
+Completion
+Call System_OFF () (page 32)
+2.3.3.5 _11 03 - Soft Reset
+              DIAG \ ECU Reset $11 \ ECU Reset Positive Tests
+Test Case ID: 29eee402-e1ff-4ed3-ba94-91b0b77ca0a9
+The goal of the test is to verify that the system is capable of using a Soft Reset correctly.
+Preparation
+Call System_ON () (page 32)
+Main Part
+Call Default_session () (page 33)
+Send service Soft_Reset_Reset with request parameters and check response parameters
+Completion
+Call System_OFF () (page 32)
+2.3.3.6 ECU Reset Negative Tests
+              DIAG \ ECU Reset $11
+  _11 - NRC_12_Sub Function Not Supported (page 25)
+  _11 - NRC_13_Incorrect Message Length (page 26)
+  _11 01 - NRC_13_Incorrect Message Length (page 26)
+  _11 02 - NRC_13_Incorrect Message Length (page 27)
+  _11 03 - NRC_13_Incorrect Message Length (page 27)
+2.3.3.7 _11 - NRC_12_Sub Function Not Supported
+              DIAG \ ECU Reset $11 \ ECU Reset Negative Tests
+Test Case ID: 3a72e4f7-83fc-4d56-85a9-1b822f12e2c8
+The goal of the test is to verify that the system is capable of responding with an NRC 12 when necessary.
+Preparation
+Call System_ON () (page 32)
+Main Part
+Call Default_session () (page 33)
+Wait for 0.5 s
+For x=0..255, increment=1
+ 129 --> 0x81, 130 --> 0x82, 131 --> 0x83
+ If ( ( x!=1 ) AND ( x!=2 ) AND ( x!=3 ) AND ( x!=129 ) AND ( x!=130 ) AND ( x!=131 ) )
+  Set <symbols> and send DIAG3_18DA0BF9 with byte[0]=0x2, byte[1]=0x10, byte[2]=x. Check all of
+  <symbols> and DIAG3_18DAF90B with byte[0]==0x3, byte[1]==0x7F, byte[2]==0x10, byte[3]==0x12
+  received with timeout 200 ms
+  Wait for 0.1 s
+Completion
+Call System_OFF () (page 32)
+2.3.3.8 _11 - NRC_13_Incorrect Message Length
+              DIAG \ ECU Reset $11 \ ECU Reset Negative Tests
+Test Case ID: c59cea3b-1997-41fe-8941-9c1078b870d5
+The goal of the test is to verify that the system is capable of responding with an NRC 13 when necessary.
+Preparation
+Call System_ON () (page 32)
+Main Part
+Call Default_session () (page 33)
+Call Extendend_session () (page 33)
+Wait for 0.2 s
+Set <symbols> and send DIAG3_18DA0BF9 with byte[0]=0x1, byte[1]=0x11. Check all of <symbols> and
+DIAG3_18DAF90B with byte[0]==0x3, byte[1]==0x7F, byte[2]==0x11, byte[3]==0x13 received with timeout
+1000 ms
+Wait for 0.2 s
+Call Check_Extended () (page 34)
+Completion
+Call System_OFF () (page 32)
+2.3.3.9 _11 01 - NRC_13_Incorrect Message Length
+              DIAG \ ECU Reset $11 \ ECU Reset Negative Tests
+Test Case ID: 0ed71531-eb19-42ac-9ac9-390be3265e9e
+The goal of the test is to verify that the system is capable of responding with an NRC 13 when necessary.
+Preparation
+Call System_ON () (page 32)
+Main Part
+Call Default_session () (page 33)
+Call Extendend_session () (page 33)
+Wait for 0.2 s
+Set <symbols> and send DIAG3_18DA0BF9 with byte[0]=0x3, byte[1]=0x11, byte[2]=0x1, byte[3]=0xFF.
+Check all of <symbols> and DIAG3_18DAF90B with byte[0]==0x3, byte[1]==0x7F, byte[2]==0x11,
+byte[3]==0x13 received with timeout 1000 ms
+Wait for 0.2 s
+Call Extendend_session () (page 33)
+Completion
+Call System_OFF () (page 32)
+2.3.3.10 _11 02 - NRC_13_Incorrect Message Length
+              DIAG \ ECU Reset $11 \ ECU Reset Negative Tests
+Test Case ID: fff904ae-b866-4db0-83dc-010235a5e57a
+The goal of the test is to verify that the system is capable of responding with an NRC 13 when necessary.
+Preparation
+Call System_ON () (page 32)
+Main Part
+Call Default_session () (page 33)
+Call Extendend_session () (page 33)
+Wait for 0.2 s
+Set <symbols> and send DIAG3_18DA0BF9 with byte[0]=0x3, byte[1]=0x11, byte[2]=0x2, byte[3]=0xFF.
+Check all of <symbols> and DIAG3_18DAF90B with byte[0]==0x3, byte[1]==0x7F, byte[2]==0x11,
+byte[3]==0x13 received with timeout 1000 ms
+Wait for 0.2 s
+Call Extendend_session () (page 33)
+Completion
+Call System_OFF () (page 32)
+2.3.3.11 _11 03 - NRC_13_Incorrect Message Length
+              DIAG \ ECU Reset $11 \ ECU Reset Negative Tests
+Test Case ID: 48696385-16a6-40cd-86c7-70e6ed43da74
+The goal of the test is to verify that the system is capable of responding with an NRC 13 when necessary.
+Preparation
+Call System_ON () (page 32)
+Main Part
+Call Default_session () (page 33)
+Call Extendend_session () (page 33)
+Wait for 0.2 s
+Set <symbols> and send DIAG3_18DA0BF9 with byte[0]=0x3, byte[1]=0x11, byte[2]=0x3, byte[3]=0xFF.
+Check all of <symbols> and DIAG3_18DAF90B with byte[0]==0x3, byte[1]==0x7F, byte[2]==0x11,
+byte[3]==0x13 received with timeout 1000 ms
+Wait for 0.2 s
+Call Extendend_session () (page 33)
+Completion
+Call System_OFF () (page 32)
+2.3.4 Clear DTC Information $14
+              DIAG
+  Clear DTC Information Positive Test (page 28)
+  Clear DTC Information Negative Test (page 28)
+2.3.4.1 Clear DTC Information Positive Test
+              DIAG \ Clear DTC Information $14
+2.3.4.2 Clear DTC Information Negative Test
+              DIAG \ Clear DTC Information $14
+2.3.5 SAND BOXs
+              DIAG
+  Test Case (page 29)
+  Envio de dirección fisica (page 29)
+  NRC_13 (page 29)
+  _DID_10_NRC_12_Sub Function Not Supported (page 29)
+  TO TEST (page 30)
+  RAW_DID (page 30)
+  example (page 30)
+2.3.5.1 Test Case
+              DIAG \ SAND BOXs
+Test Case ID: 1dacccae-607b-4f4d-9b6e-155d084469e2
+2.3.5.2 Envio de dirección fisica
+              DIAG \ SAND BOXs
+Test Case ID: f0d67a53-42ca-4e74-8f1e-e4fdfd81a3c1
+Set <symbols> and send DIAG4_18DBFFF9 with byte[0]=0x2, byte[1]=0x10, byte[2]=0x1. Check all of
+<symbols> and DIAG3_18DA410B with byte[0]==0x6, byte[1]==0x50, byte[2]==0x1 received with timeout
+3000 ms
+2.3.5.3 NRC_13
+              DIAG \ SAND BOXs
+Test Case ID: 2399c352-fd83-43fa-ae4d-c3aeb3878266
+Set <symbols> and send DIAG3_18DA0BF9 with byte[0]=0x3, byte[1]=0x10, byte[2]=0x1, byte[3]=0xFF.
+Check all of <symbols> and DIAG3_18DAF90B with byte[0]==0x3, byte[1]==0x7F, byte[2]==0x10,
+byte[3]==0x13 received with timeout 3000 ms
+2.3.5.4 _DID_10_NRC_12_Sub Function Not Supported
+              DIAG \ SAND BOXs
+Test Case ID: b054c47e-a273-4d0b-85d1-bd278ca88361
+Preparation
+Call System_ON () (page 32)
+Main Part
+Call Default_session () (page 33)
+Wait for 0.5 s
+For x=0..255, increment=1
+ 129 --> 0x81, 130 --> 0x82, 131 --> 0x83
+ If ( ( x!=1 ) AND ( x!=2 ) AND ( x!=3 ) AND ( x!=129 ) AND ( x!=130 ) AND ( x!=131 ) )
+  Set <symbols> and send DIAG3_18DA0BF9 with byte[0]=0x2, byte[1]=0x10, byte[2]=x. Check all of
+  <symbols> and DIAG3_18DAF90B with byte[0]==0x3, byte[1]==0x7F, byte[2]==0x10, byte[3]==0x12
+  received with timeout 200 ms
+  Wait for 0.1 s
+Completion
+Call System_OFF () (page 32)
+2.3.5.5 TO TEST
+              DIAG \ SAND BOXs
+Test Case ID: 65512f2d-442b-4218-9bc4-84ecd4e68b1d
+Call Set_Speed (InitSpeed=0, EndSpeed=0, Time=1000) (page 32)
+Send service ExtendedDiagnosticSession_Start with request parameters DiagSessionType=0x4 and check
+response parameters RC==0x12
+2.3.5.6 RAW_DID
+              DIAG \ SAND BOXs
+Test Case ID: 8f1cbc16-d91f-4c38-8e3d-e2acf8f688d2
+Set <symbols> and send DIAG3_18DA0BF9 with byte[0]=0x2, byte[1]=0x10, byte[2]=0xFF. Check all of
+<symbols> and DIAG3_18DAF90B with byte[0]==0x3, byte[1]==0x7F, byte[2]==0x10, byte[3]==0x12 received
+with timeout 200 ms
+2.3.5.7 example
+              DIAG \ SAND BOXs
+Test Case ID: d16981c2-14fd-47e2-8a93-8b3dd31f438d
+3.1 TesterPresentSubFunctionNotSupported2
+Parameters
+Subfunction
+Preparation
+Call System_ON () (page 32)
+Call Default_session () (page 33)
+Main Part
+Call Default_session () (page 33)
+Wait for 0.5 s
+For x=0..5, increment=1
+ If ( x!=0 )
+  Send service TesterPresent_Send with request parameters ZeroSubfunction=x and check response
+  parameters RC==12
+Wait for 0.5 s
+Completion
+Call System_OFF () (page 32)
+3.2 KL30_ON
+Call KL30_Remote_ON ()
+KL30_ON
+Report values of <symbols>
+3.3 KL30_OFF
+Call KL30_Remote_OFF ()
+KL30_OFF
+Report values of <symbols>
+3.4 CloseSerialPort
+Call CloseSerialPort ()
+Serial port closed
+Report values of <symbols>
+3.5 KL15_ON
+Call KL15_Remote_ON ()
+KL15_ON
+Report values of <symbols>
+3.6 KL15_OFF
+Call KL15_Remote_OFF ()
+KL15_OFF
+Report values of <symbols>
+3.7 Set_Speed
+Parameters
+InitSpeed, EndSpeed, Time
+Call SignGen_Connect ()
+Call SetGenerator (pVoltage=Voltage, pInitFreq=InitSpeed, pEndFreq=EndSpeed, pTime=Time)
+Wait for 1000 ms
+3.8 System_ON
+Call KL30_ON () (page 31)
+Wait for 1000 ms
+Call KL15_ON () (page 32)
+Call SetSpeedtoZero ()
+Wait for 2000 ms
+Wait for 1000 ms
+Call SetSpeedtoZero ()
+Call KL15_OFF () (page 32)
+Wait for 1000 ms
+Call KL30_OFF () (page 31)
+3.10 Default_session
+Send service DefaultSession_Start with request parameters and check response parameters
+DiagSessionType==0x1, P2==0032, P2Ex==01F4
+3.11 Programming_session
+Send service ProgrammingSession_Start with request parameters and check response parameters
+DiagSessionType==02, P2==0019, P2Ex==01F4
+3.12 Extendend_session
+Send service ExtendedDiagnosticSession_Start with request parameters and check response parameters
+DiagSessionType==0x3, P2==0032, P2Ex==01F4
+3.13 Tester_present
+Send service TesterPresent_Send with request parameters and check response parameters
+ZeroSubfunction==0x0
+3.14 Check_Default
+Send service Active_Diagnostic_Session_Read with request parameters and check response parameters
+Active_Diagnostic_Session==01
+Send service Active_Diagnostic_Session_Read with request parameters and check response parameters
+Active_Diagnostic_Session==02
+3.16 Check_Extended
+Send service Active_Diagnostic_Session_Read with request parameters and check response parameters
+Active_Diagnostic_Session==03
+3.17 Power_Cycle
+Call KL30_OFF () (page 31)
+Wait for 2000 ms
+Call KL15_ON () (page 32)
+Wait for 2000 ms
+3.18 Suppressed_Response_2Bytes
+Parameters
+byte0, byte1
+caplinline

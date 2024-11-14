@@ -1,0 +1,22 @@
+Name,ReadableID
+"CAN communication interface shall be available on
+Deep Sleep Power Mode.",406396
+"CAN communications interfaces shall be available on
+active power mode.",432837
+"Cleaning control functionality shall be available on
+active power mode.",432839
+"Diagnostics Interface over CAN [ISO 14229-3
+(UDSonCAN)] shall be available on active power
+mode.",406381
+"DID $F181
+applicationSoftwareIdentificationDataIdentifier shall
+be available in Application software.",585303
+"DID $F181
+applicationSoftwareIdentificationDataIdentifier shall
+be available in Boot software.",585302
+"DID $F195
+systemSupplierECUSoftwareVersionNumber shall be
+available in Application software.",574486
+"DID $F195
+systemSupplierECUSoftwareVersionNumber shall be
+available in Boot software.",439995

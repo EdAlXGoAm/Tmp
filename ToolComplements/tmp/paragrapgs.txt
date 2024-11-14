@@ -1,0 +1,359 @@
+2.1 SYT_TCC_236
+----------------------
+2.1 SYT_TCC_236
+Test Case ID: 3f1b4bbf-00ff-4f63-9970-2878de01aac4
+Verify HSD_IGN2_Relay_Ctrl and AIH_IGN2_Rly_FB at V_BATT at 12 V
+Trace Items
+[INICIO DE TABLA]
+Name Readable ID
+[INICIO DE TABLA]
+CAN communication interface shall be available on 406396
+[INICIO DE TABLA]
+Deep Sleep Power Mode.
+[INICIO DE TABLA]
+CAN communications interfaces shall be available on 432837
+[INICIO DE TABLA]
+active power mode.
+[INICIO DE TABLA]
+Cleaning control functionality shall be available on 432839
+[INICIO DE TABLA]
+active power mode.
+[INICIO DE TABLA]
+Diagnostics Interface over CAN [ISO 14229-3 406381
+[INICIO DE TABLA]
+(UDSonCAN)] shall be available on active power
+[INICIO DE TABLA]
+mode.
+Preparation
+Set PW_Voltage=12
+Set J1_03_BrakeSwitch_DIH::DigitalOutput=0, J4_35_DriverDoorAjar_DIL::DigitalOutput=0,
+J4_47_PassengerDoorAjar_DIL::DigitalOutput=0, J4_22_RearLeftDoorAjar_DIL::DigitalOutput=0,
+J4_19_RearRightDoorAjar_DIL::DigitalOutput=0, J1_14_HoodAjar_DIL::DigitalOutput=0,
+J4_20_DriverDoorLockStatus_DIL::DigitalOutput=0
+Main Part
+Call VSS_Ign_On_Req (target="pedal") (page 10)
+Check BCM_PwrMod==IGN_On
+Check BCM_IG2Sts==Active
+Call VSS_Ign_Off_Req () (page 10)
+Check BCM_PwrMod==Off
+Check BCM_IG2Sts==Inactive
+----------------------
+
+2.2 SYT_TCC_462
+----------------------
+2.2 SYT_TCC_462
+Test Case ID: d4d4e4f8-a3fe-4b06-aa4f-f35bcefba7d3
+Verify HSD_ACC_Relay_Ctrl and AIH_ACC_Rly_FB at V_BATT at 9 V
+SYT_TCC_462
+Trace Items
+[INICIO DE TABLA]
+Name Readable ID
+[INICIO DE TABLA]
+CAN communication interface shall be available on 406396
+[INICIO DE TABLA]
+Deep Sleep Power Mode.
+[INICIO DE TABLA]
+CAN communications interfaces shall be available on 432837
+[INICIO DE TABLA]
+active power mode.
+[INICIO DE TABLA]
+Cleaning control functionality shall be available on 432839
+[INICIO DE TABLA]
+active power mode.
+[INICIO DE TABLA]
+Diagnostics Interface over CAN [ISO 14229-3 406381
+[INICIO DE TABLA]
+(UDSonCAN)] shall be available on active power
+[INICIO DE TABLA]
+mode.
+[INICIO DE TABLA]
+DID $F181 585303
+[INICIO DE TABLA]
+applicationSoftwareIdentificationDataIdentifier shall
+[INICIO DE TABLA]
+be available in Application software.
+[INICIO DE TABLA]
+DID $F181 585302
+[INICIO DE TABLA]
+applicationSoftwareIdentificationDataIdentifier shall
+[INICIO DE TABLA]
+be available in Boot software.
+[INICIO DE TABLA]
+DID $F195 574486
+[INICIO DE TABLA]
+systemSupplierECUSoftwareVersionNumber shall be
+[INICIO DE TABLA]
+available in Application software.
+[INICIO DE TABLA]
+DID $F195 439995
+[INICIO DE TABLA]
+systemSupplierECUSoftwareVersionNumber shall be
+[INICIO DE TABLA]
+available in Boot software.
+[INICIO DE TABLA]
+During Init state, all signals of 'PCUStatus' message 545069
+[INICIO DE TABLA]
+shall remain as 0x4 'HWID_error'
+Preparation
+Set PW_Voltage=9
+Set J1_03_BrakeSwitch_DIH::DigitalOutput=0, J4_35_DriverDoorAjar_DIL::DigitalOutput=0,
+J4_47_PassengerDoorAjar_DIL::DigitalOutput=0, J4_22_RearLeftDoorAjar_DIL::DigitalOutput=0,
+J4_19_RearRightDoorAjar_DIL::DigitalOutput=0, J1_14_HoodAjar_DIL::DigitalOutput=0,
+J4_20_DriverDoorLockStatus_DIL::DigitalOutput=0
+Main Part
+Call VSS_Ign_On_Req (target="pedal") (page 10)
+Check BCM_PwrMod==IGN_On
+Check BCM_KL30s_L==Active
+Call VSS_Ign_Off_Req () (page 10)
+Check BCM_PwrMod==Off
+Wait for 5000 ms
+Check BCM_KL30s_L==Active
+Completion
+Set PW_Voltage=9
+----------------------
+
+2.3 SYT_TCC_605
+----------------------
+2.3 SYT_TCC_605
+Test Case ID: ce5b24ca-65ba-4e67-83a4-b826601160f5
+Start up voltaje = 8.3V check IGN1, IGN2 and ACC FBs
+Trace Items
+[INICIO DE TABLA]
+Name Readable ID
+[INICIO DE TABLA]
+CAN communication interface shall be available on 406396
+[INICIO DE TABLA]
+Deep Sleep Power Mode.
+[INICIO DE TABLA]
+CAN communications interfaces shall be available on 432837
+[INICIO DE TABLA]
+active power mode.
+[INICIO DE TABLA]
+Cleaning control functionality shall be available on 432839
+[INICIO DE TABLA]
+active power mode.
+[INICIO DE TABLA]
+Diagnostics Interface over CAN [ISO 14229-3 406381
+[INICIO DE TABLA]
+(UDSonCAN)] shall be available on active power
+[INICIO DE TABLA]
+mode.
+[INICIO DE TABLA]
+DID $F181 585303
+[INICIO DE TABLA]
+applicationSoftwareIdentificationDataIdentifier shall
+[INICIO DE TABLA]
+be available in Application software.
+[INICIO DE TABLA]
+DID $F181 585302
+[INICIO DE TABLA]
+applicationSoftwareIdentificationDataIdentifier shall
+[INICIO DE TABLA]
+be available in Boot software.
+[INICIO DE TABLA]
+DID $F195 574486
+[INICIO DE TABLA]
+systemSupplierECUSoftwareVersionNumber shall be
+[INICIO DE TABLA]
+available in Application software.
+[INICIO DE TABLA]
+DID $F195 439995
+[INICIO DE TABLA]
+systemSupplierECUSoftwareVersionNumber shall be
+[INICIO DE TABLA]
+available in Boot software.
+[INICIO DE TABLA]
+During Init state, all signals of 'PCUStatus' message 545069
+[INICIO DE TABLA]
+shall remain as 0x4 'HWID_error'
+[INICIO DE TABLA]
+Functional Request of DID $F181 585296
+[INICIO DE TABLA]
+applicationSoftwareIdentificationDataIdentifier shall
+[INICIO DE TABLA]
+not be active for Read service.
+[INICIO DE TABLA]
+Functional Request of DID $F195 439991
+[INICIO DE TABLA]
+systemSupplierECUSoftwareVersionNumber shall not
+[INICIO DE TABLA]
+be active for Read service.
+[INICIO DE TABLA]
+Given a Power on condition change from power off, 461424
+[INICIO DE TABLA]
+the PCU shall enter Active mode by default.
+Preparation
+Set PW_Voltage=8.3
+Set J1_03_BrakeSwitch_DIH::DigitalOutput=0, J4_35_DriverDoorAjar_DIL::DigitalOutput=0,
+J4_47_PassengerDoorAjar_DIL::DigitalOutput=0, J4_22_RearLeftDoorAjar_DIL::DigitalOutput=0,
+J4_19_RearRightDoorAjar_DIL::DigitalOutput=0, J1_14_HoodAjar_DIL::DigitalOutput=0,
+J4_20_DriverDoorLockStatus_DIL::DigitalOutput=0
+Main Part
+Call VSS_Ign_On_Req (target="pedal") (page 10)
+Check BCM_PwrMod==IGN_On
+Check BCM_IG1Sts==Active, BCM_IG2Sts==Active, BCM_KL30s_L==Active
+Call VSS_Ign_Off_Req () (page 10)
+Check BCM_PwrMod==Off
+Wait for 5000 ms
+Check BCM_KL30s_L==Active
+Completion
+Set PW_Voltage=9
+----------------------
+
+2.4 SYT_TCC_513
+----------------------
+2.4 SYT_TCC_513
+Test Case ID: 092962e8-af49-4cb3-827d-8747b6645fde
+Ignition_On_Req by Remote Ignition Request active
+with
+PKC_RemPwrOnOffReq == "Power_on"
+Trace Items
+[INICIO DE TABLA]
+Name Readable ID
+[INICIO DE TABLA]
+CAN communication interface shall be available on 406396
+[INICIO DE TABLA]
+Deep Sleep Power Mode.
+[INICIO DE TABLA]
+CAN communications interfaces shall be available on 432837
+[INICIO DE TABLA]
+active power mode.
+[INICIO DE TABLA]
+Cleaning control functionality shall be available on 432839
+[INICIO DE TABLA]
+active power mode.
+Preparation
+Set J1_03_BrakeSwitch_DIH::DigitalOutput=0, J4_35_DriverDoorAjar_DIL::DigitalOutput=0,
+J4_47_PassengerDoorAjar_DIL::DigitalOutput=0, J4_22_RearLeftDoorAjar_DIL::DigitalOutput=0,
+J4_19_RearRightDoorAjar_DIL::DigitalOutput=0, J1_14_HoodAjar_DIL::DigitalOutput=0,
+J4_20_DriverDoorLockStatus_DIL::DigitalOutput=0
+Set PKC_RemPwrOnOffReq=Invalid
+Main Part
+Check BCM_PwrMod==Off
+Call CAN_Loa (target=active) (page 10)
+Set PKC_RemPwrOnOffReq=Power_on
+Wait for 360 ms
+Check BCM_PwrMod==IGN_On
+Completion
+Set PKC_RemPwrOnOffReq=Invalid
+Wait for 5000 ms
+----------------------
+
+2.5 SYT_TCC_514
+----------------------
+2.5 SYT_TCC_514
+Test Case ID: 15f680b3-a87c-4ad7-a59b-0728bd751b24
+Ignition_Off_Req by No remote Ignition ,ESP_318 = valid, key/phone-key is outside car
+PKC_KeyLocation = 0x1 outside
+Trace Items
+[INICIO DE TABLA]
+Name Readable ID
+[INICIO DE TABLA]
+CAN communication interface shall be available on 406396
+[INICIO DE TABLA]
+Deep Sleep Power Mode.
+[INICIO DE TABLA]
+CAN communications interfaces shall be available on 432837
+[INICIO DE TABLA]
+active power mode.
+[INICIO DE TABLA]
+Cleaning control functionality shall be available on 432839
+[INICIO DE TABLA]
+active power mode.
+[INICIO DE TABLA]
+Diagnostics Interface over CAN [ISO 14229-3 406381
+[INICIO DE TABLA]
+(UDSonCAN)] shall be available on active power
+[INICIO DE TABLA]
+mode.
+[INICIO DE TABLA]
+DID $F181 585303
+[INICIO DE TABLA]
+applicationSoftwareIdentificationDataIdentifier shall
+[INICIO DE TABLA]
+be available in Application software.
+[INICIO DE TABLA]
+DID $F181 585302
+[INICIO DE TABLA]
+applicationSoftwareIdentificationDataIdentifier shall
+[INICIO DE TABLA]
+be available in Boot software.
+[INICIO DE TABLA]
+DID $F195 574486
+[INICIO DE TABLA]
+systemSupplierECUSoftwareVersionNumber shall be
+[INICIO DE TABLA]
+available in Application software.
+[INICIO DE TABLA]
+DID $F195 439995
+[INICIO DE TABLA]
+systemSupplierECUSoftwareVersionNumber shall be
+[INICIO DE TABLA]
+available in Boot software.
+Preparation
+Set J1_03_BrakeSwitch_DIH::DigitalOutput=0, J4_35_DriverDoorAjar_DIL::DigitalOutput=0,
+J4_47_PassengerDoorAjar_DIL::DigitalOutput=0, J4_22_RearLeftDoorAjar_DIL::DigitalOutput=0,
+J4_19_RearRightDoorAjar_DIL::DigitalOutput=0, J1_14_HoodAjar_DIL::DigitalOutput=0,
+J4_20_DriverDoorLockStatus_DIL::DigitalOutput=0
+Wait for 500 ms
+Call Rqst_Security_Level (level=1) (page 10)
+Call Rqst_Diag_Session (target=) (page 10)
+Call Rqst_Diag_Session (target=Extended) (page 10)
+Call Rqst_Raw_Msg (target=0x0A_2E34210202640000051E, target2=0x03_6E3421) (page 10)
+Main Part
+Check BCM_PwrMod==Off
+Set PKC_AuthUsr=Authentication_Valid
+Wait for 360 ms
+Set J1_03_BrakeSwitch_DIH::DigitalOutput=1
+Wait for 360 ms
+Check BCM_PwrMod==IGN_On
+Set TBOX_RemKL15PwrOnReq=No_Request
+Wait for 360 ms
+Set ESP_VehSpdVld=Valid, ESP_VehSpd=0
+Wait for 360 ms
+Set VCU_GearSig=gear_P
+Wait for 360 ms
+Check BCM_PwrMod==Run
+Set PKC_KeyLocation=Inside
+Wait for 360 ms
+Check BCM_PwrMod==Run
+Wait for 1000 ms
+Check BCM_PwrMod==IGN_On
+Completion
+Set J1_03_BrakeSwitch_DIH::DigitalOutput=0
+Set PKC_AuthUsr=0
+Set TBOX_RemKL15PwrOnReq=0
+Set PKC_RemPwrOnOffReq=0
+Set PKC_KeyLocation=0
+Set ESP_VehSpd=0, ESP_VehSpdVld=Valid
+Set VCU_GearSig=0
+Wait for 500 ms
+3.1 VSS_Ign_On_Req
+Parameters
+target
+3.2 VSS_Ign_Off_Req
+3.3 VSS_Drive_Enable_Req
+3.4 VSS_Drive_Disable_Req
+3.5 VSS_Drive_Off_Req
+3.6 CAN_Loa
+Parameters
+target
+3.7 Rqst_Security_Level
+Parameters
+level
+3.8 Rqst_Diag_Session
+Parameters
+target
+3.9 Rqst_Raw_Msg
+target, target2
+3.10 checkDTCStatus
+Parameters
+DTC, status
+3.11 Ign_On_Req_cycles
+3.12 Rqst_Clear_DTC
+3.13 Rqst_Diag_Write_DID
+Parameters
+status
+
+----------------------
+

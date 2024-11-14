@@ -1,0 +1,12 @@
+.textSmallBold {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.textSmall {
+  font-size: 12px !important;
+}
+
+.paddingSpanText {
+  padding-left: 5px;
+}
