@@ -3,6 +3,7 @@ import { Tabs, Tab, Box } from "@mui/material";
 import TestCasesMapping from "./TestCasesMapping";
 import TestCasesViewer from "./TestCasesViewer";
 import TestCasesAlignAndMerge from "./TestCasesAlignAndMerge";
+import MergeExcel from "./components/MergeExcel/MergeExcel";
 
 
 interface TabPanelProps {
@@ -55,6 +56,7 @@ export default function App() {
         <Tab label="TestCase Mapping" {...a11yProps(0)} />
         <Tab label="TestCase Viewer" {...a11yProps(1)} />
         <Tab label="TestCase Align and Merge" {...a11yProps(2)} />
+        <Tab label="Merge Excel" {...a11yProps(3)} />
       </Tabs>
 
       <TabPanel value={value} index={0}>
@@ -65,6 +67,9 @@ export default function App() {
       </TabPanel>
       <TabPanel value={value} index={2}>
         <TestCasesAlignAndMerge />
+      </TabPanel>
+      <TabPanel value={value} index={3}>
+        <MergeExcel />
       </TabPanel>
     </div>
   );
