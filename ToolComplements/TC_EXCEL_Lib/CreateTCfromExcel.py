@@ -90,19 +90,37 @@ class ExcelCreation():
                 # Llenar los diccionarios sections, categories y attributes
                 for section in sections_columns:
                     if section.split(':')[1] == 'Test Scripts':
-                        test_scripts = []
-                        test_script = {}
-                        test_script["test_step"] = self.get_excel_cell(row, section, '')
-                        test_script["expected_result"] = self.get_excel_cell(row, 'Expected Results', '')
-                        test_scripts.append(test_script)
-                        test_case.sections[section.split(':')[1]] = test_scripts
+                        if 'Expected Results' in df.columns:
+                            test_scripts = []
+                            test_script = {}
+                            test_script["test_step"] = str(self.get_excel_cell(row, section, ''))
+                            test_script["expected_result"] = str(self.get_excel_cell(row, 'Expected Results', ''))
+                            test_scripts.append(test_script)
+                            test_case.sections[section.split(':')[1]] = test_scripts
+                        else:
+                            test_scripts = []
+                            test_script = {}
+                            content = str(self.get_excel_cell(row, section, ''))
+                            for line in content.split(';'):
+                                test_script = {}
+                                try: 
+                                    test_script["test_step"] = line.split('=')[0]
+                                except:
+                                    test_script["test_step"] = line
+                                try:
+                                    test_script["expected_result"] = line.split('=')[1]
+                                except:
+                                    test_script["expected_result"] = ''
+                                test_scripts.append(test_script)
                     else:
-                        test_case.sections[section.split(':')[1]] = self.get_excel_cell(row, section, '')
+                        test_case.sections[section.split(':')[1]] = str(self.get_excel_cell(row, section, ''))
                 for category in categories_columns:
-                    test_case.categories[category.split(':')[1]] = self.get_excel_cell(row, category, '')
+                    test_case.categories[category.split(':')[1]] = str(self.get_excel_cell(row, category, ''))
+                    print(f"{cmd_colors.YELLOW}Category: {category.split(':')[1]}{cmd_colors.END}")
                 for attribute in attributes_columns:
-                    test_case.attributes[attribute.split(':')[1]] = self.get_excel_cell(row, attribute, '')
+                    test_case.attributes[attribute.split(':')[1]] = str(self.get_excel_cell(row, attribute, ''))
 
+                test_case.sections['Test Scripts'] = test_scripts
                 test_cases_info.add_test_case(test_case)
             
             else:
@@ -110,15 +128,15 @@ class ExcelCreation():
                     test_case = test_cases_info.test_cases[-1]
                     test_scripts = test_case.sections['Test Scripts']
                     test_script = {}
-                    test_script["test_step"] = self.get_excel_cell(row, 'Section:Test Scripts', '')
-                    test_script["expected_result"] = self.get_excel_cell(row, 'Expected Results', '')
+                    test_script["test_step"] = str(self.get_excel_cell(row, 'Section:Test Scripts', ''))
+                    test_script["expected_result"] = str(self.get_excel_cell(row, 'Expected Results', ''))
                     test_scripts.append(test_script)
                     test_case.sections['Test Scripts'] = test_scripts
                     test_cases_info.test_cases[-1] = test_case
 
         return test_cases_info
 
-    def create_excel_test_cases(self, qm_context, file, recycle=False, id_list=None):
+    def create_excel_test_cases(self, qm_context, file, recycle=False, id_list=None, config=None, context_factory=None):
         PrintFunctions.print_header("CREATE EXCEL TEST CASES")
         test_cases_info = self.read_excel_file(file)
         if test_cases_info == "Cancel":
@@ -128,7 +146,7 @@ class ExcelCreation():
                 if index < len(id_list):
                     new_test_case = self.add_tcid(test_case, id_list[index])
                 test_cases_info.test_cases[index] = new_test_case
-        etm_create_process(qm_context, test_cases_info, self.path_tmp, self.log_object, recycle)
+        etm_create_process(qm_context, test_cases_info, self.path_tmp, self.log_object, recycle, config=config, context_factory=context_factory)
 
     def add_tcid(self, test_case, id):
         test_case.tcid = id

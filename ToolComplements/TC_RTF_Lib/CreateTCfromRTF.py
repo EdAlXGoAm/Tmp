@@ -32,7 +32,7 @@ class RTFCreation():
             test_cases_info.add_test_case(test_case)
         return test_cases_info
 
-    def create_rtf_test_cases(self, qm_context, file, mapping_obj, recycle=False, id_list=None):
+    def create_rtf_test_cases(self, qm_context, file, mapping_obj, recycle=False, id_list=None, config=None, context_factory=None):
         PrintFunctions.print_header("CREATE RTF TEST CASES")
         test_cases_info = self.read_rtf_file(file, mapping_obj)
         if test_cases_info == "Cancel":
@@ -42,7 +42,7 @@ class RTFCreation():
                 if index < len(id_list):
                     new_test_case = self.add_tcid(test_case, id_list[index])
                 test_cases_info.test_cases[index] = new_test_case
-        etm_create_process(qm_context, test_cases_info, self.path_tmp, self.log_object, recycle)
+        etm_create_process(qm_context, test_cases_info, self.path_tmp, self.log_object, recycle, config=config, context_factory=context_factory)
 
     def add_tcid(self, test_case, id):
         test_case.tcid = id

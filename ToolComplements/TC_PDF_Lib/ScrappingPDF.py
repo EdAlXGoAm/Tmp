@@ -11,15 +11,17 @@ class PDFScrapper():
         self.path = path
         self.path_tmp = path_tmp
         self.paragraphs = []
+        self.header_page = None
 
         self.tc_start_regex = r"^\["
         self.index_tree = IndexTree()
         self.ask_for_index()
+        self.ask_for_header_page()
 
         self.mapping_links = mapping_obj.mapping_links
-        if self.index_tree.active:
-            self.index_tree.create_index_tree(self.scrap_pdf(), "Table of Content")
-        self.get_paragraphs(self.scrap_pdf())
+        if self.index_tree.active and self.header_page:
+            self.index_tree.create_index_tree(self.scrap_pdf(self.header_page), "Table of Content")
+        self.get_paragraphs(self.scrap_pdf(self.header_page))
         with open(os.path.join(self.path_tmp, "paragrapgs.txt"), "w") as f:
             for paragraph in self.paragraphs:
                 f.write(f"{paragraph.title}\n")
@@ -33,6 +35,11 @@ class PDFScrapper():
         if index.isdigit():
             self.index_tree.active = True
             self.index_tree.index_of_interest = int(index)
+
+    def ask_for_header_page(self):
+        page = input("If the pages have a header, please provide the page number of the first page with the header: ")
+        if page.isdigit():
+            self.header_page = int(page)
 
     class ParagraphCandidate():
         def __init__(self):
@@ -141,7 +148,7 @@ class PDFScrapper():
                 paragraph.paragraph = '\n'.join(tmp_paragraph)
                 paragraph.paragraph_lines = tmp_paragraph
     
-    def scrap_pdf(self):
-        text = extraer_texto_con_marcado_e_indentacion(self.path, self.path_tmp, x_tol=2, y_tol=3, pixels_per_space=5, page_indicada=6)
+    def scrap_pdf(self, header_page=None):
+        text = extraer_texto_con_marcado_e_indentacion(self.path, self.path_tmp, x_tol=2, y_tol=3, pixels_per_space=5, page_indicada=header_page)
         return text
     
