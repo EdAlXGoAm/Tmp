@@ -385,43 +385,43 @@ class TestCasesInfo():
             self.log_object.print_message("ERROR", "etm_remove_tc_from_t_sp", f"{type} ID not provided.", print_prefix)
             return None
     
-    def etm_set_t_sp(self, qm_context, type, test_case_data, testcase, print_prefix=""):
+    def etm_set_t_sp(self, qm_context, type, test_case_data, testcase, print_prefix="", test_suite=None):
         if testcase is None:
             self.log_object.print_message("ABORTED", "etm_set_t_sp", "Not Test Case provided.", print_prefix)
-            return None
+            return ((None, None) if type == "TS" else testcase)
         tc_title = test_case_data.title
         tc_id = testcase.database_id()
         t_sp_title_obj = test_case_data.ts_obj if type == "TS" else test_case_data.tp_obj
         t_sp_title = t_sp_title_obj.name
         if t_sp_title_obj.type == "None":
-            return testcase
+            return ((testcase, None) if type == "TS" else testcase)
         # ************ SEARCH TEST SUITE/PLAN in ETM Database ************
         if t_sp_title:
             if t_sp_title_obj.type == "Remove":
                 testcase = self.etm_remove_tc_from_t_sp(qm_context, type, t_sp_title, testcase, print_prefix)
-                return testcase
+                return ((testcase, None) if type == "TS" else testcase)
             if t_sp_title_obj.type == "ID":
                 try:
                     test_sp_etm = qm_context.test_suites().test_suite_by_database_id(t_sp_title) if type == "TS" else qm_context.test_plans().test_plan_by_database_id(t_sp_title)
                 except Exception as error:
                     self.log_object.print_message("FATAL", "etm_set_t_sp", "Connection to ETM failed.", print_prefix)
-                    return None
+                    return ((None, None) if type == "TS" else testcase)
                 if test_sp_etm:
                     self.log_object.print_message("RESULT", "etm_set_t_sp", f"{type} found. ID: {test_sp_etm.database_id()} Title: {test_sp_etm.name()}", print_prefix)
                 else:
                     self.log_object.print_message("ERROR", "etm_set_t_sp", f"{type} not found by ID: {t_sp_title}. {cmd_colors.RED}Action Cancelled.{cmd_colors.END}", print_prefix)
-                    return None
+                    return ((None, None) if type == "TS" else testcase)
             elif t_sp_title_obj.type == "Name":
                 try:
                     test_sp_etm_array = qm_context.test_suites().bulk_fetch(f'title="{t_sp_title}"') if type == "TS" else qm_context.test_plans().bulk_fetch(f'title="{t_sp_title}"')
                 except Exception as error:
                     self.log_object.print_message("FATAL", "etm_set_t_sp", "Connection to ETM failed.", print_prefix)
-                    return None
+                    return ((None, None) if type == "TS" else testcase)
                 if test_sp_etm_array:
                     if len(test_sp_etm_array) > 1:
                         self.log_object.print_message("WARNING", "etm_set_t_sp", f"Multiple {type} found with title: {t_sp_title}", print_prefix)
                         dict_test_sp = {}
-                        array_test_sp = []
+                        array_test_sp = {}
                         for ts in test_sp_etm_array:
                             array_test_sp[f"ID: {ts.database_id()} > {ts.name()}"] = ts.database_id()
                             array_test_sp.append(f"ID: {ts.database_id()} > {ts.name()}")
@@ -434,6 +434,7 @@ class TestCasesInfo():
                     self.log_object.print_message("RESULT", "etm_set_t_sp", f"{type} found. ID: {test_sp_etm.database_id()} Title: {test_sp_etm.name()}", print_prefix)
                 else:
                     self.log_object.print_message("RESULT", "etm_set_t_sp", f"{type} not found by Name: {t_sp_title}", print_prefix)
+                    test_sp_etm = None
         # • • • • • • • ♦ ♦ ♦ ♦ ♦ ♦ ♦ ♦ ♦ ♦ ♦ • • • • • • •
 
         # ************ CREATE TEST SUITE/PLAN in ETM Database ************
@@ -444,19 +445,24 @@ class TestCasesInfo():
                     self.log_object.print_message("RESULT", "etm_set_t_sp", f"{type} created with title: {t_sp_title}", print_prefix)
                 except Exception as error:
                     self.log_object.print_message("FATAL", "etm_set_t_sp", "Connection to ETM failed.", print_prefix)
-                    return None
+                    return ((None, None) if type == "TS" else testcase)
         # • • • • • • • ♦ ♦ ♦ ♦ ♦ ♦ ♦ ♦ ♦ ♦ ♦ • • • • • • •
 
         # ************ SET TEST SUITE/PLAN in ETM Database ************
         if testcase not in test_sp_etm.test_cases():
             try:
-                test_sp_etm.append_test_case(testcase)
+                if type == "TS":
+                    test_sp_etm.append_test_case(testcase)
+                elif type == "TP":
+                    test_sp_etm.add_test_case(testcase)
+                if test_suite:
+                    test_sp_etm.add_test_suite(test_suite)
                 test_sp_etm.store()
                 self.log_object.print_message("RESULT", "etm_set_t_sp", f"Test Case added to {type}: {t_sp_title}", print_prefix)
             except Exception as error:
                 self.log_object.print_message("FATAL", "etm_set_t_sp", "Connection to ETM failed.", print_prefix)
-                return None
-        return testcase
+                return ((None, None) if type == "TS" else testcase)
+        return ((testcase, test_sp_etm) if type == "TS" else testcase)
 
     def create_test_script(self, qm_context, tc_title, tc_script, test_script=None, print_prefix=""):
         class TestScript():
@@ -507,7 +513,7 @@ class TestCasesInfo():
         except Exception as error:
             return f"Error. TScript: {tc_title} Reason: {error}"
 
-    def etm_fill_test_case(self, qm_context, test_case_data, testcase, title_action="Fill", print_prefix=""):
+    def etm_fill_test_case(self, qm_context, test_case_data, testcase, title_action="Fill", print_prefix="", config=None, context_factory=None):
         errors_count = 0
         success_count = 0
         fatal_count = 0
@@ -598,8 +604,39 @@ class TestCasesInfo():
                     time.sleep(.1)
                 elif section == "Requirement Links":
                     requirement_list = list()
+                    if isinstance(test_case_data.sections[section], str):
+                        test_case_data.sections[section] = [test_case_data.sections[section]]
                     for req in test_case_data.sections[section]:
-                        requirement_list.append(req)
+                        if isinstance(req, str) and req.isdigit() and int(req) > 0:
+                            if config:
+                                def get_qr_context():
+                                    try:
+                                        candidate_context = None
+
+                                        for rm_context in context_factory.rm_contexts():
+                                            if rm_context.local_configuration_name() == config.get('jazz_configuration', 'rm_stream_name'):
+                                                candidate_context = rm_context
+                                                break
+
+                                        return candidate_context
+
+                                    except Exception as ex:
+                                        return None
+                                try:
+                                    rm_context = get_qr_context()
+                                    req_obj = rm_context.requirements().requirement_by_database_id(int(req))
+                                    if str(req_obj.type_uri()).split('/')[-1] == "requirement":
+                                        reqLink = req_obj.element_url()
+                                        requirement_list.append(reqLink)
+                                except Exception as error:
+                                    self.log_object.print_message("ERROR", "etm_fill_test_case", f"Error saving {cmd_colors.RED}SECTION - {section}{cmd_colors.END}", print_prefix, active=print_active)
+                                    errors_count += 1
+                                    continue
+                            else:
+                                self.log_object.print_message("ERROR", "etm_fill_test_case", f"Error saving {cmd_colors.RED}SECTION - {section}{cmd_colors.END}", print_prefix, active=print_active)
+                                errors_count += 1
+                        else:
+                            requirement_list.append(req)
                     if len(requirement_list) == 0:
                         self.log_object.print_message("SUCCESS", "etm_fill_test_case", f"Updated SECTION - {section}", print_prefix, active=print_active)
                         continue

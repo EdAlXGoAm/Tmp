@@ -48,11 +48,11 @@ class TestCasesActions():
             "Exit"
         ]
 
-    def action(self, action, qm_context):
+    def action(self, action, qm_context, config, context_factory):
         if action == "Create Test Cases":
-            self.create_test_cases(qm_context)
+            self.create_test_cases(qm_context, config=config, context_factory=context_factory)
         elif action == "Recycle Test Cases":
-            self.create_test_cases(qm_context, recycle=True)
+            self.create_test_cases(qm_context, recycle=True, config=config, context_factory=context_factory)
 
     def select_file_type(self):
         os.system('cls')
@@ -66,7 +66,7 @@ class TestCasesActions():
         print(f"--- Selected file type: {cmd_colors.CYAN}{type_file}{cmd_colors.END}\n")
         return type_file
     
-    def create_test_cases(self, qm_context, recycle=False):
+    def create_test_cases(self, qm_context, recycle=False, config=None, context_factory=None):
         type_file = self.select_file_type()
         PrintFunctions.print_header(f"CREATE {type_file} TEST CASES") if not recycle else PrintFunctions.print_header(f"RECYCLE {type_file} TEST CASES")
         id_list = None
@@ -80,40 +80,40 @@ class TestCasesActions():
             if file == "Cancel":
                 return "Cancel"
             mapping_obj = MappingClass(self.path_json_mapping_files)
-            self.json_actions.create_json_test_cases(qm_context, file, mapping_obj, recycle, id_list)
+            self.json_actions.create_json_test_cases(qm_context, file, mapping_obj, recycle, id_list, config=config, context_factory=context_factory)
         if type_file == "RTF":
             file = select_file(path=self.path_files, extension=".txt", type_file="RTF", recursive=True)
             if file == "Cancel":
                 return "Cancel"
             mapping_obj = MappingClass(self.path_rtf_mapping_files)
             if not mapping_obj.MappingClassError:
-                self.rtf_actions.create_rtf_test_cases(qm_context, file, mapping_obj, recycle, id_list)
+                self.rtf_actions.create_rtf_test_cases(qm_context, file, mapping_obj, recycle, id_list, config=config, context_factory=context_factory)
         elif type_file == "Excel":
             file = select_file(path=self.path_files, extension=[".xlsx", ".csv"], type_file="EXCEL", recursive=True)
             if file == "Cancel":
                 return "Cancel"
-            self.excel_actions.create_excel_test_cases(qm_context, file, recycle, id_list)
+            self.excel_actions.create_excel_test_cases(qm_context, file, recycle, id_list, config=config, context_factory=context_factory)
         elif type_file == "PDF":
             file = select_file(path=self.path_files, extension=".pdf", type_file="PDF", recursive=True)
             if file == "Cancel":
                 return "Cancel"
             mapping_obj = MappingClass(self.path_pdf_mapping_files)
             if not mapping_obj.MappingClassError:
-                self.pdf_actions.create_pdf_test_cases(qm_context, file, mapping_obj, recycle, id_list)
+                self.pdf_actions.create_pdf_test_cases(qm_context, file, mapping_obj, recycle, id_list, config=config, context_factory=context_factory)
         elif type_file == "VTC":
             file = select_file(path=self.path_files, extension=".vtc-tso", type_file="VTC", recursive=True)
             if file == "Cancel":
                 return "Cancel"
             mapping_obj = MappingClass(self.path_vtc_mapping_files)
             if not mapping_obj.MappingClassError:
-                self.vtc_actions.create_vtc_test_cases(qm_context, file, mapping_obj, recycle, id_list)
+                self.vtc_actions.create_vtc_test_cases(qm_context, file, mapping_obj, recycle, id_list, config=config, context_factory=context_factory)
         elif type_file == "VTT":
             file = select_file(path=self.path_files, extension=".vtt", type_file="VTT", recursive=True)
             if file == "Cancel":
                 return "Cancel"
             mapping_obj = MappingClass(self.path_vtt_mapping_files)
             if not mapping_obj.MappingClassError:
-                self.vtt_actions.create_vtt_test_cases(qm_context, file, mapping_obj, recycle, id_list)
+                self.vtt_actions.create_vtt_test_cases(qm_context, file, mapping_obj, recycle, id_list, config=config, context_factory=context_factory)
 
     class Recycle_ID_List():
         def __init__(self, path_id_list):

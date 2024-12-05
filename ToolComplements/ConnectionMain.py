@@ -8,7 +8,7 @@ from TC_Common.TestCasesActions import TestCasesActions
 from TC_Common.SelectorCmd import cmd_colors
 from TC_Common.SelectorCmd import CMDSelector
 
-enable_etm_connection = False
+enable_etm_connection = True
 debug_in_console = False
 
 # ************ TestCasesActions INITIALIZATION ************
@@ -55,7 +55,9 @@ def get_project_context(config, connection):
     project_area = config.get('jazz_configuration', 'gc_project_area_name')
     component = config.get('jazz_configuration', 'gc_component_name')
     configuration = config.get('jazz_configuration', 'gc_config_name')
-    context_factory = JazzConnection.get_context_factory(connection, project_area, component, configuration)
+    stream_name = config.get('jazz_configuration', 'gc_stream_name')
+    qm_project_area = config.get('jazz_configuration', 'qm_project_area_name')
+    context_factory = JazzConnection.get_context_factory(connection, project_area, component, configuration, qm_project_area, stream_name)
     if context_factory:
         print(f"--- {cmd_colors.GREEN}SUCCESS:{cmd_colors.END} Context Factory {cmd_colors.GREEN}{project_area}{cmd_colors.END} created.\n")
     else:
@@ -63,13 +65,15 @@ def get_project_context(config, connection):
         exit()
     return context_factory
 
-def get_stream_qm_context(context_factory, stream_name):
+def get_stream_qm_context(context_factory):
     print(f"--- {cmd_colors.BLUE}Getting Stream Context...{cmd_colors.END}")
+    qm_project_area = config.get('jazz_configuration', 'qm_project_area_name')
+    stream_name = config.get('jazz_configuration', 'gc_stream_name')
     qm_context = [None]  # Usamos una lista para poder modificarla dentro del hilo
     
     # Función para ejecutar en un hilo separado
     def fetch_context():
-        qm_context[0] = JazzConnection.get_qm_context(context_factory, stream_name)
+        qm_context[0] = JazzConnection.get_qm_context(context_factory, qm_project_area, stream_name)
     
     # Crear y arrancar el hilo
     thread = threading.Thread(target=fetch_context)
@@ -93,6 +97,7 @@ def get_stream_qm_context(context_factory, stream_name):
         print(f"--- {cmd_colors.GREEN}SUCCESS:{cmd_colors.END} Stream Context {cmd_colors.GREEN}{stream_name}{cmd_colors.END} found.\n")
     else:
         print(f"--- {cmd_colors.RED}ERROR:{cmd_colors.END} Stream Context {cmd_colors.RED}{stream_name}{cmd_colors.END} not found.\n")
+        exit()
     
     return qm_context[0]
 
@@ -105,7 +110,7 @@ def stream_context_validation(context_factory, qm_context):
         print(f"--- {cmd_colors.RED}ERROR:{cmd_colors.END} Streams not found in {cmd_colors.RED}{config.get('jazz_configuration', 'gc_project_area_name')}{cmd_colors.END} project.")
         exit()
 
-def select_action(qm_context):
+def select_action(qm_context, config, context_factory):
     exit = False
     while not exit:
         action_selector = CMDSelector()
@@ -115,7 +120,7 @@ def select_action(qm_context):
         if action == "Exit":
             exit = True
         else:
-            test_cases_obj.action(action, qm_context)
+            test_cases_obj.action(action, qm_context, config, context_factory)
     
 
 os.system('cls')
@@ -141,8 +146,9 @@ if enable_etm_connection:
 # Get Stream QM Context
 qm_context = None
 if enable_etm_connection:
-    qm_context = get_stream_qm_context(context_factory, config.get('jazz_configuration', 'gc_stream_name'))
-time.sleep(4)
+    qm_context = get_stream_qm_context(context_factory)
+
+key_to_continue = input("Press Enter to continue...")
 
 # Stream Context Validation
 os.system('cls')
@@ -151,7 +157,7 @@ print(f"************************* CONTEXT VALIDATION *************************")
 
 os.makedirs(f"{os.path.dirname(__file__)}/tmp", exist_ok=True)
 
-select_action(qm_context)
+select_action(qm_context, config, context_factory)
 
 time.sleep(5)
 print("---")

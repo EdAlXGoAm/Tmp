@@ -2,6 +2,7 @@ import getpass
 from heppy.connection import Connection
 from heppy.base.business_unit_suffixes import BUSuffix
 from heppy.context_factories.global_configuration_context_factory import GlobalConfigurationContextFactory
+from heppy.context_factories.local_qm_configuration_context_factory import LocalQMConfigurationContextFactory
 from TC_Common.SelectorCmd import CMDSelector
 import time
 
@@ -28,20 +29,28 @@ class JazzConnection:
         except:
             return None
 
-    def get_context_factory(connection, project_area, component, configuration):
+    def get_context_factory(connection, project_area, component, configuration, qm_project_area, gc_stream_name):
         try:
-            return GlobalConfigurationContextFactory(
-                connection,
-                gc_project_area_name=project_area,
-                gc_component_name=component,
-                gc_config_name=configuration,
-                recurse_into_sub_configurations=True
-            )
+            print(f"--- qm_project_area: {qm_project_area}")
+            if (qm_project_area == ""):
+                return GlobalConfigurationContextFactory(
+                    connection,
+                    gc_project_area_name=project_area,
+                    gc_component_name=component,
+                    gc_config_name=configuration,
+                    recurse_into_sub_configurations=True
+                )
+            else:
+                return LocalQMConfigurationContextFactory(
+                    connection,
+                    qm_project_area_name=qm_project_area,
+                    local_qm_stream_name=gc_stream_name
+                )
         except:
             return None
     
     
-    def get_qm_context(context_factory, stream_name):
+    def get_qm_context(context_factory, qm_project_area, stream_name):
         try:
             candidate_contexts = [
                 qm_context
@@ -50,16 +59,17 @@ class JazzConnection:
             for context in candidate_contexts:
                 if context.local_configuration_name() == stream_name:
                     return context
-            selector = CMDSelector()
-            selector.title = "Select the stream context:"
-            selector.options = [
-                context.local_configuration_name()
-                for context in candidate_contexts
-            ]
-            stream_name = selector.select()
-            for context in candidate_contexts:
-                if context.local_configuration_name() == stream_name:
-                    return context
+            if qm_project_area == "":
+                selector = CMDSelector()
+                selector.title = "Select the stream context:"
+                selector.options = [
+                    context.local_configuration_name()
+                    for context in candidate_contexts
+                ]
+                stream_name = selector.select()
+                for context in candidate_contexts:
+                    if context.local_configuration_name() == stream_name:
+                        return context
 
         except:
             return None

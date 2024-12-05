@@ -20,7 +20,7 @@ def val_field(field):
     else:
         return False
 
-def etm_create_process(qm_context, test_cases_info, path_tmp, log_object, recycle=False):
+def etm_create_process(qm_context, test_cases_info, path_tmp, log_object, recycle=False, config=None, context_factory=None):
     os.system('cls')
     tp_title_obj = test_cases_info.get_t_ps_id_or_name("TP", qm_context)
     if tp_title_obj is None:
@@ -47,9 +47,9 @@ def etm_create_process(qm_context, test_cases_info, path_tmp, log_object, recycl
             # Create Test Case in ETM
             remote_test_case = test_cases_info.etm_new_test_case(qm_context, id=local_test_case.tcid if recycle and val_field(local_test_case.tcid) else None, title=local_test_case.title, print_prefix="\t")
             remote_test_case = test_cases_info.etm_set_title(qm_context, local_test_case, remote_test_case, print_prefix="\t")
-            remote_test_case = test_cases_info.etm_set_t_sp(qm_context, "TS", local_test_case, remote_test_case, print_prefix="\t")
-            remote_test_case = test_cases_info.etm_set_t_sp(qm_context, "TP", local_test_case, remote_test_case, print_prefix="\t")
-            remote_test_case = test_cases_info.etm_fill_test_case(qm_context, local_test_case, remote_test_case, print_prefix="\t")
+            remote_test_case, test_suite = test_cases_info.etm_set_t_sp(qm_context, "TS", local_test_case, remote_test_case, print_prefix="\t")
+            remote_test_case = test_cases_info.etm_set_t_sp(qm_context, "TP", local_test_case, remote_test_case, print_prefix="\t", test_suite=test_suite)
+            remote_test_case = test_cases_info.etm_fill_test_case(qm_context, local_test_case, remote_test_case, print_prefix="\t", config=config, context_factory=context_factory)
             log_object.print_and_log("\n")
             if remote_test_case is None:
                 log_object.print_message("ABORTED", "Create Test Case in ETM", "Process could not be completed.", print_prefix="\t")
@@ -57,7 +57,7 @@ def etm_create_process(qm_context, test_cases_info, path_tmp, log_object, recycl
                 continue
             log_object.print_message("SUCCESS", "Create Test Case in ETM", "Test Case created in ETM.", print_prefix="\t")
             log_object.print_and_log("\n")
-            return "Success"
+        return "Success"
     elif key_to_continue == "Add More Info":
         tmp_copy = test_cases_info.get_tc_from_json(f"{path_tmp}/test_cases.json")
         return "Cancel"
