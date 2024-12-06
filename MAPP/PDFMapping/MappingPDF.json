@@ -20,6 +20,10 @@
             "remove": "Preparation\n",
             "identifier": "Preparation\n"
         },
+        "Parameters": {
+            "remove": "Parameters\n",
+            "identifier": "Parameters\n"
+        },
         "Main Part" : {
             "remove": "Main Part\n",
             "identifier": "Main Part\n"
@@ -60,6 +64,10 @@
                 "content": ""
             },
             "Preparation": {
+                "type": "string",
+                "content": ""
+            },
+            "Parameters": {
                 "type": "string",
                 "content": ""
             },

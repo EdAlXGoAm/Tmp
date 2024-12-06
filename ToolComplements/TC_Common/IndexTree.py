@@ -32,8 +32,6 @@ class IndexTree():
             toc_pending = True
         toc_numbers = []
         for index, line in enumerate(scrapp):
-            current_paragraph = ''.join(scrapp[index:])
-            print(current_paragraph)
             if toc_pending:
                 if re.search(r"^(?!\d{1,2}/\d{1,2}/\d{4})\b\d+(\.\d+)*\b", line):
                     toc_numbers.append(int(re.search(r"^(?!\d{1,2}/\d{1,2}/\d{4})\b\d+(\.\d+)*\b", line).group().split(".")[0]))
@@ -101,7 +99,7 @@ class IndexTree():
             # Clave es la representación completa de la hoja
             clave = f"{hoja_numero} {hoja_texto}"
             diccionario[clave] = {
-                "ancestros" : ancestros,
+                "ancestros" : ' | '.join(ancestros),
                 "texto" : None,
             }
         return diccionario

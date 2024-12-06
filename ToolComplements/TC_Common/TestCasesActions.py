@@ -94,7 +94,7 @@ class TestCasesActions():
                 return "Cancel"
             self.excel_actions.create_excel_test_cases(qm_context, file, recycle, id_list, config=config, context_factory=context_factory)
         elif type_file == "PDF":
-            file = select_file(path=self.path_files, extension=".pdf", type_file="PDF", recursive=True)
+            file = select_file(path=self.path_files, extension=[".pdf", ".json"], type_file="PDF", recursive=True)
             if file == "Cancel":
                 return "Cancel"
             mapping_obj = MappingClass(self.path_pdf_mapping_files)

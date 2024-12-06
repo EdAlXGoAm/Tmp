@@ -48,7 +48,10 @@ class PDFMapping():
         pdf_tc = []
         for paragraph in pdf_scrapper.paragraphs:
             title = paragraph.title
-            description = ' | '.join(paragraph.description)
+            if isinstance(paragraph.description, list):
+                description = ' | '.join(paragraph.description)
+            else:
+                description = paragraph.description
             pdf_tc.append(mapping_obj.generate_mapped_link(paragraph.element, "PDF", title, description, title_prefix))
 
         # Saving a Copy of the mapping links filled

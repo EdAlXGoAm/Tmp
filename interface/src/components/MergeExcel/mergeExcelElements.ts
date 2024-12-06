@@ -2,7 +2,7 @@ import { useState } from 'react';
 import * as XLSX from 'xlsx';
 
 export const useMergeExcel = () => {
-  const [file, setFile] = useState<File | null>(null);
+  const [_file, setFile] = useState<File | null>(null);
   const [fileName, setFileName] = useState<string>('');
   const [mergedFileName, setMergedFileName] = useState<string>('');
   const [column1, setColumn1] = useState<string>('');

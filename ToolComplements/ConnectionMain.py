@@ -8,7 +8,7 @@ from TC_Common.TestCasesActions import TestCasesActions
 from TC_Common.SelectorCmd import cmd_colors
 from TC_Common.SelectorCmd import CMDSelector
 
-enable_etm_connection = True
+enable_etm_connection = False
 debug_in_console = False
 
 # ************ TestCasesActions INITIALIZATION ************

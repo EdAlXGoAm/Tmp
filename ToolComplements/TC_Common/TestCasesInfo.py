@@ -654,7 +654,10 @@ class TestCasesInfo():
                     continue
                 else:
                     try:
-                        testcase.sections().set_value(section, test_case_data.sections[section], is_rich_text=False)
+                        if '<table' in test_case_data.sections[section] or '<br' in test_case_data.sections[section]:
+                            testcase.sections().set_value(section, test_case_data.sections[section], is_rich_text=True)
+                        else:
+                            testcase.sections().set_value(section, test_case_data.sections[section], is_rich_text=False)
                         testcase.store()
                         self.log_object.print_message("SUCCESS", "etm_fill_test_case", f"Updated SECTION - {section}", print_prefix, active=print_active)
                         success_count += 1

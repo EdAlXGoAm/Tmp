@@ -2,7 +2,7 @@ import styles from '../styles/utils/formatUtils.module.css';
 import { CustomEdit } from './buttonUtils';
 
 export const Row = ({ children, mt, mb, style }: { children: React.ReactNode, mt?: number, mb?: number, style?: React.CSSProperties }) => (
-  <div className={`row mt-${mt ?? 1} mb-${mb ?? 2}`} style={style}>
+  <div className={`row mt-${mt ?? 1} mb-${mb ?? 2} justify-content-center`} style={{ width: '100%', ...style }}>
     {children}
   </div>
 );

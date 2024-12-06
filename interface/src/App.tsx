@@ -4,6 +4,7 @@ import TestCasesMapping from "./TestCasesMapping";
 import TestCasesViewer from "./TestCasesViewer";
 import TestCasesAlignAndMerge from "./TestCasesAlignAndMerge";
 import MergeExcel from "./components/MergeExcel/MergeExcel";
+import PdfToQuill from "./components/PDFScanner/PdfToQuill";
 
 
 interface TabPanelProps {
@@ -57,19 +58,23 @@ export default function App() {
         <Tab label="TestCase Viewer" {...a11yProps(1)} />
         <Tab label="TestCase Align and Merge" {...a11yProps(2)} />
         <Tab label="Merge Excel" {...a11yProps(3)} />
+        <Tab label="PDF to Quill" {...a11yProps(4)} />
       </Tabs>
 
-      <TabPanel value={value} index={0}>
+      <TabPanel value={value} index={1}>
         <TestCasesMapping />
       </TabPanel>
-      <TabPanel value={value} index={1}>
+      <TabPanel value={value} index={2}>
         <TestCasesViewer />
       </TabPanel>
-      <TabPanel value={value} index={2}>
+      <TabPanel value={value} index={3}>
         <TestCasesAlignAndMerge />
       </TabPanel>
-      <TabPanel value={value} index={3}>
+      <TabPanel value={value} index={4}>
         <MergeExcel />
+      </TabPanel>
+      <TabPanel value={value} index={0}>
+        <PdfToQuill />
       </TabPanel>
     </div>
   );
