@@ -52,7 +52,7 @@ export default function AlignAndMergeTable({ files, jsonObjsArray }: AlignAndMer
                     const currentArray = mergedContent ? JSON.parse(mergedContent) : [];
                     const newArrayToAdd = jsonObjsArray[i][indexTestCase][key][subKey];
                     const concatenatedArray = currentArray.concat(newArrayToAdd);
-                    mergedContent = JSON.stringify(concatenatedArray);
+                    mergedContent = concatenatedArray;
                   }
                   else {
                     mergedContent += '';
@@ -73,7 +73,7 @@ export default function AlignAndMergeTable({ files, jsonObjsArray }: AlignAndMer
                     const currentArray = mergedContent ? JSON.parse(mergedContent) : [];
                     const newArrayToAdd = jsonObjsArray[i][indexTestCase][key];
                     const concatenatedArray = currentArray.concat(newArrayToAdd);
-                    mergedContent = JSON.stringify(concatenatedArray);
+                    mergedContent = concatenatedArray;
                   }
                   else {
                     mergedContent += '';
