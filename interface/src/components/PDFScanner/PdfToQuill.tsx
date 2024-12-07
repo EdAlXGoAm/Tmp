@@ -2,10 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { open, save } from '@tauri-apps/plugin-dialog';
 import 'react-quill/dist/quill.snow.css';
 import styles from './pdfToQuill.module.css';
-import { CenteredColumn, Column, ColumnTextCentered, MiddleColumn, Row, RowForm, Subtitle, Titles } from '../../utils/formatUtils';
-import { Box, Tabs, Tab } from '@mui/material';
-import ReactQuill from 'react-quill';
-import { quillModules } from './quillModules';
+import { Column, ColumnTextCentered, MiddleColumn, Row, RowForm, Subtitle, Titles } from '../../utils/formatUtils';
+import { Tabs, Tab } from '@mui/material';
 import { TabPanel } from './TabPanel';
 import divWidthElement from './DimensionElements';
 import { invoke } from "@tauri-apps/api/core";
@@ -23,7 +21,7 @@ const PdfToQuill: React.FC = () => {
     setPathOfFile(selectedFile || '');
   };
 
-  const [textoFromPython, setTextoFromPython] = useState('');
+  const [_textoFromPython, setTextoFromPython] = useState('');
   const [textoFromPython_HTML, setTextoFromPythonHTML] = useState('');
 
   const getText = async () => {
@@ -219,7 +217,7 @@ const PdfToQuill: React.FC = () => {
   };
   
   const [index_to_search_ResusableFunctions, setIndexToSearchResusableFunctions] = useState('');
-  const [paragraphs_ResusableFunctions, setParagraphsResusableFunctions] = useState([]);
+  const [paragraphs_ResusableFunctions, setParagraphsResusableFunctions] = useState([] as any);
   const [displayResusableFunctions, setDisplayResusableFunctions] = useState([]);
 
   const getIndexesResusableFunctions = async () => {
@@ -649,7 +647,7 @@ const PdfToQuill: React.FC = () => {
                     <p>{paragraphs.paragraphs[valueTabs].title}</p>
                     <label>Description:</label>
                     <p>{paragraphs.paragraphs[valueTabs].description}</p>
-                    {paragraphs.paragraphs[valueTabs].element && Object.keys(paragraphs.paragraphs[valueTabs].element).map((key: string, i: number) => (
+                    {paragraphs.paragraphs[valueTabs].element && Object.keys(paragraphs.paragraphs[valueTabs].element).map((key: string, _i: number) => (
                       <>
                         <label style={{ fontStyle: 'italic', fontWeight: 'bold' }}>{key}</label>
                         <div>{

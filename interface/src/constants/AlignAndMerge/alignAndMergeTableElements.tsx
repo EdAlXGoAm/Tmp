@@ -92,7 +92,7 @@ export const alignAndMergeTableElements = ({ jsonObjsArray }: AlignAndMergeTable
             const contenido = typeof valor === 'string' 
               ? valor 
               : (Array.isArray(valor) && valor.length > 0 
-                  ? JSON.stringify(valor) 
+                  ? valor
                   : '');
             mergeContentArrayInKeysOfFirstFile.push(contenido);
           };

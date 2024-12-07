@@ -11,7 +11,7 @@ export const alignAndMergeElements = () => {
         const file_data = await invoke<string>('read_file', { path: file });
         const json_data = JSON.parse(file_data);
         // keep only the first 2 objects from the json_data
-        const json_data_cut = json_data.slice(0, 2);
+        const json_data_cut = json_data;
         jsonObjsArray.push(json_data_cut);
       }
       setJsonObjsArray(jsonObjsArray);

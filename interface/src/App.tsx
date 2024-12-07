@@ -54,13 +54,16 @@ export default function App() {
         aria-label="Navegación de Test Cases"
         sx={{ borderBottom: 1, borderColor: 'divider' }}
       >
-        <Tab label="TestCase Mapping" {...a11yProps(0)} />
-        <Tab label="TestCase Viewer" {...a11yProps(1)} />
-        <Tab label="TestCase Align and Merge" {...a11yProps(2)} />
-        <Tab label="Merge Excel" {...a11yProps(3)} />
-        <Tab label="PDF to Quill" {...a11yProps(4)} />
+        <Tab label="PDF to Quill" {...a11yProps(0)} />
+        <Tab label="TestCase Mapping" {...a11yProps(1)} />
+        <Tab label="TestCase Viewer" {...a11yProps(2)} />
+        <Tab label="TestCase Align and Merge" {...a11yProps(3)} />
+        <Tab label="Merge Excel" {...a11yProps(4)} />
       </Tabs>
 
+      <TabPanel value={value} index={0}>
+        <PdfToQuill />
+      </TabPanel>
       <TabPanel value={value} index={1}>
         <TestCasesMapping />
       </TabPanel>
@@ -72,9 +75,6 @@ export default function App() {
       </TabPanel>
       <TabPanel value={value} index={4}>
         <MergeExcel />
-      </TabPanel>
-      <TabPanel value={value} index={0}>
-        <PdfToQuill />
       </TabPanel>
     </div>
   );
